@@ -30,4 +30,14 @@ public class value {
     public void setName(@NonNull String name) {
         this.name = name;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+
 }

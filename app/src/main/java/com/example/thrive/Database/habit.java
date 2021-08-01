@@ -1,5 +1,6 @@
 package com.example.thrive.Database;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 public class habit {
 
     @PrimaryKey
+    @NonNull
     @ColumnInfo(name = "habitName")
     private String name;
 
@@ -33,7 +35,7 @@ public class habit {
     private int notifyTime;
 
     @ColumnInfo(name = "notifyOnDays")
-    private ArrayList<String> notifyOnDays;
+    private String notifyOnDays;
 
     //toolLink, may quickly link an appropriate activity or tool to this habit
 
@@ -86,11 +88,13 @@ public class habit {
         this.notifyTime = notifyTime;
     }
 
-    public ArrayList<String> getNotifyOnDays() {
+    public String getNotifyOnDays() {
         return notifyOnDays;
     }
 
-    public void setNotifyOnDays(ArrayList<String> notifyOnDays) {
+    public void setNotifyOnDays(String notifyOnDays) {
         this.notifyOnDays = notifyOnDays;
     }
+
+
 }
