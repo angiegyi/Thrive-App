@@ -19,6 +19,8 @@ public class ThriveViewModel extends AndroidViewModel {
 
     public ThriveViewModel(@NonNull Application application) {
         super(application);
+        mRepository = new ThriveRepository(application);
+        mAllValues = mRepository.getmAllValues();
     }
 
     public LiveData<List<value>> getmAllValues() {

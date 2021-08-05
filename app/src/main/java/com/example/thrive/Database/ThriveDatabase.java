@@ -13,7 +13,7 @@ public abstract class ThriveDatabase extends RoomDatabase {
     // database objects provides the interface of the underlying
     // sql database
     // returns a database instance
-    public static final String CAR_DATABASE_NAME = "car_database";
+    public static final String THRIVE_DATABASE_NAME = "thrive_database";
 
     public abstract ThriveDAO ThriveDAO();
 
@@ -28,7 +28,7 @@ public abstract class ThriveDatabase extends RoomDatabase {
             synchronized (ThriveDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ThriveDatabase.class, CAR_DATABASE_NAME)
+                            ThriveDatabase.class, THRIVE_DATABASE_NAME)
                             .build();
                 }
             }

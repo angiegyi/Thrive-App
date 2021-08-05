@@ -15,8 +15,8 @@ public class ThriveRepository {
     private LiveData<List<value>> mAllValues;
 
     ThriveRepository(Application application) {
-        ThriveDAO db = (ThriveDAO) ThriveDatabase.getDatabase(application);
-        mThriveDAO = ((ThriveDatabase) db).ThriveDAO();
+        ThriveDatabase db = ThriveDatabase.getDatabase(application);
+        mThriveDAO = db.ThriveDAO();
         mAllValues = mThriveDAO.getAllValues();
     }
 
