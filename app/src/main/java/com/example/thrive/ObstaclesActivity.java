@@ -35,7 +35,6 @@ public class ObstaclesActivity extends AppCompatActivity {
             // add all array to listItems
             adapter=new ArrayAdapter(this,
                     android.R.layout.simple_list_item_1, newData.toArray());
-            System.out.println("called from init data");
             list.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         });
@@ -44,7 +43,7 @@ public class ObstaclesActivity extends AppCompatActivity {
     private void initFab(){
         fab = findViewById(R.id.fab);
         // If fab button is clicked, the add obstacle activity is shown
-        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, newObstacleActivity.class)));
+        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, NewObstacleActivity.class)));
     }
 }
 
