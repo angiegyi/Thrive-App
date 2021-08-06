@@ -1,5 +1,6 @@
 package com.example.thrive;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,7 @@ public class ObstaclesActivity extends AppCompatActivity {
         setContentView(R.layout.obstacles);
         initFab();
         initData();
+
     }
 
     private void initData(){

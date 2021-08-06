@@ -1,4 +1,4 @@
-package com.example.thrive.Database;
+package com.example.thrive.Database.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -11,17 +11,26 @@ import static androidx.room.ForeignKey.RESTRICT;
 
 @Entity(tableName = "value")
 
-public class value {
+public class Value {
 
+    /*
+    Columns
+     */
     @PrimaryKey(autoGenerate = false)
     @NonNull
-    @ColumnInfo(name="valueName")
+    @ColumnInfo(name="value_name")
     private String name;
 
-    @ForeignKey(entity = category.class, parentColumns ="categoryName", childColumns ="category", onDelete = RESTRICT, onUpdate = CASCADE)
-    @ColumnInfo(name="category")
-    private String category;
+    /*
+    Constructor
+     */
+    public Value(@NonNull String name) {
+        this.name = name;
+    }
 
+    /*
+    Methods
+    */
     @NonNull
     public String getName() {
         return name;
@@ -29,14 +38,6 @@ public class value {
 
     public void setName(@NonNull String name) {
         this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
 
