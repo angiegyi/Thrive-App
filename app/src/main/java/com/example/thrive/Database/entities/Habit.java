@@ -1,50 +1,52 @@
-package com.example.thrive.Database;
+package com.example.thrive.Database.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.ArrayList;
-
 @Entity(tableName = "entity")
-public class habit {
+public class Habit {
 
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "habitName")
+    @ColumnInfo(name = "habit_name")
     private String name;
 
-    @ColumnInfo(name = "period")
+    @ColumnInfo(name = "habit_period")
     private String period;
     // determines if you should do this task weekly or daily or fortnightly
 
-    @ColumnInfo(name = "frequency")
+    @ColumnInfo(name = "habit_frequency")
     private int frequency;
     // determines how many times you want to complete the task per period
 
-    @ColumnInfo(name = "measurement")
+    @ColumnInfo(name = "habit_measurement")
     private int measurement;
     // how is the unit measure for the counter. e.g. hours, no of times
 
-    @ColumnInfo(name = "notify")
-    private boolean notify;
+    @ColumnInfo(name = "habit_reminder_on")
+    private boolean reminderOn;
     // to determine if they want notifications on
 
-    @ColumnInfo(name = "notifyTime")
-    private int notifyTime;
+    @ColumnInfo(name = "reminder_hour")
+    private int reminderHour;
 
-    @ColumnInfo(name = "notifyOnDays")
-    private String notifyOnDays;
+    @ColumnInfo(name = "reminder_minutes")
+    private int reminderMinutes;
+
+    @ColumnInfo(name = "reminder_days")
+    private int reminderDays;
 
     //toolLink, may quickly link an appropriate activity or tool to this habit
 
 
+    @NonNull
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
@@ -72,29 +74,35 @@ public class habit {
         this.measurement = measurement;
     }
 
-    public boolean isNotify() {
-        return notify;
+    public boolean isReminderOn() {
+        return reminderOn;
     }
 
-    public void setNotify(boolean notify) {
-        this.notify = notify;
+    public void setReminderOn(boolean reminderOn) {
+        this.reminderOn = reminderOn;
     }
 
-    public int getNotifyTime() {
-        return notifyTime;
+    public int getReminderHour() {
+        return reminderHour;
     }
 
-    public void setNotifyTime(int notifyTime) {
-        this.notifyTime = notifyTime;
+    public void setReminderHour(int reminderHour) {
+        this.reminderHour = reminderHour;
     }
 
-    public String getNotifyOnDays() {
-        return notifyOnDays;
+    public int getReminderDays() {
+        return reminderDays;
     }
 
-    public void setNotifyOnDays(String notifyOnDays) {
-        this.notifyOnDays = notifyOnDays;
+    public void setReminderDays(int reminderDays) {
+        this.reminderDays = reminderDays;
     }
 
+    public int getReminderMinutes() {
+        return reminderMinutes;
+    }
 
+    public void setReminderMinutes(int reminderMinutes) {
+        this.reminderMinutes = reminderMinutes;
+    }
 }

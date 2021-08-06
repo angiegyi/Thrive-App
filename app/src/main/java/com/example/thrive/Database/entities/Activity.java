@@ -1,4 +1,4 @@
-package com.example.thrive.Database;
+package com.example.thrive.Database.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -6,10 +6,10 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "activity")
-public class activity {
+public class Activity {
 
     @PrimaryKey
-    @ColumnInfo(name = "activityName")
+    @ColumnInfo(name = "activity_name")
     @NonNull
     private String activityName;
 

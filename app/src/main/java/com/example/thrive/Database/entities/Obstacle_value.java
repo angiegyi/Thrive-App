@@ -1,21 +1,20 @@
-package com.example.thrive.Database;
+package com.example.thrive.Database.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.PrimaryKey;
 
-@Entity(tableName = "obstacleImpactValue", primaryKeys = {"obstacleName", "valueName"})
-public class obstacleImpactValue {
+@Entity(tableName = "obstacle_value", primaryKeys = {"obstacle_name", "value_name"},
+        foreignKeys = {@ForeignKey(entity = Obstacle.class, parentColumns = "obstacle_name", childColumns = "obstacle_name"),
+        @ForeignKey(entity = Value.class, parentColumns = "value_name", childColumns = "value_name")})
+public class Obstacle_value {
 
-    @ForeignKey(entity = obstacle.class, parentColumns = "obstacleName", childColumns = "obstacleName")
-    @ColumnInfo(name = "obstacleName")
+    @ColumnInfo(name = "obstacle_name")
     @NonNull
     private String obstacleName;
 
-    @ForeignKey(entity = value.class, parentColumns = "valueName", childColumns = "valueName")
-    @ColumnInfo(name = "valueName")
+    @ColumnInfo(name = "value_name")
     @NonNull
     private String valueName;
 
