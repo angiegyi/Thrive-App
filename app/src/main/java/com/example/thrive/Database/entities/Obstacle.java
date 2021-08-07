@@ -17,8 +17,8 @@ public class Obstacle {
     private String description;
 
     @NonNull
-    @ColumnInfo(name = "reminder_frequency", defaultValue = "0")
-    private int reminderFrequency;
+    @ColumnInfo(name = "reminder_on", defaultValue = "false")
+    private boolean reminder_on;
 
     @ColumnInfo(name = "reminder_hour")
     private int reminderHour;
@@ -28,6 +28,19 @@ public class Obstacle {
 
     @ColumnInfo(name = "reminder_days")
     private int reminderDays;
+
+    /*
+    Constructor
+     */
+
+    public Obstacle(@NonNull String obstacleName, String description, boolean reminder_on, int reminderHour, int reminderMinutes, int reminderDays) {
+        this.obstacleName = obstacleName;
+        this.description = description;
+        this.reminder_on = reminder_on;
+        this.reminderHour = reminderHour;
+        this.reminderMinutes = reminderMinutes;
+        this.reminderDays = reminderDays;
+    }
 
     @NonNull
     public String getObstacleName() {
@@ -44,14 +57,6 @@ public class Obstacle {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getReminderFrequency() {
-        return reminderFrequency;
-    }
-
-    public void setReminderFrequency(int reminderFrequency) {
-        this.reminderFrequency = reminderFrequency;
     }
 
     public int getReminderHour() {
@@ -76,5 +81,13 @@ public class Obstacle {
 
     public void setReminderDays(int reminderDays) {
         this.reminderDays = reminderDays;
+    }
+
+    public boolean isReminder_on() {
+        return reminder_on;
+    }
+
+    public void setReminder_on(boolean reminder_on) {
+        this.reminder_on = reminder_on;
     }
 }

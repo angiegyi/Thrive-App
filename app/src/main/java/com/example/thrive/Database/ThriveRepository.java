@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.Mood;
+import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Value;
 
 import java.util.List;
@@ -60,4 +61,7 @@ public class ThriveRepository {
 
     LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
 
+    void insert(Obstacle obstacle){
+        ThriveDatabase.databaseWriteExecutor.execute(() -> mThriveDAO.addObstacle(obstacle));
+    }
 }

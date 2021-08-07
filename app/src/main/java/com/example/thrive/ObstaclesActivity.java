@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Obstacle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ObstaclesActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class ObstaclesActivity extends AppCompatActivity {
 
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         // gets all the data -> need to add as list items
+        Obstacle obs1 =new Obstacle("covid", "it suggs", false, 13, 0, 1234560);
         mThriveViewModel.getmAllValues().observe(this, newData -> {
             // add all array to listItems
             adapter=new ArrayAdapter(this,

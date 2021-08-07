@@ -7,6 +7,7 @@ import androidx.room.Query;
 
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.Mood;
+import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Value;
 
 import java.util.List;
@@ -39,5 +40,8 @@ public interface ThriveDAO {
 
     @Query("select * from mood")
     LiveData<List<Mood>> getAllMoods();
+
+    @Insert
+    void addObstacle(Obstacle obstacle);
 
 }
