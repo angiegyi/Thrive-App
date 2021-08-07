@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.Mood;
+import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Value;
 
 import java.util.List;
@@ -47,5 +48,6 @@ public class ThriveViewModel extends AndroidViewModel {
     public void addCategory(String category_name){mRepository.addCategory(category_name);}
     public void addMood(String mood_name, boolean isPositive){mRepository.addMood(mood_name, isPositive);}
     public LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
+    public void insert(Obstacle obstacle){mRepository.insert(obstacle);}
 
 }
