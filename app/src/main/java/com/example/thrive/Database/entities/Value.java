@@ -9,7 +9,8 @@ import androidx.room.PrimaryKey;
 import static androidx.room.ForeignKey.CASCADE;
 import static androidx.room.ForeignKey.RESTRICT;
 
-@Entity(tableName = "value")
+@Entity(tableName = "value", foreignKeys = {@ForeignKey(entity = Category.class, parentColumns = "category_name",
+childColumns = "category_name")})
 
 public class Value {
 
@@ -21,11 +22,17 @@ public class Value {
     @ColumnInfo(name="value_name")
     private String name;
 
+
+    @NonNull
+    @ColumnInfo(name="category_name")
+    private String category;
+
     /*
     Constructor
      */
-    public Value(@NonNull String name) {
+    public Value(@NonNull String name, String category) {
         this.name = name;
+        this.category = category;
     }
 
     /*
@@ -40,5 +47,13 @@ public class Value {
         this.name = name;
     }
 
+    @NonNull
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(@NonNull String category) {
+        this.category = category;
+    }
 
 }
