@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Obstacle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ObstaclesActivity extends AppCompatActivity {
@@ -35,15 +36,18 @@ public class ObstaclesActivity extends AppCompatActivity {
             // add all array to listItems
             adapter=new ArrayAdapter(this,
                     android.R.layout.simple_list_item_1, newData.toArray());
+            System.out.println("called from init data");
             list.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         });
     }
 
+
+
     private void initFab(){
         fab = findViewById(R.id.fab);
         // If fab button is clicked, the add obstacle activity is shown
-        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, NewObstacleActivity.class)));
+        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, valuesActivity.class)));
     }
 }
 
