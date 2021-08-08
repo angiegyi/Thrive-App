@@ -27,12 +27,12 @@ public class ThriveViewModel extends AndroidViewModel {
     public ThriveViewModel(@NonNull Application application) {
         super(application);
         mRepository = new ThriveRepository(application);
-        mAllValues = mRepository.getmAllValues();
+        mAllValues = mRepository.getAllValues();
         mAllCategories = mRepository.getAllCategories();
         mAllMoods = mRepository.getAllMoods();
     }
 
-    public LiveData<List<Value>> getmAllValues() {
+    public LiveData<List<Value>> getAllValues() {
         return mAllValues;
     }
     public LiveData<List<Category>> getAllCategories() {

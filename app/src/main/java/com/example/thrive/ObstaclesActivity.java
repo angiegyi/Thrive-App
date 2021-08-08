@@ -47,7 +47,7 @@ public class ObstaclesActivity extends AppCompatActivity {
     private void initFab(){
         fab = findViewById(R.id.fab);
         // If fab button is clicked, the add obstacle activity is shown
-        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, valuesActivity.class)));
+        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, NewObstacleActivity.class)));
     }
 }
 

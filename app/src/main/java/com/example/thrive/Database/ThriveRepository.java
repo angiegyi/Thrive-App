@@ -29,7 +29,7 @@ public class ThriveRepository {
         mAllMoods = mThriveDAO.getAllMoods();
     }
 
-    LiveData<List<Value>> getmAllValues() {
+    LiveData<List<Value>> getAllValues() {
         return mAllValues;
     }
 

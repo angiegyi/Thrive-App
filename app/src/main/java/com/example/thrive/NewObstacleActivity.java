@@ -68,7 +68,7 @@ public class NewObstacleActivity extends AppCompatActivity {
         setContentView(R.layout.new_obstacle);
 
         // Initalise time hashmap
-        for (int i = 0; i < 25; i++ ){
+        for (int i = 0; i < 24; i++ ){
             timeHours.put(times.get(i), i);
         }
 
