@@ -23,7 +23,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllValues = mRepository.getmAllValues();
     }
 
-    public LiveData<List<value>> getmAllValues() {
+    public LiveData<List<value>> getAllValues() {
         return mAllValues;
     }
     public void insert(value value) {

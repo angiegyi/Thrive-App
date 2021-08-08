@@ -31,7 +31,7 @@ public class ObstaclesActivity extends AppCompatActivity {
 
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         // gets all the data -> need to add as list items
-        mThriveViewModel.getmAllValues().observe(this, newData -> {
+        mThriveViewModel.getAllValues().observe(this, newData -> {
             // add all array to listItems
             adapter=new ArrayAdapter(this,
                     android.R.layout.simple_list_item_1, newData.toArray());

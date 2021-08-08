@@ -1,114 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
 <!--    this is field 1 -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/obstacleNameTextField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/obstacleTitleEditText"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/obstacleDescTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Obstacle Name"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="127dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/obstacleNameTextField">
 
-    <!--    this is dropdown  -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/obstacleDescEditLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Obstacle Description" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/categoryTextInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/obstacleNameTextField">
-
-        <AutoCompleteTextView
-            android:id="@+id/categoryInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/obstacleNameTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Category"
-            android:inputType="none"
-             />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/valuesTextInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryTextInputLayout">
-
-        <AutoCompleteTextView
-            android:id="@+id/valuesInput"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Related Values"
-            android:inputType="none"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/notifFreqLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/valuesTextInputLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/obstacleNameEditLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Obstacle Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="127dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <AutoCompleteTextView
-            android:id="@+id/notificationInput"
+        <CheckBox
+            android:id="@+id/satBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="Sat"
+            app:layout_constraintEnd_toStartOf="@+id/tuesdayBox"
+            app:layout_constraintHorizontal_bias="0.222"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mondayBox" />
+
+        <CheckBox
+            android:id="@+id/thursBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="5dp"
+            android:text="Thurs"
+            app:layout_constraintEnd_toStartOf="@+id/friBox"
+            app:layout_constraintStart_toEndOf="@+id/wedBox"
+            app:layout_constraintTop_toBottomOf="@+id/valuesTextInputLayout" />
+
+        <CheckBox
+            android:id="@+id/friBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="36dp"
+            android:text="Fri"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/thursBox"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <CheckBox
+            android:id="@+id/wedBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="5dp"
+            android:text="Wed"
+            app:layout_constraintEnd_toStartOf="@+id/thursBox"
+            app:layout_constraintStart_toEndOf="@+id/tuesdayBox"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <CheckBox
+            android:id="@+id/tuesdayBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="5dp"
+            android:text="Tues"
+            app:layout_constraintEnd_toStartOf="@+id/wedBox"
+            app:layout_constraintStart_toEndOf="@+id/mondayBox"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/notifTimeInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="348dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.962"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sunBox">
+
+            <AutoCompleteTextView
+                android:id="@+id/notificationTimeInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Notifcation Time"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--    this is dropdown  -->
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/valuesTextInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Notification Frequency"
-            android:inputType="none" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/obstacleDescTextField">
 
-    <Button
-        android:id="@+id/createObstacleButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="32dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notifFreqLayout" />
+            <AutoCompleteTextView
+                android:id="@+id/valuesInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Related Values"
+                android:inputType="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:stepSize="1"
+            android:valueFrom="0"
+            android:valueTo="5"
+            app:labelStyle="@style/tooltip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:values="@array/rangeSliderValues" />
+
+        <Button
+            android:id="@+id/createObstacleButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slider" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Rate the importance of this obstacle."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notifTimeInput" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="191dp"
+            android:text="Select obstacle reminder days"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valuesTextInputLayout" />
+
+        <CheckBox
+            android:id="@+id/mondayBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="5dp"
+            android:text="Mon"
+            app:layout_constraintEnd_toStartOf="@+id/tuesdayBox"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <CheckBox
+            android:id="@+id/sunBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="9dp"
+            android:text="Sun"
+            app:layout_constraintStart_toEndOf="@+id/satBox"
+            app:layout_constraintTop_toBottomOf="@+id/tuesdayBox" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
+
+
