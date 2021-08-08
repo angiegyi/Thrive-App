@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
+import com.example.thrive.Database.entities.Obstacle_value;
 import com.example.thrive.Database.entities.Value;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class ThriveViewModel extends AndroidViewModel {
     private LiveData<List<Value>> mAllValues;
     private LiveData<List<Category>> mAllCategories;
     private LiveData<List<Mood>> mAllMoods;
+    private LiveData<List<Obstacle_value>> mAllObstacle_values;
 
     public ThriveViewModel(@NonNull Application application) {
         super(application);
@@ -30,9 +32,10 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllValues = mRepository.getmAllValues();
         mAllCategories = mRepository.getAllCategories();
         mAllMoods = mRepository.getAllMoods();
+        mAllObstacle_values = mRepository.getAllObstacle_values();
     }
 
-    public LiveData<List<Value>> getmAllValues() {
+    public LiveData<List<Value>> getAllValues() {
         return mAllValues;
     }
     public LiveData<List<Category>> getAllCategories() {
@@ -46,8 +49,10 @@ public class ThriveViewModel extends AndroidViewModel {
     }
     public void deleteValue(String value){mRepository.deleteValue(value);}
     public void addCategory(String category_name){mRepository.addCategory(category_name);}
-    public void addMood(String mood_name, boolean isPositive){mRepository.addMood(mood_name, isPositive);}
+    public void addMood(Mood mood){mRepository.addMood(mood);}
     public LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
     public void insert(Obstacle obstacle){mRepository.insert(obstacle);}
+    public void insert(Obstacle_value obstacle_value){mRepository.insert(obstacle_value);}
+    public LiveData<List<Obstacle_value>> getAllObstacle_values(){return mAllObstacle_values;}
 
 }
