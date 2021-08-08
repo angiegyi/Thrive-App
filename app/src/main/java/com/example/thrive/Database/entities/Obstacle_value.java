@@ -18,19 +18,26 @@ public class Obstacle_value {
     @NonNull
     private String valueName;
 
+    public Obstacle_value(@NonNull String obstacleName, @NonNull String valueName) {
+        this.obstacleName = obstacleName;
+        this.valueName = valueName;
+    }
+
+    @NonNull
     public String getObstacleName() {
         return obstacleName;
     }
 
-    public void setObstacleName(String obstacleName) {
+    public void setObstacleName(@NonNull String obstacleName) {
         this.obstacleName = obstacleName;
     }
 
+    @NonNull
     public String getValueName() {
         return valueName;
     }
 
-    public void setValueName(String valueName) {
+    public void setValueName(@NonNull String valueName) {
         this.valueName = valueName;
     }
 }
