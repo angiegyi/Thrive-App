@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.thrive.Database.entities.Category;
+import com.example.thrive.Database.entities.Habit;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
@@ -58,5 +59,7 @@ public interface ThriveDAO {
     @Query("SELECT * FROM OBSTACLE")
     LiveData<List<Obstacle>> getAllObstacles();
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void addHabit(Habit habit);
 
 }

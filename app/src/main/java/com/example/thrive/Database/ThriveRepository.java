@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.thrive.Database.entities.Category;
+import com.example.thrive.Database.entities.Habit;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
@@ -83,5 +84,9 @@ public class ThriveRepository {
 
     LiveData<List<Obstacle>> getAllObstacles(){
         return mAllObstacles;
+    }
+
+    void insert(Habit habit) {
+        ThriveDatabase.databaseWriteExecutor.execute(() -> mThriveDAO.addHabit(habit));
     }
 }

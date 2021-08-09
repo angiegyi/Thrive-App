@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.thrive.Database.entities.Category;
+import com.example.thrive.Database.entities.Habit;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
@@ -25,6 +26,7 @@ public class ThriveViewModel extends AndroidViewModel {
     private LiveData<List<Category>> mAllCategories;
     private LiveData<List<Mood>> mAllMoods;
     private LiveData<List<Obstacle_value>> mAllObstacle_values;
+    private LiveData<List<Obstacle>> mAllObstacles;
 
     public ThriveViewModel(@NonNull Application application) {
         super(application);
@@ -33,6 +35,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllCategories = mRepository.getAllCategories();
         mAllMoods = mRepository.getAllMoods();
         mAllObstacle_values = mRepository.getAllObstacle_values();
+        mAllObstacles = mRepository.getAllObstacles();
     }
 
     public LiveData<List<Value>> getAllValues() {
@@ -54,5 +57,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public void insert(Obstacle obstacle){mRepository.insert(obstacle);}
     public void insert(Obstacle_value obstacle_value){mRepository.insert(obstacle_value);}
     public LiveData<List<Obstacle_value>> getAllObstacle_values(){return mAllObstacle_values;}
+    public void insert(Habit habit) {mRepository.insert(habit);}
+    public LiveData<List<Obstacle>> getAllObstacles(){return mAllObstacles;}
 
 }
