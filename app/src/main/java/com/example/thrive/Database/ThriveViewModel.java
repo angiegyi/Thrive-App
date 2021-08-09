@@ -31,7 +31,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public ThriveViewModel(@NonNull Application application) {
         super(application);
         mRepository = new ThriveRepository(application);
-        mAllValues = mRepository.getmAllValues();
+        mAllValues = mRepository.getAllValues();
         mAllCategories = mRepository.getAllCategories();
         mAllMoods = mRepository.getAllMoods();
         mAllObstacle_values = mRepository.getAllObstacle_values();

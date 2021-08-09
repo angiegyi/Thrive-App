@@ -2,7 +2,6 @@ package com.example.thrive;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -10,10 +9,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thrive.Database.ThriveViewModel;
-import com.example.thrive.Database.entities.Obstacle;
-import com.example.thrive.Database.entities.Obstacle_value;
-import com.example.thrive.Database.entities.Value;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class ObstaclesActivity extends AppCompatActivity {
 
@@ -21,51 +27,64 @@ public class ObstaclesActivity extends AppCompatActivity {
     ArrayAdapter adapter;
     FloatingActionButton fab;
     ListView list;
+    ArrayList<String> objects = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.obstacles);String[] categories = {"people", "education", "mindfulness", "self-help",
-                "physical health", "mental health", "financial", "relationships", "family",
-                "recreational", "career", "creativity", "networking", "pets", "other"};
+        setContentView(R.layout.obstacles);
         initFab();
         initData();
-
     }
 
+    /**
+     * Initialises all data for the application including addapter logic.
+     */
     private void initData(){
         list = findViewById(R.id.obstacleList);
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        // gets all the data -> need to add as list items
-
-        try {
-            Obstacle obs1 = new Obstacle("covid", "it suggs", false, 13, 0, 1234560);
-            mThriveViewModel.insert(obs1);
-            //inserting test value into database
-            Value testValue = new Value("fit3162", "education");
-            mThriveViewModel.insert(testValue);
-            //inserting a related value and obstacle to the Obstacle_value table
-            Obstacle_value obstacle_value_test = new Obstacle_value(obs1.getObstacleName(), testValue.getName());
-            mThriveViewModel.insert(obstacle_value_test);
-        } catch(Exception e) {
-            //Log.i("TESTING", "initData: entities already added into DB");
-        }
-        mThriveViewModel.getAllValues().observe(this, newData -> {
-            // add all array to listItems
-            adapter=new ArrayAdapter(this,
-                    android.R.layout.simple_list_item_1, newData.toArray());
-            System.out.println("called from init data");
+        mThriveViewModel.getAllObstacles().observe(this, newData -> {
+            for (Object obj : newData) {
+                if (obj != null){
+                    try {
+                        objects.add(objectToJSONObject(obj).getString("obstacleName"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            adapter = new ArrayAdapter(this,
+                    android.R.layout.simple_list_item_1, objects.toArray());
             list.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         });
     }
 
+    /**
+     * Converts Java objects to JSON such that attributes can be accessed.
+     * @param object the java object to be converted
+     * @return new JSON object
+     */
+    public static JSONObject objectToJSONObject(Object object){
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        JSONObject obj = null;
 
+        try {
+            obj = new JSONObject(ow.writeValueAsString(object));
+        } catch (JsonProcessingException | JSONException e) {
+            e.printStackTrace();
+        }
+        return obj;
+    }
 
+    /**
+     * Initialises the FAB button and sets on click listner
+     */
     private void initFab(){
         fab = findViewById(R.id.fab);
         // If fab button is clicked, the add obstacle activity is shown
-        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, valuesActivity.class)));
+        fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, NewObstacleActivity.class)));
     }
 }
 

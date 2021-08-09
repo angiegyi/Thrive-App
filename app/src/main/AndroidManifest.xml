@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".NewObstacleActivity"/>
+
         <activity
             android:name=".valuesActivity"/>
 

@@ -37,7 +37,7 @@ public class ThriveRepository {
         mAllObstacles = mThriveDAO.getAllObstacles();
     }
 
-    LiveData<List<Value>> getmAllValues() {
+    LiveData<List<Value>> getAllValues() {
         return mAllValues;
     }
 
