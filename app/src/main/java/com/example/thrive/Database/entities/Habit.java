@@ -22,7 +22,7 @@ public class Habit {
     // determines how many times you want to complete the task per period
 
     @ColumnInfo(name = "habit_measurement")
-    private int measurement;
+    private String measurement;
     // how is the unit measure for the counter. e.g. hours, no of times
 
     @ColumnInfo(name = "habit_reminder_on")
@@ -38,8 +38,20 @@ public class Habit {
     @ColumnInfo(name = "reminder_days")
     private int reminderDays;
 
+
     //toolLink, may quickly link an appropriate activity or tool to this habit
 
+
+    public Habit(@NonNull String name, String period, int frequency, String measurement, boolean reminderOn, int reminderHour, int reminderMinutes, int reminderDays) {
+        this.name = name;
+        this.period = period;
+        this.frequency = frequency;
+        this.measurement = measurement;
+        this.reminderOn = reminderOn;
+        this.reminderHour = reminderHour;
+        this.reminderMinutes = reminderMinutes;
+        this.reminderDays = reminderDays;
+    }
 
     @NonNull
     public String getName() {
@@ -66,11 +78,11 @@ public class Habit {
         this.frequency = frequency;
     }
 
-    public int getMeasurement() {
+    public String getMeasurement() {
         return measurement;
     }
 
-    public void setMeasurement(int measurement) {
+    public void setMeasurement(String measurement) {
         this.measurement = measurement;
     }
 
