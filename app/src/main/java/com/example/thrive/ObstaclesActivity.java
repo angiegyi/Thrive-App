@@ -44,11 +44,11 @@ public class ObstaclesActivity extends AppCompatActivity {
     private void initData(){
         list = findViewById(R.id.obstacleList);
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        mThriveViewModel.getAllValues().observe(this, newData -> {
+        mThriveViewModel.getAllObstacles().observe(this, newData -> {
             for (Object obj : newData) {
                 if (obj != null){
                     try {
-                        objects.add(objectToJSONObject(obj).getString("name"));
+                        objects.add(objectToJSONObject(obj).getString("obstacleName"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
