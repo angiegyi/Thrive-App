@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">THRIVE</string>
     <string name="enter_here">Enter here</string>
+    <string name="viewHookTitle">What behaviours are associated with the hooks?</string>
 
     <string-array name="rangeSliderValues">
         <item>1</item>
