@@ -17,26 +17,26 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/hookTitleTextField"
+            android:id="@+id/hookTitleEditLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/obstacleDescEditLayout"
+                android:id="@+id/hookTitleTextField"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Obstacle Description" />
+                android:hint="Hook Title" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/hookTextInputLayout"
+            android:id="@+id/hookTextDropdownLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,13 +45,13 @@
             android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hookTitleTextField">
+            app:layout_constraintTop_toBottomOf="@+id/hookTitleEditLayout">
 
             <AutoCompleteTextView
-                android:id="@+id/valuesInput"
+                android:id="@+id/hookInput"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Related Values"
+                android:hint="Related Obstacle"
                 android:inputType="none"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/createObstacleButton"
+            android:id="@+id/createHookButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -70,7 +70,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hookTextInputLayout"
+            app:layout_constraintTop_toBottomOf="@+id/hookTextDropdownLayout"
             app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
