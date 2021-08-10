@@ -24,6 +24,8 @@
 
         <activity
             android:name=".ObstaclesActivity"/>
+
+        <activity android:name=".BoatActivity"/>
     </application>
 
 </manifest>

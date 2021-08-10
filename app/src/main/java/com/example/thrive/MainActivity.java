@@ -21,4 +21,8 @@ public class MainActivity extends AppCompatActivity {
     public void toObstaclesPage(View view){
         startActivity(new Intent(MainActivity.this, ObstaclesActivity.class));
     }
+
+    public void toBoatPage(View view){
+        startActivity(new Intent(MainActivity.this, BoatActivity.class));
+    }
 }
