@@ -38,11 +38,11 @@ public class HookBehaviours extends AppCompatActivity {
     private void initData(){
         list = findViewById(R.id.hooksList);
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        mThriveViewModel.getAllObstacles().observe(this, newData -> {
+        mThriveViewModel.getAllHooks().observe(this, newData -> {
             for (Object obj : newData) {
                 if (obj != null){
                     try {
-                        objects.add(objectToJSONObject(obj).getString("hookName"));
+                        objects.add(objectToJSONObject(obj).getString("hook_behaviour"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

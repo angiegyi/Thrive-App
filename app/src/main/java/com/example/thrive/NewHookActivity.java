@@ -1,13 +1,20 @@
 package com.example.thrive;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Hook;
+import com.example.thrive.Database.entities.Obstacle_value;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -35,6 +42,7 @@ public class NewHookActivity extends AppCompatActivity {
     ArrayList<String> arrayList_obstacles;
     ArrayAdapter<String> arrayListAdapter_obstacles;
     String selectedObstacle;
+    Button newHook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +59,10 @@ public class NewHookActivity extends AppCompatActivity {
         arrayList_obstacles = new ArrayList<>();
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         // Pull values from DB and add to drop-down
-        mThriveViewModel.getAllValues().observe(this, newData -> {
+        mThriveViewModel.getAllObstacles().observe(this, newData -> {
             for (Object obj : newData) {
                 try {
-                    arrayList_obstacles.add(objectToJSONObject(obj).get("name").toString());
+                    arrayList_obstacles.add(objectToJSONObject(obj).get("obstacleName").toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -63,6 +71,15 @@ public class NewHookActivity extends AppCompatActivity {
         arrayListAdapter_obstacles = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_item, arrayList_obstacles);
         hookInput.setAdapter(arrayListAdapter_obstacles);
         hookInput.setThreshold(1);
+
+        // button
+        newHook = findViewById(R.id.createHookButton);
+        newHook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onClickListener();
+            }
+        });
     }
 
     public static JSONObject objectToJSONObject(Object object){
@@ -77,25 +94,23 @@ public class NewHookActivity extends AppCompatActivity {
         return obj;
     }
 
-    public void onClick(){
+    public void onClickListener(){
         newTitle = hookTitleEditText.getEditableText().toString();
         selectedObstacle = (hookTextInputLayout.getEditText()).getText().toString();
-
+        addHook();
+        startActivity(new Intent(NewHookActivity.this, HookBehaviours.class));
     }
 
-    public void addHook(String obstacle){
-//        try {
-//            Hook obs1 = new Hook(newTitle, obstacle);
-//            mThriveViewModel.insert(obs1);
-//            //inserting a related value and obstacle to the Obstacle_value table
-//            Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
-//            mThriveViewModel.insert(obstacle_value);
-//            Toast.makeText(getApplicationContext(),
-//                    "New Hook: " + newTitle + " added." ,
-//                    Toast.LENGTH_LONG).show();
-//        } catch(Exception e) {
-//            Log.i("RESPONSE", e.toString());
-//        }
+    public void addHook(){
+        try {
+            Hook hook = new Hook(newTitle, selectedObstacle);
+            mThriveViewModel.insert(hook);
+            Toast.makeText(getApplicationContext(),
+                    "New Hook: " + newTitle + " added." ,
+                    Toast.LENGTH_LONG).show();
+        } catch(Exception e) {
+            Log.i("RESPONSE", e.toString());
+        }
     }
 
 }
