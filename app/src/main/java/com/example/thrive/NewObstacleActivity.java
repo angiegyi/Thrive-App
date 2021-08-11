@@ -102,7 +102,7 @@ public class NewObstacleActivity extends AppCompatActivity {
 
         // Obstacle Description
         obstacleDescTextLayout = findViewById(R.id.obstacleDescTextField);
-        obstacleDescEditText = findViewById(R.id.obstacleDescEditLayout);
+        obstacleDescEditText = findViewById(R.id.hookTitleEditLayout);
 
         // Values -> need to add values to database
         valuesTextInputLayout = findViewById(R.id.valuesTextInputLayout);

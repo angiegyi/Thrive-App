@@ -25,4 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public void toHabitsPage(View view){
         startActivity(new Intent(MainActivity.this, HabitActivity.class));
     }
+
+    public void toHooksPage(View view){
+        startActivity(new Intent(MainActivity.this, HookBehaviours.class));
+    }
 }
