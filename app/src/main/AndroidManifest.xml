@@ -24,6 +24,13 @@
             android:name=".valuesActivity"/>
         <activity
             android:name=".ObstaclesActivity"/>
+
+        <activity
+            android:name=".HabitActivity"/>
+
+        <activity
+            android:name=".NewHabitActivity"/>
+
     </application>
 
 </manifest>
