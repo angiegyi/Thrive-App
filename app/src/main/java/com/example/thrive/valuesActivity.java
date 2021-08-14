@@ -25,12 +25,19 @@ public class valuesActivity extends AppCompatActivity {
 
     // Initialising action button to new value page
     private void initFab(){
-        fab = findViewById(R.id.fab);
-        // If fab button is clicked, the add obstacle activity is shown
+        fab = findViewById(R.id.fabNewVal);
+        // If fab button is clicked, the add values activity is shown
         fab.setOnClickListener(view -> startActivity(new Intent(valuesActivity.this, NewValueActivity.class)));
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.values);
+        initFab();
+    }
 
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +68,7 @@ public class valuesActivity extends AppCompatActivity {
 
 
 
-
     }
+
+    */
 }
