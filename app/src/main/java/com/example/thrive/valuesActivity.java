@@ -16,12 +16,17 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class valuesActivity extends AppCompatActivity {
-    ThriveViewModel mThriveViewModel;
     FloatingActionButton fab;
 
-    private LiveData<List<Category>> mAllCat;
-    TextView tv_cat;
-    TextView tv_moods;
+    // Initialisation
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Take from values xml
+        setContentView(R.layout.values);
+        // Init floating action button
+        initFab();
+    }
 
     // Initialising action button to new value page
     private void initFab(){
@@ -30,45 +35,4 @@ public class valuesActivity extends AppCompatActivity {
         fab.setOnClickListener(view -> startActivity(new Intent(valuesActivity.this, NewValueActivity.class)));
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.values);
-        initFab();
-    }
-
-    /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.values);
-        mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        tv_cat = findViewById(R.id.tvCategory);
-        mThriveViewModel.getAllCategories().observe(this, newData -> {
-            Category cat;
-            String categories = "";
-            for(int i =0; i<newData.size(); i++) {
-                cat = newData.get(i);
-                categories+= cat.getName()+"\n";
-            }
-            tv_cat.setText(categories.toString());
-        });
-
-
-        tv_moods = findViewById(R.id.tvMoods);
-        mThriveViewModel.getAllMoods().observe(this, newData -> {
-            Mood mood;
-            String moods = "";
-            for(int i =0; i<newData.size(); i++) {
-                mood = newData.get(i);
-                moods+= mood.getMood_name()+"\n";
-            }
-            tv_moods.setText(moods.toString());
-        });
-
-
-
-    }
-
-    */
 }

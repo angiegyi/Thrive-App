@@ -1,21 +1,14 @@
 package com.example.thrive;
 
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.thrive.Database.ThriveViewModel;
-import com.example.thrive.Database.entities.Obstacle;
-import com.example.thrive.Database.entities.Obstacle_value;
 import com.example.thrive.Database.entities.Value;
 import com.example.thrive.Database.entities.Value_Category;
 import com.google.android.material.slider.Slider;
@@ -33,9 +26,12 @@ import java.util.Map;
 
 
 public class NewValueActivity extends AppCompatActivity{
+
+    // Initialisation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Take from new_value xml
         setContentView(R.layout.new_value);
     }
 

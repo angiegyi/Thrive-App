@@ -23,6 +23,9 @@
             android:name=".valuesActivity"/>
 
         <activity
+            android:name=".NewValueActivity"/>
+
+        <activity
             android:name=".ObstaclesActivity"/>
 
         <activity android:name=".BoatActivity"/>
