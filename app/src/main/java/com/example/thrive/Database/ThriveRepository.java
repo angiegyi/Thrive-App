@@ -28,6 +28,7 @@ public class ThriveRepository {
     private LiveData<List<Obstacle_value>> mAllObstacle_values;
     private LiveData<List<Obstacle>> mAllObstacles;
     private LiveData<List<Hook>> mAllHooks;
+    private LiveData<List<Habit>> mAllHabits;
 
 
     ThriveRepository(Application application) {
@@ -39,6 +40,7 @@ public class ThriveRepository {
         mAllObstacle_values = mThriveDAO.getAllObstacle_values();
         mAllObstacles = mThriveDAO.getAllObstacles();
         mAllHooks = mThriveDAO.getAllHooks();
+        mAllHabits = mThriveDAO.getAllHabits();
     }
 
     /*
@@ -50,6 +52,7 @@ public class ThriveRepository {
     LiveData<List<Obstacle_value>> getAllObstacle_values(){ return mAllObstacle_values;}
     LiveData<List<Obstacle>> getAllObstacles(){return mAllObstacles;}
     LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
+    LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
 
     /*
     INSERT INTO DB

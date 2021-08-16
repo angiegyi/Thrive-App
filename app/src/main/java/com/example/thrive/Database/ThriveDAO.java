@@ -44,6 +44,9 @@ public interface ThriveDAO {
     @Query("SELECT * FROM HOOK")
     LiveData<List<Hook>> getAllHooks();
 
+    @Query("SELECT * FROM habit")
+    LiveData<List<Habit>> getAllHabits();
+
 
     /*
     INSERT INTO DB
