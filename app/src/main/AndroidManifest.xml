@@ -18,14 +18,20 @@
         </activity>
 
         <activity android:name=".NewObstacleActivity"/>
-
+        <activity android:name=".HookBehaviours"/>
+        <activity android:name=".NewHookActivity"/>
         <activity
             android:name=".valuesActivity"/>
-
         <activity
             android:name=".ObstaclesActivity"/>
 
         <activity android:name=".BoatActivity"/>
+        <activity
+            android:name=".HabitActivity"/>
+
+        <activity
+            android:name=".NewHabitActivity"/>
+
     </application>
 
 </manifest>

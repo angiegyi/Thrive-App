@@ -1,5 +1,6 @@
 package com.example.thrive;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,9 +29,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 
 public class NewObstacleActivity extends AppCompatActivity {
@@ -55,14 +56,9 @@ public class NewObstacleActivity extends AppCompatActivity {
     String selectedValue;
 
     // Time
-    TextInputLayout notificationTimeInputLayout;
-    AutoCompleteTextView notificationTimeInput;
-    ArrayList<String> arrayList_notifications_time;
-    ArrayAdapter<String> arrayListAdapter_notifications_time;
-    Integer notification_time_value;
-    List<String> times = Arrays.asList("12:00 AM", "1:00 AM","2:00 AM", "3:00 AM", "4:00 AM", "5:00 AM", "6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM"
-    , "1:00 PM","2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "7:00 PM", "8:00 PM", "9:00 PM", "10:00 PM", "11:00 PM");
-    Map<String, Integer> timeHours = new HashMap<>();
+    TimePicker timePicker;
+    Integer timeHour;
+    Integer timeMinutes;
 
     // Days
     Map<CheckBox, String> checkBoxObjects = new HashMap<>();
@@ -79,11 +75,6 @@ public class NewObstacleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_obstacle);
-
-        // Init time hashmap
-        for (int i = 0; i < 24; i++ ){
-            timeHours.put(times.get(i), i);
-        }
 
         // Slider
         slider = findViewById(R.id.slider);
@@ -102,7 +93,7 @@ public class NewObstacleActivity extends AppCompatActivity {
 
         // Obstacle Description
         obstacleDescTextLayout = findViewById(R.id.obstacleDescTextField);
-        obstacleDescEditText = findViewById(R.id.obstacleDescEditLayout);
+        obstacleDescEditText = findViewById(R.id.hookTitleEditLayout);
 
         // Values -> need to add values to database
         valuesTextInputLayout = findViewById(R.id.valuesTextInputLayout);
@@ -124,13 +115,8 @@ public class NewObstacleActivity extends AppCompatActivity {
         valuesInput.setThreshold(1);
 
         // Notifications
-        notificationTimeInputLayout = findViewById(R.id.notifTimeInput);
-        notificationTimeInput = findViewById(R.id.notificationTimeInput);
-        arrayList_notifications_time = new ArrayList<>();
-        arrayList_notifications_time.addAll(times);
-        arrayListAdapter_notifications_time = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_item, arrayList_notifications_time);
-        notificationTimeInput.setAdapter(arrayListAdapter_notifications_time);
-        notificationTimeInput.setThreshold(1);
+        timePicker = findViewById(R.id.time_picker);
+        timePicker.setIs24HourView(true);
 
         // Dummy Values
         addValues();
@@ -139,12 +125,15 @@ public class NewObstacleActivity extends AppCompatActivity {
     /**
      * Handler for the add obstacle value
      */
+    @SuppressLint("NewApi")
     public void onCLickHandler(){
         newTitle = obstacleTitleEditText.getEditableText().toString();
+        timeHour = timePicker.getHour();
+        timeMinutes = timePicker.getMinute();
         newDescription = obstacleDescEditText.getEditableText().toString();
         selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
-        notification_time_value = timeHours.get((notificationTimeInputLayout.getEditText()).getText().toString());
-        addObstacle(selectedValue, notification_time_value, importance);
+
+        addObstacle(selectedValue, importance);
         startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
     }
 
@@ -173,9 +162,7 @@ public class NewObstacleActivity extends AppCompatActivity {
         checkBoxObjects.put((CheckBox) findViewById(R.id.sunBox), "7");
 
         for (CheckBox box : checkBoxObjects.keySet()){
-            box.setOnClickListener(view -> {
-                getCheckBox(box);
-            });
+            box.setOnClickListener(view -> getCheckBox(box));
         }
     }
 
@@ -196,12 +183,11 @@ public class NewObstacleActivity extends AppCompatActivity {
     /**
      * This method handles adding a new obstacle in the database.
      * @param value name of the related value from dropdown
-     * @param time time for the notification to occur at
      * @param importance the int representing the importance of the obstacle.
      */
-    public void addObstacle(String value, Integer time, Integer importance){
+    public void addObstacle(String value, Integer importance){
         try {
-            Obstacle obs1 = new Obstacle(newTitle, newDescription, time == null, time, 0, Integer.parseInt(days_data));
+            Obstacle obs1 = new Obstacle(newTitle, newDescription, timeHour == null, timeHour, timeMinutes, Integer.parseInt(days_data));
             mThriveViewModel.insert(obs1);
             //inserting a related value and obstacle to the Obstacle_value table
             Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
