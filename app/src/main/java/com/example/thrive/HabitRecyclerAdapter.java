@@ -1,5 +1,6 @@
 package com.example.thrive;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         this.habitList = habitList;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView habitName;
         public TextView habitLeft;
@@ -46,21 +47,29 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
     @Override
     public HabitRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_habit, parent, false);//CardView inflated as RecyclerView list item null;
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        return new ViewHolder(view);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull HabitRecyclerAdapter.ViewHolder holder, int position) {
+        JSONObject habitObject = habitList.get(position);
         try {
-            holder.habitName.setText(habitList.get(position).getString("name"));
+            holder.habitName.setText(habitObject.getString("name"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         holder.habitButton.setOnClickListener(view -> {
             // Increase progress by 1
+            this.notifyDataSetChanged();
         });
-
+        String strHabitLeft = "";
+        try {
+            strHabitLeft = habitObject.getString("frequency") + " times left per " + habitObject.getString("measurement") + " " + habitObject.getString("period");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        holder.habitLeft.setText(strHabitLeft);
     }
 
     @Override

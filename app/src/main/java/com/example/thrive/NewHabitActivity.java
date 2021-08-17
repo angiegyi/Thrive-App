@@ -1,6 +1,7 @@
 package com.example.thrive;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -175,7 +176,7 @@ public class NewHabitActivity extends AppCompatActivity {
         Log.i("HABIT", "Days   : " + days_data);
         */
 
-        addHabit(newName, selectedValue, everyNum, everyChoice, howOftenNum, isSwitch, timeHour, timeMinutes);
+        addHabit(newName, selectedValue, howOftenNum, everyChoice, everyNum, isSwitch, timeHour, timeMinutes);
     }
 
     protected void addHabit(String name, String value, Integer freq, String period, Integer meas, boolean reminder, Integer remH, Integer remM){
@@ -198,6 +199,8 @@ public class NewHabitActivity extends AppCompatActivity {
         } catch(Exception e) {
             Log.i("RESPONSE", e.toString());
         }
+        // Return to Habit Page
+        startActivity(new Intent(NewHabitActivity.this, HabitActivity.class));
     }
 
     public static JSONObject objectToJSONObject(Object object){
