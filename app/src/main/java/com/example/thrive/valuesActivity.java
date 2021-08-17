@@ -54,9 +54,6 @@ public class valuesActivity extends AppCompatActivity {
         Value val2 = new Value("playing with my dog", "family");
         tvm.insert(val2);
 
-        String cat1 = "the first cat!";
-        //tvm.addCategory(cat1);
-
     }
 
     private void initList(){
