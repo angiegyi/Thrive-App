@@ -12,10 +12,12 @@ import android.widget.Button;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Value;
+import com.example.thrive.Database.entities.Value_Category;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.android.material.slider.Slider;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 public class NewValueActivity extends AppCompatActivity{
 
     Button createButton;
-    TextInputLayout inputValue;
+    TextInputEditText inputValue;
     TextInputLayout inputCat;
     Slider inputImportance;
     String newValue;
@@ -107,12 +109,16 @@ public class NewValueActivity extends AppCompatActivity{
                 inputImportance = findViewById(R.id.importanceSlider);
 
                 // Converting to strings
-                newValue = inputValue.getEditText().getText().toString();
+                newValue = inputValue.getEditableText().toString();
                 newCat = inputCat.getEditText().getText().toString();
 
                 // Creating value object
                 Value val = new Value(newValue, newCat);
                 tvm.insert(val);
+                // Inserting the value category
+                Value_Category valCat = new Value_Category(newCat);
+                // Need way to add category value
+                // tvm.insert(valCat);
 
                 //Move to values activity page
                 Intent intent = new Intent(NewValueActivity.this, valuesActivity.class);
