@@ -7,19 +7,25 @@ import android.widget.ArrayAdapter;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.ListMenuItemView;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Value;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.List;
+import org.json.JSONObject;
+import org.json.JSONException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.ArrayList;
 
 public class valuesActivity extends AppCompatActivity {
     FloatingActionButton fab;
     ListView displayList;
-    String[] testList = {"first","second","third","other"};
+    // String[] testList = {"first","second","third","other"};
+    ArrayList<String> valuesList = new ArrayList<>();
 
     // Initialisation
     @Override
@@ -39,9 +45,38 @@ public class valuesActivity extends AppCompatActivity {
     private void initList(){
         displayList = findViewById(R.id.valuesList);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.list_item, testList);
+        ThriveViewModel tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
+        tvm.getAllValues().observe(this, valData -> {
+
+            // Iterate through each value in the valData that's returned
+            for (Object obj : valData){
+                // add each value to the arraylist
+                try {
+                    valuesList.add(objectToJSONObject(obj).get("name").toString());
+                }
+                catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, valuesList.toArray());
 
         displayList.setAdapter(adapter);
+    }
+
+    public static JSONObject objectToJSONObject(Object object){
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        JSONObject obj = null;
+
+        try {
+            obj = new JSONObject(ow.writeValueAsString(object));
+        }
+        catch (JsonProcessingException | JSONException e){
+            e.printStackTrace();
+        }
+
+        return obj;
     }
 
     // Initialising action button to new value page

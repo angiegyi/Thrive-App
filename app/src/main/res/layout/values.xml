@@ -16,7 +16,7 @@
         android:paddingLeft="0dp"
         android:paddingTop="5dp"
         android:paddingRight="12dp"
-        android:paddingBottom="5dp"
+        android:paddingBottom="10dp"
         android:text="Your Values"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
