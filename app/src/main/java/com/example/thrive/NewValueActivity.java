@@ -116,7 +116,7 @@ public class NewValueActivity extends AppCompatActivity{
                 Value val = new Value(newValue, newCat);
                 tvm.insert(val);
                 // Inserting the value category
-                Value_Category valCat = new Value_Category(newCat);
+                // Value_Category valCat = new Value_Category(newCat);
                 // Need way to add category value
                 // tvm.insert(valCat);
 
