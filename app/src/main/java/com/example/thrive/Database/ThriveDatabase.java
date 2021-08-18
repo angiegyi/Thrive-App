@@ -13,6 +13,7 @@ import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
 import com.example.thrive.Database.entities.HabitValue;
+import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
@@ -21,7 +22,8 @@ import com.example.thrive.Database.entities.Value;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @Database(entities = {Category.class, Value.class, Activity.class, Activity_category.class,
-Habit.class, HabitValue.class, Obstacle.class, Obstacle_value.class, CheckIn.class, Mood.class}, version = 1, exportSchema = false)
+Habit.class, HabitValue.class, Obstacle.class, Obstacle_value.class, CheckIn.class, Mood.class, Hook.class},
+        version = 1, exportSchema = false)
 public abstract class ThriveDatabase extends RoomDatabase {
     // database objects provides the interface of the underlying
     // sql database
@@ -52,17 +54,24 @@ public abstract class ThriveDatabase extends RoomDatabase {
                                 db.insert("category",1, values);
                             }
 
-                            String[] moods = {"stressed", "nervous", "restless", "irritable",
-                            "on edge", "unsettled", "creative", "adventurous", "happy", "angry", "sad",
-                            "calm", "comfortable", "content", "productive", "lazy", "tired", "stressed",
-                            "energized"};
+                            ContentValues values2 = new ContentValues();
+                            String[] negative_moods = {"stressed", "nervous", "restless", "irritable",
+                            "on edge", "unsettled", "angry", "sad", "lazy", "tired"};
+                            for(String mood: negative_moods){
+                                values2.put("mood_name", mood);
+                                values2.put("mood_isPositive", false);
+                                db.insert("mood", 1, values2);
+                                //ThriveDatabase.databaseWriteExecutor.execute(() -> db.insert("mood", 0, values2));
+                            }
+                            ContentValues values3 = new ContentValues();
+                            String[] positive_moods = {"happy","creative", "adventurous", "calm","comfortable",
+                                    "content", "productive", "energized"};
+                            for(String mood: positive_moods){
+                                values3.put("mood_name", mood);
+                                values3.put("mood_isPositive", true);
+                                db.insert("mood", 1, values3);
+                            }
 
-//                            ContentValues values2 = new ContentValues();
-//                            for(String mood: moods){
-//                                values2.put("mood_name", mood);
-//                                values2.put("mood_isPositive", true);
-//                                db.insert("mood", 1, values2);
-//                            }
                         }
                         public void onOpen (SupportSQLiteDatabase db) {
                             // do something every time database is open
