@@ -11,7 +11,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.onboarding_sun);
+        setContentView(R.layout.activity_main);
+        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
     }
 
     public void toValuesPage(View view){

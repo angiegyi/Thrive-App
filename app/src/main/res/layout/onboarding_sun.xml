@@ -13,7 +13,7 @@
         android:layout_gravity="center">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
+        android:id="@+id/sun_card"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,13 +64,13 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_margin="20dp"
-        android:layout_height="wrap_content"
-        android:text="Next" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/SunMaterialButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:text="Next" />
 
     </LinearLayout>
 
