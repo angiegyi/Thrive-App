@@ -20,7 +20,7 @@ public class MountainOnboarding extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MountainOnboarding.this, SunOnboarding.class));
+                startActivity(new Intent(MountainOnboarding.this, LakeOnboarding.class));
 
             }
         });

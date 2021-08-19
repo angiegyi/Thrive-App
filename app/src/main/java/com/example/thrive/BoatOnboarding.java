@@ -7,22 +7,21 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LakeOnboarding extends AppCompatActivity {
+public class BoatOnboarding extends AppCompatActivity {
 
     Button nextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lake_onboarding);
+        setContentView(R.layout.boat_onboarding);
 
-        nextButton = findViewById(R.id.LakeMaterialButton);
+        nextButton = findViewById(R.id.BoatMaterialButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LakeOnboarding.this, BoatOnboarding.class));
+                startActivity(new Intent(BoatOnboarding.this, MainActivity.class));
             }
         });
     }
-
 }

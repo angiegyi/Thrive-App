@@ -20,7 +20,6 @@ public class SunOnboarding extends AppCompatActivity{
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("clicked");
                 startActivity(new Intent(SunOnboarding.this, MountainOnboarding.class));
             }
         });

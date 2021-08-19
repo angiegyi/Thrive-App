@@ -16,13 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".SunOnboarding"/>
         <activity android:name=".LakeOnboarding"/>
         <activity android:name=".MountainOnboarding"/>
         <activity android:name=".NewObstacleActivity"/>
         <activity android:name=".HookBehaviours"/>
         <activity android:name=".NewHookActivity"/>
+        <activity android:name=".BoatOnboarding"/>
         <activity
             android:name=".valuesActivity"/>
         <activity
