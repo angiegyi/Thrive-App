@@ -107,5 +107,9 @@ public class ThriveRepository {
     /*
     UPDATE METHODS
      */
-
+    void updateHabitCounter(String habitName, int newCounter){
+        ThriveDatabase.databaseWriteExecutor.execute(()->{
+            mThriveDAO.updateHabitCounter(habitName, newCounter);
+        });
+    }
 }

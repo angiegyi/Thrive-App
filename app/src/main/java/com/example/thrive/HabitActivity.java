@@ -1,5 +1,6 @@
 package com.example.thrive;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Habit;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -26,7 +28,7 @@ public class HabitActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     HabitRecyclerAdapter habitAdapter;
     ThriveViewModel mThriveViewModel;
-    ArrayList<JSONObject> habitData = new ArrayList<>();
+    ArrayList<Habit> habitData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,35 +44,20 @@ public class HabitActivity extends AppCompatActivity {
     /**
      * Initialises all data for the application including adapter logic.
      */
+    @SuppressLint("NotifyDataSetChanged")
     private void initData(){
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
+        habitAdapter = new HabitRecyclerAdapter(mThriveViewModel);
         mThriveViewModel.getAllHabits().observe(this, newData -> {
-            for (Object obj : newData) {
+            for (Habit obj : newData) {
                 if (obj != null){
-                    habitData.add(objectToJSONObject(obj));
+                    habitData.add(obj);
                 }
             }
-            habitAdapter = new HabitRecyclerAdapter(habitData);
+            habitAdapter.setData(habitData);
             habitRecyclerView.setAdapter(habitAdapter);
             // habitAdapter.notifyDataSetChanged();
         });
-    }
-
-    /**
-     * Converts Java objects to JSON such that attributes can be accessed.
-     * @param object the java object to be converted
-     * @return new JSON object
-     */
-    public static JSONObject objectToJSONObject(Object object){
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        JSONObject obj = null;
-
-        try {
-            obj = new JSONObject(ow.writeValueAsString(object));
-        } catch (JsonProcessingException | JSONException e) {
-            e.printStackTrace();
-        }
-        return obj;
     }
 
 
