@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        // add some conditional statement to check if we need to do start onboarding
         startActivity(new Intent(MainActivity.this, SunOnboarding.class));
     }
 
