@@ -31,6 +31,7 @@ public class ThriveViewModel extends AndroidViewModel {
     private LiveData<List<Obstacle_value>> mAllObstacle_values;
     private LiveData<List<Obstacle>> mAllObstacles;
     private LiveData<List<Hook>> mAllHooks;
+    private LiveData<List<Habit>> mAllHabits;
 
 
     public ThriveViewModel(@NonNull Application application) {
@@ -42,6 +43,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllObstacle_values = mRepository.getAllObstacle_values();
         mAllObstacles = mRepository.getAllObstacles();
         mAllHooks = mRepository.getAllHooks();
+        mAllHabits = mRepository.getAllHabits();
     }
 
     /*
@@ -58,6 +60,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
     public LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
     public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
+    public LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
 
     /*
     INSERT INTO DB
@@ -84,6 +87,7 @@ public class ThriveViewModel extends AndroidViewModel {
     /*
     UPDATE
      */
+    public void updateHabitCounter(String habitName, int newCounter){mRepository.updateHabitCounter(habitName, newCounter);}
 
 
 

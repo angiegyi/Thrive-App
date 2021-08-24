@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onStart();
 //        createNewCheckInDialog();
+        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
     }
 
     public void toValuesPage(View view){

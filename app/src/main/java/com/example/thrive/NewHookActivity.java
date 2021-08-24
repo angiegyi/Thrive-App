@@ -2,6 +2,7 @@ package com.example.thrive;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -95,10 +96,23 @@ public class NewHookActivity extends AppCompatActivity {
     }
 
     public void onClickListener(){
-        newTitle = hookTitleEditText.getEditableText().toString();
-        selectedObstacle = (hookTextInputLayout.getEditText()).getText().toString();
-        addHook();
-        startActivity(new Intent(NewHookActivity.this, HookBehaviours.class));
+        // Error checking for title
+
+        if (TextUtils.isEmpty(hookTitleEditText.getText()) || TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
+            if( TextUtils.isEmpty(hookTitleEditText.getText())){
+                hookTitleEditText.setError( "Hook title is required!" );
+            }
+            // Error Checking Obstacle
+            if (TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
+                hookTextInputLayout.setError( "Related Obstacle is required!" );
+            }
+        }
+        else {
+            newTitle = hookTitleEditText.getEditableText().toString();
+            selectedObstacle = (hookTextInputLayout.getEditText()).getText().toString();
+            addHook();
+            startActivity(new Intent(NewHookActivity.this, HookBehaviours.class));
+        }
     }
 
     public void addHook(){

@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "entity")
+@Entity(tableName = "habit")
 public class Habit {
 
     @PrimaryKey
@@ -24,6 +24,7 @@ public class Habit {
     @ColumnInfo(name = "habit_measurement")
     private String measurement;
     // how is the unit measure for the counter. e.g. hours, no of times
+    // currently is used to store the number for the period
 
     @ColumnInfo(name = "habit_reminder_on")
     private boolean reminderOn;
@@ -38,6 +39,9 @@ public class Habit {
     @ColumnInfo(name = "reminder_days")
     private int reminderDays;
 
+    @ColumnInfo(name = "habit_counter")
+    private int counter;
+
 
     //toolLink, may quickly link an appropriate activity or tool to this habit
 
@@ -51,6 +55,7 @@ public class Habit {
         this.reminderHour = reminderHour;
         this.reminderMinutes = reminderMinutes;
         this.reminderDays = reminderDays;
+        this.counter = 0;
     }
 
     @NonNull
@@ -116,5 +121,13 @@ public class Habit {
 
     public void setReminderMinutes(int reminderMinutes) {
         this.reminderMinutes = reminderMinutes;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 }

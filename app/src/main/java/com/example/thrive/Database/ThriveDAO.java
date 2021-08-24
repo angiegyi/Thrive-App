@@ -45,8 +45,8 @@ public interface ThriveDAO {
     @Query("SELECT * FROM HOOK")
     LiveData<List<Hook>> getAllHooks();
 
-    @Query("SELECT * FROM MOOD WHERE mood_isPositive = :value")
-    LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value);
+    @Query("SELECT * FROM habit")
+    LiveData<List<Habit>> getAllHabits();
 
 
     /*
@@ -96,6 +96,9 @@ public interface ThriveDAO {
     /*
     UPDATE QUERIES
      */
+
+    @Query("update habit set habit_counter=:newCounter where habit_name=:habitName")
+    void updateHabitCounter(String habitName, int newCounter );
 
 
 }

@@ -3,12 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/boat.xml" value="0.14990942028985507" />
+        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.16032608695652173" />
+        <entry key="app/src/main/res/layout/habits.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/new_obstacle.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/new_value.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/obstacles.xml" value="0.27819451486772606" />
+        <entry key="app/src/main/res/layout/value_item.xml" value="0.14990942028985507" />
+        <entry key="app/src/main/res/layout/values.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/view_obstacles.xml" value="0.14990942028985507" />
+        <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/boat.xml" value="0.4" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/card_habit.xml" value="0.33076923076923076" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/habits.xml" value="0.23161764705882354" />
-        <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/new_habit.xml" value="0.4" />
-        <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/new_obstacle.xml" value="0.20969202898550723" />
+        <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/new_habit.xml" value="0.264" />
+        <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/new_obstacle.xml" value="0.1" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/obstacles.xml" value="0.2" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/values.xml" value="0.6" />
         <entry key="..\:/Users/Han/AppData/Local/Android/Sdk/platforms/android-30/data/res/layout/simple_list_item_1.xml" value="0.3265625" />
@@ -36,7 +49,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
