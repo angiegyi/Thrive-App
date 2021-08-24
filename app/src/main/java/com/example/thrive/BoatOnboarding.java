@@ -20,7 +20,7 @@ public class BoatOnboarding extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(BoatOnboarding.this, MainActivity.class));
+                startActivity(new Intent(BoatOnboarding.this, HomeScreen.class));
             }
         });
     }
