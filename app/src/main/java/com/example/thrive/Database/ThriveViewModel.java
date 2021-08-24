@@ -1,12 +1,14 @@
 package com.example.thrive.Database;
 
 import android.app.Application;
+import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.thrive.Database.entities.Category;
+import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
 import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
@@ -55,6 +57,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Obstacle_value>> getAllObstacle_values(){return mAllObstacle_values;}
     public LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
     public LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
+    public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
 
     /*
     INSERT INTO DB
@@ -68,6 +71,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public void insert(Mood mood){mRepository.addMood(mood);}
     public void insert(Hook hook){mRepository.insert(hook);}
     public void addCategory(String category_name){mRepository.addCategory(category_name);}
+    public void insert(CheckIn checkIn){mRepository.insert(checkIn);}
 
     /*
     DELETE

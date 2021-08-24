@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.thrive.Database.entities.Category;
+import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
 import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
@@ -28,6 +29,7 @@ public class ThriveRepository {
     private LiveData<List<Obstacle_value>> mAllObstacle_values;
     private LiveData<List<Obstacle>> mAllObstacles;
     private LiveData<List<Hook>> mAllHooks;
+    private LiveData<List<Mood>> mAllPositiveMoods;
 
 
     ThriveRepository(Application application) {
@@ -39,6 +41,7 @@ public class ThriveRepository {
         mAllObstacle_values = mThriveDAO.getAllObstacle_values();
         mAllObstacles = mThriveDAO.getAllObstacles();
         mAllHooks = mThriveDAO.getAllHooks();
+        //mAllPositiveMoods = mThriveDAO.getAllPositiveOrNegativeMoods(1);
     }
 
     /*
@@ -50,6 +53,7 @@ public class ThriveRepository {
     LiveData<List<Obstacle_value>> getAllObstacle_values(){ return mAllObstacle_values;}
     LiveData<List<Obstacle>> getAllObstacles(){return mAllObstacles;}
     LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
+    LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mThriveDAO.getAllPositiveOrNegativeMoods(value);};
 
     /*
     INSERT INTO DB
@@ -74,6 +78,10 @@ public class ThriveRepository {
     }
     void insert(Hook hook){
         ThriveDatabase.databaseWriteExecutor.execute(()->mThriveDAO.addHook(hook));
+    }
+
+    void insert(CheckIn checkIn){
+        ThriveDatabase.databaseWriteExecutor.execute(()->mThriveDAO.addCheckIn(checkIn));
     }
     /*
     DELETE METHODS

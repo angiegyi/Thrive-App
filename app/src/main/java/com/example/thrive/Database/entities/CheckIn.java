@@ -18,8 +18,8 @@ public class CheckIn {
     @ColumnInfo(name = "reason")
     private String reason;
 
-    @ColumnInfo(name = "check_date")
-    private int date;
+    @ColumnInfo(name = "check_day")
+    private int day;
 
     @ColumnInfo(name = "check_month")
     private int month;
@@ -93,12 +93,12 @@ public class CheckIn {
         this.minute = minute;
     }
 
-    public int getDate() {
-        return date;
+    public int getDay() {
+        return day;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public void setDay(int date) {
+        this.day = date;
     }
 
     public String getReason() {
@@ -131,6 +131,12 @@ public class CheckIn {
 
     public void setActivityRating(int activityRating) {
         this.activityRating = activityRating;
+    }
+
+    public void setDate(int year, int month, int day){
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
 }
