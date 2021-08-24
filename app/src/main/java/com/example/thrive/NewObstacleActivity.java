@@ -129,18 +129,21 @@ public class NewObstacleActivity extends AppCompatActivity {
      */
     @SuppressLint("NewApi")
     public void onCLickHandler(){
-        // Error checking for title
-        if (TextUtils.isEmpty(obstacleTitleEditText.getText())){
-            obstacleTitleEditText.setError( "Fill in obstacle title" );
-        }
-        // Error Checking Description
-        if (TextUtils.isEmpty(obstacleDescEditText.getText())){
-            obstacleTitleEditText.setError( "Fill in obstacle description" );
-        }
 
-        // Error Checking Value
-        if (TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())){
-            valuesTextInputLayout.setError( "Related value is required!" );
+        if (TextUtils.isEmpty(obstacleTitleEditText.getText()) || TextUtils.isEmpty(obstacleDescEditText.getText()) || TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())) {
+            // Error checking for title
+            if (TextUtils.isEmpty(obstacleTitleEditText.getText())) {
+                obstacleTitleEditText.setError("Fill in obstacle title");
+            }
+            // Error Checking Description
+            if (TextUtils.isEmpty(obstacleDescEditText.getText())) {
+                obstacleDescEditText.setError("Fill in obstacle description");
+            }
+
+            // Error Checking Value
+            if (TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())) {
+                valuesTextInputLayout.setError("Related value is required!");
+            }
         }
         else {
             newTitle = obstacleTitleEditText.getEditableText().toString();

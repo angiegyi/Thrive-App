@@ -97,14 +97,16 @@ public class NewHookActivity extends AppCompatActivity {
 
     public void onClickListener(){
         // Error checking for title
-        if( TextUtils.isEmpty(hookTitleEditText.getText())){
-            hookTitleEditText.setError( "Hook title is required!" );
-        }
-        // Error Checking Obstacle
-        if (TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
-            hookTextInputLayout.setError( "Related Obstacle is required!" );
-        }
 
+        if (TextUtils.isEmpty(hookTitleEditText.getText()) || TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
+            if( TextUtils.isEmpty(hookTitleEditText.getText())){
+                hookTitleEditText.setError( "Hook title is required!" );
+            }
+            // Error Checking Obstacle
+            if (TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
+                hookTextInputLayout.setError( "Related Obstacle is required!" );
+            }
+        }
         else {
             newTitle = hookTitleEditText.getEditableText().toString();
             selectedObstacle = (hookTextInputLayout.getEditText()).getText().toString();
