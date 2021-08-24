@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Habit;
 
 import org.json.JSONException;
@@ -20,9 +21,14 @@ import java.util.ArrayList;
 
 public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdapter.ViewHolder> {
 
-    private ArrayList<JSONObject> habitList;
+    private ArrayList<Habit> habitList;
+    private ThriveViewModel mThriveViewModel;
 
-    public HabitRecyclerAdapter(ArrayList<JSONObject> habitList){
+    public HabitRecyclerAdapter(ThriveViewModel mThriveViewModel){
+        this.mThriveViewModel = mThriveViewModel;
+    }
+
+    public void setData(ArrayList<Habit> habitList) {
         this.habitList = habitList;
     }
 
@@ -53,22 +59,16 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull HabitRecyclerAdapter.ViewHolder holder, int position) {
-        JSONObject habitObject = habitList.get(position);
-        try {
-            holder.habitName.setText(habitObject.getString("name"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        Habit habitObject = habitList.get(position);
+        holder.habitName.setText(habitObject.getName());
+        holder.habitProgress.setProgress(habitObject.getCounter());
+        holder.habitProgress.setMax(habitObject.getFrequency());
         holder.habitButton.setOnClickListener(view -> {
-            // Increase progress by 1
-            this.notifyDataSetChanged();
+            mThriveViewModel.updateHabitCounter(habitObject.getName(), habitObject.getCounter()+1);
+            habitList.clear();
         });
         String strHabitLeft = "";
-        try {
-            strHabitLeft = habitObject.getString("frequency") + " times left per " + habitObject.getString("measurement") + " " + habitObject.getString("period");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        strHabitLeft = habitObject.getCounter() + "/" + habitObject.getFrequency()+ " times left per " + habitObject.getMeasurement() + " " + habitObject.getPeriod();
         holder.habitLeft.setText(strHabitLeft);
     }
 
