@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // add some conditional statement to check if we need to do start onboarding
+
         SHARED_PREFERENCE_NAME ="MyUserPrefs";
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
