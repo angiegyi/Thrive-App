@@ -3,7 +3,6 @@ package com.example.thrive;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -92,7 +91,6 @@ public class NewObstacleActivity extends AppCompatActivity {
         obstacleTitleTextLayout = findViewById(R.id.obstacleNameTextField);
         obstacleTitleEditText = findViewById(R.id.obstacleNameEditLayout);
 
-
         // Obstacle Description
         obstacleDescTextLayout = findViewById(R.id.obstacleDescTextField);
         obstacleDescEditText = findViewById(R.id.hookTitleEditLayout);
@@ -129,32 +127,14 @@ public class NewObstacleActivity extends AppCompatActivity {
      */
     @SuppressLint("NewApi")
     public void onCLickHandler(){
+        newTitle = obstacleTitleEditText.getEditableText().toString();
+        timeHour = timePicker.getHour();
+        timeMinutes = timePicker.getMinute();
+        newDescription = obstacleDescEditText.getEditableText().toString();
+        selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
 
-        if (TextUtils.isEmpty(obstacleTitleEditText.getText()) || TextUtils.isEmpty(obstacleDescEditText.getText()) || TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())) {
-            // Error checking for title
-            if (TextUtils.isEmpty(obstacleTitleEditText.getText())) {
-                obstacleTitleEditText.setError("Fill in obstacle title");
-            }
-            // Error Checking Description
-            if (TextUtils.isEmpty(obstacleDescEditText.getText())) {
-                obstacleDescEditText.setError("Fill in obstacle description");
-            }
-
-            // Error Checking Value
-            if (TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())) {
-                valuesTextInputLayout.setError("Related value is required!");
-            }
-        }
-        else {
-            newTitle = obstacleTitleEditText.getEditableText().toString();
-            timeHour = timePicker.getHour();
-            timeMinutes = timePicker.getMinute();
-            newDescription = obstacleDescEditText.getEditableText().toString();
-            selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
-
-            addObstacle(selectedValue, importance);
-            startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
-        }
+        addObstacle(selectedValue, importance);
+        startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
     }
 
     public static JSONObject objectToJSONObject(Object object){

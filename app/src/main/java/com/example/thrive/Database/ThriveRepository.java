@@ -30,7 +30,6 @@ public class ThriveRepository {
     private LiveData<List<Obstacle>> mAllObstacles;
     private LiveData<List<Hook>> mAllHooks;
     private LiveData<List<Mood>> mAllPositiveMoods;
-    private LiveData<List<Habit>> mAllHabits;
 
 
     ThriveRepository(Application application) {
@@ -42,7 +41,7 @@ public class ThriveRepository {
         mAllObstacle_values = mThriveDAO.getAllObstacle_values();
         mAllObstacles = mThriveDAO.getAllObstacles();
         mAllHooks = mThriveDAO.getAllHooks();
-        mAllHabits = mThriveDAO.getAllHabits();
+        //mAllPositiveMoods = mThriveDAO.getAllPositiveOrNegativeMoods(1);
     }
 
     /*
@@ -55,7 +54,6 @@ public class ThriveRepository {
     LiveData<List<Obstacle>> getAllObstacles(){return mAllObstacles;}
     LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
     LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mThriveDAO.getAllPositiveOrNegativeMoods(value);};
-    LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
 
     /*
     INSERT INTO DB
@@ -114,9 +112,5 @@ public class ThriveRepository {
     /*
     UPDATE METHODS
      */
-    void updateHabitCounter(String habitName, int newCounter){
-        ThriveDatabase.databaseWriteExecutor.execute(()->{
-            mThriveDAO.updateHabitCounter(habitName, newCounter);
-        });
-    }
+
 }
