@@ -98,8 +98,8 @@ public class NewObstacleActivity extends AppCompatActivity {
         obstacleDescEditText = findViewById(R.id.hookTitleEditLayout);
 
         // Values -> need to add values to database
-        valuesTextInputLayout = findViewById(R.id.valuesTextInputLayout);
-        valuesInput = findViewById(R.id.valuesInput);
+        valuesTextInputLayout = findViewById(R.id.moodsTextInputLayout);
+        valuesInput = findViewById(R.id.relatedMoodsInput);
         arrayList_values = new ArrayList<>();
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         // Pull values from DB and add to drop-down

@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.thrive.Database.entities.Category;
+import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
 import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
@@ -71,6 +72,9 @@ public interface ThriveDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void addHook(Hook hook);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void addCheckIn(CheckIn checkIn);
 
 
     /*

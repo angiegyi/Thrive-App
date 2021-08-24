@@ -97,7 +97,7 @@
             android:text="Thurs"
             app:layout_constraintEnd_toStartOf="@+id/friBox"
             app:layout_constraintStart_toEndOf="@+id/wedBox"
-            app:layout_constraintTop_toBottomOf="@+id/valuesTextInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/moodsTextInputLayout" />
 
         <CheckBox
             android:id="@+id/friBox"
@@ -139,7 +139,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/valuesTextInputLayout"
+            android:id="@+id/moodsTextInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
             app:layout_constraintTop_toBottomOf="@+id/obstacleDescTextField">
 
             <AutoCompleteTextView
-                android:id="@+id/valuesInput"
+                android:id="@+id/relatedMoodsInput"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Related Values"
@@ -216,7 +216,7 @@
             android:text="Select obstacle reminder days"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/valuesTextInputLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/moodsTextInputLayout" />
 
         <CheckBox
             android:id="@+id/mondayBox"
