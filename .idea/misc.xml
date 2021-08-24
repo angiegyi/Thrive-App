@@ -3,19 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/boat.xml" value="0.14990942028985507" />
-        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.16032608695652173" />
-        <entry key="app/src/main/res/layout/habits.xml" value="0.16770833333333332" />
-        <entry key="app/src/main/res/layout/list_item.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/new_obstacle.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/new_value.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/obstacles.xml" value="0.27819451486772606" />
-        <entry key="app/src/main/res/layout/value_item.xml" value="0.14990942028985507" />
-        <entry key="app/src/main/res/layout/values.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/view_obstacles.xml" value="0.14990942028985507" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/boat.xml" value="0.4" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/card_habit.xml" value="0.33076923076923076" />
@@ -46,6 +33,26 @@
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/values.xml" value="0.22" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/view_obstacles.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21203703703703702" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/boat.xml" value="0.14990942028985507" />
+        <entry key="app/src/main/res/layout/boat_onboarding.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/check_in_pop_up.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/check_in_pop_up2.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.16032608695652173" />
+        <entry key="app/src/main/res/layout/habits.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/lake_onboarding.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/new_obstacle.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/new_value.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/obstacles.xml" value="0.27819451486772606" />
+        <entry key="app/src/main/res/layout/onboarding_mountain.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/onboarding_story_start.xml" value="0.24141970344028618" />
+        <entry key="app/src/main/res/layout/onboarding_sun.xml" value="0.15653249011493103" />
+        <entry key="app/src/main/res/layout/value_item.xml" value="0.14990942028985507" />
+        <entry key="app/src/main/res/layout/values.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/view_obstacles.xml" value="0.14990942028985507" />
       </map>
     </option>
   </component>
