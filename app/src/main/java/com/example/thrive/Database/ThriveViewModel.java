@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
+import com.example.thrive.Database.entities.HabitValue;
 import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
@@ -32,6 +33,7 @@ public class ThriveViewModel extends AndroidViewModel {
     private LiveData<List<Obstacle>> mAllObstacles;
     private LiveData<List<Hook>> mAllHooks;
     private LiveData<List<Habit>> mAllHabits;
+    private LiveData<List<HabitValue>> mAllHabitValues;
 
 
     public ThriveViewModel(@NonNull Application application) {
@@ -44,6 +46,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllObstacles = mRepository.getAllObstacles();
         mAllHooks = mRepository.getAllHooks();
         mAllHabits = mRepository.getAllHabits();
+        mAllHabitValues = mRepository.getAllHabitValues();
     }
 
     /*
@@ -61,6 +64,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
     public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
     public LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
+    public LiveData<List<HabitValue>> getmAllHabitValues() {return mAllHabitValues;}
 
     /*
     INSERT INTO DB
@@ -69,6 +73,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mRepository.insert(value);
     }
     public void insert(Habit habit) {mRepository.insert(habit);}
+    public void insert(HabitValue habitValue) {mRepository.insert(habitValue);}
     public void insert(Obstacle obstacle){mRepository.insert(obstacle);}
     public void insert(Obstacle_value obstacle_value){mRepository.insert(obstacle_value);}
     public void insert(Mood mood){mRepository.addMood(mood);}

@@ -11,13 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Habit;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -47,7 +41,7 @@ public class HabitActivity extends AppCompatActivity {
     @SuppressLint("NotifyDataSetChanged")
     private void initData(){
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        habitAdapter = new HabitRecyclerAdapter(mThriveViewModel);
+        habitAdapter = new HabitRecyclerAdapter(mThriveViewModel, getApplicationContext());
         mThriveViewModel.getAllHabits().observe(this, newData -> {
             for (Habit obj : newData) {
                 if (obj != null){

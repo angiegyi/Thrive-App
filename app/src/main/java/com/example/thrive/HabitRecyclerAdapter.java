@@ -1,12 +1,14 @@
 package com.example.thrive;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,18 +16,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Habit;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdapter.ViewHolder> {
 
     private ArrayList<Habit> habitList;
     private ThriveViewModel mThriveViewModel;
+    private Context habitContext;
 
-    public HabitRecyclerAdapter(ThriveViewModel mThriveViewModel){
+    public HabitRecyclerAdapter(ThriveViewModel mThriveViewModel, Context context){
         this.mThriveViewModel = mThriveViewModel;
+        this.habitContext = context;
     }
 
     public void setData(ArrayList<Habit> habitList) {
@@ -64,11 +65,19 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         holder.habitProgress.setProgress(habitObject.getCounter());
         holder.habitProgress.setMax(habitObject.getFrequency());
         holder.habitButton.setOnClickListener(view -> {
-            mThriveViewModel.updateHabitCounter(habitObject.getName(), habitObject.getCounter()+1);
-            habitList.clear();
+            if (habitObject.getCounter() < habitObject.getFrequency()) {
+                mThriveViewModel.updateHabitCounter(habitObject.getName(), habitObject.getCounter() + 1);
+                habitList.clear();
+            }
+            else{
+                Toast.makeText(habitContext, "You have completed: " + habitObject.getName() + " for this period",
+                        Toast.LENGTH_LONG).show();
+            }
         });
-        String strHabitLeft = "";
-        strHabitLeft = habitObject.getCounter() + "/" + habitObject.getFrequency()+ " times left per " + habitObject.getMeasurement() + " " + habitObject.getPeriod();
+        String addS = "";
+        if(Integer.parseInt(habitObject.getMeasurement()) > 1)
+            addS = "s";
+        String strHabitLeft = habitObject.getCounter() + "/" + habitObject.getFrequency()+ " times left per " + habitObject.getMeasurement() + " " + habitObject.getPeriod()+addS;
         holder.habitLeft.setText(strHabitLeft);
     }
 

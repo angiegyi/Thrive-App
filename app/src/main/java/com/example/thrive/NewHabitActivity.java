@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -44,6 +45,7 @@ public class NewHabitActivity extends AppCompatActivity {
     TextInputEditText habitNameInput;
 
     // Related Values
+    TextInputLayout valuesTextInputLayout;
     AutoCompleteTextView valuesInput;
     ArrayList<String> arrayList_values;
     ArrayAdapter<String> arrayListAdapter_values;
@@ -77,13 +79,13 @@ public class NewHabitActivity extends AppCompatActivity {
         // Habit Name
         habitNameInput = findViewById(R.id.habitNameInput);
 
-
         // Related Values
-        // Values -> need to add values to database
+        valuesTextInputLayout = findViewById(R.id.relatedValuesText);
+        //      Values -> need to add values to database
         valuesInput = findViewById(R.id.relatedValuesInput);
         arrayList_values = new ArrayList<>();
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        // Pull values from DB and add to drop-down
+        //      Pull values from DB and add to drop-down
         mThriveViewModel.getAllValues().observe(this, newData -> {
             for (Object obj : newData) {
                 try {
@@ -97,17 +99,12 @@ public class NewHabitActivity extends AppCompatActivity {
         valuesInput.setAdapter(arrayListAdapter_values);
         valuesInput.setThreshold(1);
 
-        // Dummy Values
-        addValues();
-
-
         // Target Frequency
         //      Every
         everyInput = findViewById(R.id.everyInput);
         everyMenuText = findViewById(R.id.everyMenuText);
         everyMenuInput = findViewById(R.id.everyMenuInput);
         setUpEveryMenu();
-
         //      How Often
         howOftenInput = findViewById(R.id.howOftenInput);
 
@@ -123,6 +120,9 @@ public class NewHabitActivity extends AppCompatActivity {
         //Button
         createHabitButton = findViewById(R.id.createHabitButton);
         createHabitButton.setOnClickListener(view -> onClickNewHabit());
+
+        // Dummy Values
+        addValues();
 
     }
 
@@ -145,38 +145,57 @@ public class NewHabitActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onClickNewHabit(){
-        // Name
-        String newName = habitNameInput.getText().toString();
+        boolean nameIsEmpty = TextUtils.isEmpty(habitNameInput.getText());
+        boolean valuesIsEmpty = TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText());
+        boolean everyNumIsEmpty = TextUtils.isEmpty(everyInput.getText().toString());
+        boolean everyChoiceIsEmpty = TextUtils.isEmpty(everyMenuInput.getText().toString());
+        boolean howOftenIsEmpty = TextUtils.isEmpty(howOftenInput.getText().toString());
 
-        // Value
-        String selectedValue = "";
-
-        // Target Frequency
-        Integer everyNum = Integer.parseInt(everyInput.getText().toString());
-        String everyChoice = everyMenuInput.getText().toString();
-        if (everyChoice.isEmpty()){
-            everyChoice = "";
+        if (nameIsEmpty || valuesIsEmpty || everyNumIsEmpty || everyChoiceIsEmpty || howOftenIsEmpty){
+            if (nameIsEmpty)
+                habitNameInput.setError("Fill in habit name");
+            if(valuesIsEmpty)
+                valuesTextInputLayout.setError("Related value is required!");
+            if(everyNumIsEmpty)
+                everyInput.setError("Fill in with a number");
+            if(everyChoiceIsEmpty)
+                everyMenuInput.setError("Choose one of the option");
+            if(howOftenIsEmpty)
+                howOftenInput.setError("Fill in with a number");
+            Toast.makeText(getApplicationContext(), "You need to complete the empty fields",
+                    Toast.LENGTH_LONG).show();
         }
-        Integer howOftenNum = Integer.parseInt((howOftenInput.getText().toString()));
+        else {
+            // Name
+            String newName = habitNameInput.getText().toString();
 
-        //Reminder
-        boolean isSwitch = switchReminder.isChecked();
-        Integer timeHour = timePicker.getHour();
-        Integer timeMinutes = timePicker.getMinute();
+            // Value
+            String selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
 
-        // Days in days_data
+            // Target Frequency
+            Integer everyNum = Integer.parseInt(everyInput.getText().toString());
+            String everyChoice = everyMenuInput.getText().toString();
+            Integer howOftenNum = Integer.parseInt(howOftenInput.getText().toString());
 
-        //Print in Logcat (Info)
-        /*
-        Log.i("HABIT", "Name   : " + newName);
-        Log.i("HABIT", "Value  : " + selectedValue);
-        Log.i("HABIT", "Target : " + everyNum + " " + everyChoice + "; " + howOftenNum + " times");
-        Log.i("HABIT", "Switch : " + isSwitch);
-        Log.i("HABIT", "Time   : " + timeHour + " : " + timeMinutes);
-        Log.i("HABIT", "Days   : " + days_data);
-        */
+            //Reminder
+            boolean isSwitch = switchReminder.isChecked();
+            Integer timeHour = timePicker.getHour();
+            Integer timeMinutes = timePicker.getMinute();
 
-        addHabit(newName, selectedValue, howOftenNum, everyChoice, everyNum, isSwitch, timeHour, timeMinutes);
+            // Days in days_data
+
+            //Print in Logcat (Info)
+            /*
+            Log.i("HABIT", "Name   : " + newName);
+            Log.i("HABIT", "Value  : " + selectedValue);
+            Log.i("HABIT", "Target : " + everyNum + " " + everyChoice + "; " + howOftenNum + " times");
+            Log.i("HABIT", "Switch : " + isSwitch);
+            Log.i("HABIT", "Time   : " + timeHour + " : " + timeMinutes);
+            Log.i("HABIT", "Days   : " + days_data);
+            */
+
+            addHabit(newName, selectedValue, howOftenNum, everyChoice, everyNum, isSwitch, timeHour, timeMinutes);
+        }
     }
 
     protected void addHabit(String name, String value, Integer freq, String period, Integer meas, boolean reminder, Integer remH, Integer remM){
@@ -187,12 +206,12 @@ public class NewHabitActivity extends AppCompatActivity {
             }
             String measurement = meas.toString();
             // Create a new Habit and HabitValue
-            Habit newHabit = new Habit(name, period, freq, measurement, reminder, remH, remH, days);
+            Habit newHabit = new Habit(name, period, freq, measurement, reminder, remH, remM, days);
             mThriveViewModel.insert(newHabit);
             HabitValue newHabitValue = new HabitValue();
             newHabitValue.setHabitName(name);
             newHabitValue.setValueName(value);
-            //mThriveViewModel.insert(newHabitValue);
+            mThriveViewModel.insert(newHabitValue);
             Toast.makeText(getApplicationContext(),
                     "New Habit: " + name + " added." ,
                     Toast.LENGTH_LONG).show();
