@@ -32,7 +32,7 @@ public class StartOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to values activity page
-                Intent intent = new Intent(StartOnboarding.this, StoryOneOnboarding.class);
+                Intent intent = new Intent(StartOnboarding.this, ValuesStoryOnboarding.class);
                 startActivity(intent);
             }
         });

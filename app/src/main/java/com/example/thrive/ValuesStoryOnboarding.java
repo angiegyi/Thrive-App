@@ -1,4 +1,4 @@
 package com.example.thrive;
 
-public class StoryOneOnboarding {
+public class ValuesStoryOnboarding {
 }
