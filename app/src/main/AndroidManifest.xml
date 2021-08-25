@@ -37,6 +37,14 @@
 
         <activity
             android:name=".NewHabitActivity"/>
+        <activity
+            android:name=".StartOnboarding"/>
+        <activity
+            android:name=".ValuesStoryOnboarding"/>
+        <activity
+            android:name=".ValuesViewOnboarding"/>
+        <activity
+            android:name=".ValuesInsertOnboarding"/>
 
     </application>
 
