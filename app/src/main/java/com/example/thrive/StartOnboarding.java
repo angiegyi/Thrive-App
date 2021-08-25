@@ -16,22 +16,22 @@ public class StartOnboarding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Take from values xml
+        // Take from onboarding xml
         setContentView(R.layout.onboarding_story_start);
 
-        // Init floating action button
+        // Init next button
         initNext();
     }
 
 
-    // Initialising action button to new value page
+    // Initialising next button to values story page
     private void initNext(){
         nextButton = findViewById(R.id.next_button);
-        // If fab button is clicked, the add values activity is shown
+        // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //Move to values activity page
+                //Move to the values story page
                 Intent intent = new Intent(StartOnboarding.this, ValuesStoryOnboarding.class);
                 startActivity(intent);
             }
