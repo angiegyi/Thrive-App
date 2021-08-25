@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Value;
-import com.example.thrive.Database.entities.Value_Category;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -121,7 +120,7 @@ public class NewValueActivity extends AppCompatActivity{
                 // tvm.insert(valCat);
 
                 //Move to values activity page
-                Intent intent = new Intent(NewValueActivity.this, valuesActivity.class);
+                Intent intent = new Intent(NewValueActivity.this, ValuesActivity.class);
                 startActivity(intent);
             }
         });

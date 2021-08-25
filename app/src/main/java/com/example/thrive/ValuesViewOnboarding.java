@@ -26,7 +26,7 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     Button nextButton;
     ListView displayList;
     ThriveViewModel tvm;
-    ArrayList<String> valuesList = new ArrayList<>();
+    ArrayList<String> valuesListOut = new ArrayList<>();
 
     // Initialisation
     @Override
@@ -48,7 +48,7 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     }
 
     private void initList(){
-        displayList = findViewById(R.id.valuesList);
+        displayList = findViewById(R.id.valuesList2);
 
         tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
         tvm.getAllValues().observe(this, valData -> {
@@ -57,14 +57,14 @@ public class ValuesViewOnboarding extends AppCompatActivity {
             for (Object obj : valData){
                 // add each value to the arraylist
                 try {
-                    valuesList.add(objectToJSONObject(obj).getString("name"));
+                    valuesListOut.add(objectToJSONObject(obj).getString("name"));
                 }
                 catch (JSONException e){
                     e.printStackTrace();
                 }
             }
 
-            ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, valuesList.toArray());
+            ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, valuesListOut.toArray());
 
             displayList.setAdapter(adapter);
             adapter.notifyDataSetChanged();

@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thrive.Database.ThriveViewModel;
-import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.Value;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -22,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;
 
-public class valuesActivity extends AppCompatActivity {
+public class ValuesActivity extends AppCompatActivity {
     FloatingActionButton fab;
     ListView displayList;
     ThriveViewModel tvm;
@@ -102,7 +101,7 @@ public class valuesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to values activity page
-                Intent intent = new Intent(valuesActivity.this, StartOnboarding.class);
+                Intent intent = new Intent(ValuesActivity.this, NewValueActivity.class);
                 startActivity(intent);
             }
         });

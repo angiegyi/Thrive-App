@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toValuesPage(View view){
-        startActivity(new Intent(MainActivity.this, valuesActivity.class));
+        startActivity(new Intent(MainActivity.this, ValuesActivity.class));
     }
 
     public void toObstaclesPage(View view){

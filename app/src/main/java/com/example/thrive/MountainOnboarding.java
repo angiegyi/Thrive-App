@@ -27,6 +27,6 @@ public class MountainOnboarding extends AppCompatActivity {
     }
 
     public void toNextPage(View view){
-        startActivity(new Intent(com.example.thrive.MountainOnboarding.this, valuesActivity.class));
+        startActivity(new Intent(com.example.thrive.MountainOnboarding.this, ValuesActivity.class));
     }
 }
