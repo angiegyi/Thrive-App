@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         editor = sp.edit();
         editor.putString("mood", "none");
         editor.apply();
-        createNewCheckInDialog();
+        // createNewCheckInDialog(); // Uncomment this for the Mood Tracker
     }
 
     @Override
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onStart();
 //        createNewCheckInDialog();
-        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
+//        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
     }
 
     public void toValuesPage(View view){

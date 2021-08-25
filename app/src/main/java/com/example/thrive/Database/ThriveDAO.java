@@ -52,6 +52,8 @@ public interface ThriveDAO {
     @Query("SELECT * FROM HABIT_VALUE")
     LiveData<List<HabitValue>> getAllHabitValues();
 
+    @Query("SELECT * FROM MOOD WHERE mood_isPositive = :value")
+    LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value);
 
     /*
     INSERT INTO DB

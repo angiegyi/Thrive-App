@@ -147,9 +147,9 @@ public class NewHabitActivity extends AppCompatActivity {
     protected void onClickNewHabit(){
         boolean nameIsEmpty = TextUtils.isEmpty(habitNameInput.getText());
         boolean valuesIsEmpty = TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText());
-        boolean everyNumIsEmpty = TextUtils.isEmpty(everyInput.getText().toString());
+        boolean everyNumIsEmpty = (TextUtils.isEmpty(everyInput.getText().toString()) || Integer.parseInt(everyInput.getText().toString()) < 1);
         boolean everyChoiceIsEmpty = TextUtils.isEmpty(everyMenuInput.getText().toString());
-        boolean howOftenIsEmpty = TextUtils.isEmpty(howOftenInput.getText().toString());
+        boolean howOftenIsEmpty = (TextUtils.isEmpty(howOftenInput.getText().toString()) || Integer.parseInt(howOftenInput.getText().toString()) < 1);
 
         if (nameIsEmpty || valuesIsEmpty || everyNumIsEmpty || everyChoiceIsEmpty || howOftenIsEmpty){
             if (nameIsEmpty)
@@ -157,11 +157,11 @@ public class NewHabitActivity extends AppCompatActivity {
             if(valuesIsEmpty)
                 valuesTextInputLayout.setError("Related value is required!");
             if(everyNumIsEmpty)
-                everyInput.setError("Fill in with a number");
+                everyInput.setError("Fill in with a number starting from 1");
             if(everyChoiceIsEmpty)
                 everyMenuInput.setError("Choose one of the option");
             if(howOftenIsEmpty)
-                howOftenInput.setError("Fill in with a number");
+                howOftenInput.setError("Fill in with a number starting from 1");
             Toast.makeText(getApplicationContext(), "You need to complete the empty fields",
                     Toast.LENGTH_LONG).show();
         }

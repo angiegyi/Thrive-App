@@ -99,7 +99,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:ems="5"
-                            android:inputType="numberSigned" />
+                            android:inputType="numberSigned"
+                            android:digits="0123456789"/>
 
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/everyMenuText"
@@ -134,7 +135,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:ems="5"
-                            android:inputType="numberSigned" />
+                            android:inputType="numberSigned"
+                            android:digits="0123456789"/>
 
                         <TextView
                             android:id="@+id/textView9"
