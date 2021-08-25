@@ -1,6 +1,8 @@
 package com.example.thrive;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,6 +29,8 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     ListView displayList;
     ThriveViewModel tvm;
     ArrayList<String> valuesListOut = new ArrayList<>();
+    SharedPreferences sp;
+    String SHARED_PREFERENCE_NAME;
 
     // Initialisation
     @Override
@@ -44,6 +48,22 @@ public class ValuesViewOnboarding extends AppCompatActivity {
 
         // Init all values
         initList();
+
+        // Flag onboarded
+        setAsOnboarded();
+
+    }
+
+    // Setting that the user has been onboarded
+    private void setAsOnboarded(){
+
+        SHARED_PREFERENCE_NAME ="MyUserPrefs";
+        tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
+        sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor;
+        editor = sp.edit();
+        editor.putBoolean("onboarded", true);
+        editor.apply();
 
     }
 

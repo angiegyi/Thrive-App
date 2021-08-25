@@ -3,7 +3,9 @@ package com.example.thrive;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -50,7 +52,9 @@ public class NewValueActivity extends AppCompatActivity{
 
         // Initialise create value button
         initCreateButton();
+
     }
+
 
     // Initialising the drop down box with categories
     private void initDropDown(){

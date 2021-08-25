@@ -48,14 +48,36 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("mood", "none");
         editor.apply();
         // createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+
+        // initialising for onboarding
+        editor = sp.edit();
+        editor.putBoolean("onboarded", false);
+        editor.apply();
     }
 
     @Override
     protected void onStart()
     {
         super.onStart();
+
+        if (!checkOnboarding()) {
+            startActivity(new Intent(MainActivity.this, StartOnboarding.class));
+        }
 //        createNewCheckInDialog();
 //        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        SHARED_PREFERENCE_NAME ="MyUserPrefs";
+        mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
+        sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor;
+        editor = sp.edit();
+        editor.putBoolean("onboarded", true);
+        editor.apply();
     }
 
     public void toValuesPage(View view){
@@ -76,6 +98,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void toHooksPage(View view){
         startActivity(new Intent(MainActivity.this, HookBehaviours.class));
+    }
+
+    public boolean checkOnboarding(){
+
+        // Get onboarding status
+        sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        return get_data.getBoolean("onboarded", true);
     }
 
     public void createNewCheckInDialog(){
