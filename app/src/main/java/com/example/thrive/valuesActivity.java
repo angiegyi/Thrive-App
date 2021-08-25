@@ -102,7 +102,7 @@ public class valuesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to values activity page
-                Intent intent = new Intent(valuesActivity.this, NewValueActivity.class);
+                Intent intent = new Intent(valuesActivity.this, StartOnboarding.class);
                 startActivity(intent);
             }
         });
