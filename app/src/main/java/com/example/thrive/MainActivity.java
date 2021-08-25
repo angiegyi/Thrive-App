@@ -48,30 +48,26 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("mood", "none");
         editor.apply();
         // createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+        startOnBoarding();
+    }
 
-        // initialising for onboarding
-        editor = sp.edit();
-        editor.putBoolean("onboarded", false);
-        editor.apply();
+    public void startOnBoarding(){
+        SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        boolean onboarded = get_data.getBoolean("onboarded", false);
+        if(!onboarded){
+            startActivity(new Intent(MainActivity.this, StartOnboarding.class));
+        }
     }
 
     @Override
     protected void onStart()
     {
         super.onStart();
-
-        if (!checkOnboarding()) {
-            startActivity(new Intent(MainActivity.this, StartOnboarding.class));
-        }
-//        createNewCheckInDialog();
-//        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
-        SHARED_PREFERENCE_NAME ="MyUserPrefs";
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor;
@@ -103,9 +99,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean checkOnboarding(){
 
         // Get onboarding status
-        sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
-        return get_data.getBoolean("onboarded", true);
+        boolean onboarded = get_data.getBoolean("onboarded", false);
+        return onboarded;
     }
 
     public void createNewCheckInDialog(){
