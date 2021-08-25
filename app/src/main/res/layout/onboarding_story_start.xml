@@ -27,6 +27,7 @@
             android:paddingRight="0dp"
             android:paddingBottom="10dp"
             android:text="Let's begin our journey to build your Thrive island"
+            android:textAlignment="center"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
