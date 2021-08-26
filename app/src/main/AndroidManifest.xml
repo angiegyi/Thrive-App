@@ -24,7 +24,7 @@
         <activity android:name=".NewHookActivity"/>
         <activity android:name=".BoatOnboarding"/>
         <activity
-            android:name=".valuesActivity"/>
+            android:name=".ValuesActivity"/>
         <activity
             android:name=".NewValueActivity"/>
 

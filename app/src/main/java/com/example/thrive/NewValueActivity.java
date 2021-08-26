@@ -3,7 +3,9 @@ package com.example.thrive;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -12,7 +14,6 @@ import android.widget.Button;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Value;
-import com.example.thrive.Database.entities.Value_Category;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -51,7 +52,9 @@ public class NewValueActivity extends AppCompatActivity{
 
         // Initialise create value button
         initCreateButton();
+
     }
+
 
     // Initialising the drop down box with categories
     private void initDropDown(){
@@ -121,7 +124,7 @@ public class NewValueActivity extends AppCompatActivity{
                 // tvm.insert(valCat);
 
                 //Move to values activity page
-                Intent intent = new Intent(NewValueActivity.this, valuesActivity.class);
+                Intent intent = new Intent(NewValueActivity.this, ValuesActivity.class);
                 startActivity(intent);
             }
         });

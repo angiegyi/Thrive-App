@@ -1,6 +1,8 @@
 package com.example.thrive;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -26,7 +28,9 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     Button nextButton;
     ListView displayList;
     ThriveViewModel tvm;
-    ArrayList<String> valuesList = new ArrayList<>();
+    ArrayList<String> valuesListOut = new ArrayList<>();
+    SharedPreferences sp;
+    String SHARED_PREFERENCE_NAME;
 
     // Initialisation
     @Override
@@ -48,7 +52,7 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     }
 
     private void initList(){
-        displayList = findViewById(R.id.valuesList);
+        displayList = findViewById(R.id.valuesList2);
 
         tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
         tvm.getAllValues().observe(this, valData -> {
@@ -57,14 +61,14 @@ public class ValuesViewOnboarding extends AppCompatActivity {
             for (Object obj : valData){
                 // add each value to the arraylist
                 try {
-                    valuesList.add(objectToJSONObject(obj).getString("name"));
+                    valuesListOut.add(objectToJSONObject(obj).getString("name"));
                 }
                 catch (JSONException e){
                     e.printStackTrace();
                 }
             }
 
-            ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, valuesList.toArray());
+            ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, valuesListOut.toArray());
 
             displayList.setAdapter(adapter);
             adapter.notifyDataSetChanged();
@@ -101,7 +105,7 @@ public class ValuesViewOnboarding extends AppCompatActivity {
 
     // Initialising next button to the next page
     private void initNext(){
-        nextButton = findViewById(R.id.next_button);
+        nextButton = findViewById(R.id.next_button_vi);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override

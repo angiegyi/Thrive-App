@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -49,18 +48,36 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("mood", "none");
         editor.apply();
         // createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+        startOnBoarding();
+    }
+
+    public void startOnBoarding(){
+        SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        boolean onboarded = get_data.getBoolean("onboarded", false);
+        if(!onboarded){
+            startActivity(new Intent(MainActivity.this, StartOnboarding.class));
+        }
     }
 
     @Override
     protected void onStart()
     {
         super.onStart();
-//        createNewCheckInDialog();
-//        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
+        sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor;
+        editor = sp.edit();
+        editor.putBoolean("onboarded", true);
+        editor.apply();
     }
 
     public void toValuesPage(View view){
-        startActivity(new Intent(MainActivity.this, valuesActivity.class));
+        startActivity(new Intent(MainActivity.this, ValuesActivity.class));
     }
 
     public void toObstaclesPage(View view){
@@ -77,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void toHooksPage(View view){
         startActivity(new Intent(MainActivity.this, HookBehaviours.class));
+    }
+
+    public boolean checkOnboarding(){
+
+        // Get onboarding status
+        SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        boolean onboarded = get_data.getBoolean("onboarded", false);
+        return onboarded;
     }
 
     public void createNewCheckInDialog(){
