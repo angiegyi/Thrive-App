@@ -74,7 +74,7 @@
                 android:text="Take some time now to think about what behaviours you would have if you lived in line with your values, and how you could implement them now.\n" />
 
             <Button
-                android:id="@+id/next_button"
+                android:id="@+id/next_button_habits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="I'm ready to continue"

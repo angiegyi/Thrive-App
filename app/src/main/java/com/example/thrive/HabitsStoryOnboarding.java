@@ -7,7 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ValuesStoryOnboarding extends AppCompatActivity {
+public class HabitsStoryOnboarding extends AppCompatActivity {
+
     Button nextButton;
 
     // Initialisation
@@ -15,27 +16,26 @@ public class ValuesStoryOnboarding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Take from values story xml
-        setContentView(R.layout.onboarding_story_values);
+        // Take from habits story xml
+        setContentView(R.layout.onboarding_story_habits);
 
         // Init next button
-        initNext();
+        // initNext();
     }
 
 
-    // Initialising next button to values insert page
+    // Initialising next button to habits insert
     private void initNext(){
-        nextButton = findViewById(R.id.next_button_vs);
+        nextButton = findViewById(R.id.next_button_habits);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //Move to the values insert page
-                Intent intent = new Intent(ValuesStoryOnboarding.this, ValuesViewOnboarding.class);
+                //Move to the next page
+                Intent intent = new Intent(HabitsStoryOnboarding.this, MainActivity.class);
                 startActivity(intent);
             }
         });
     }
-
 
 }

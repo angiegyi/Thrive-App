@@ -105,7 +105,7 @@ public class ValuesViewOnboarding extends AppCompatActivity {
 
     // Initialising next button to the next page
     private void initNext(){
-        nextButton = findViewById(R.id.next_button);
+        nextButton = findViewById(R.id.next_button_vi);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
