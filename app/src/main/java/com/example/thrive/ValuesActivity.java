@@ -43,7 +43,7 @@ public class ValuesActivity extends AppCompatActivity {
         initList();
 
         // add dummy values
-        dummyValues();
+        // dummyValues();
     }
 
     private void dummyValues(){
