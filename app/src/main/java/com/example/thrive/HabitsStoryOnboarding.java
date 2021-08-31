@@ -20,7 +20,7 @@ public class HabitsStoryOnboarding extends AppCompatActivity {
         setContentView(R.layout.onboarding_story_habits);
 
         // Init next button
-        // initNext();
+        initNext();
     }
 
 
@@ -32,7 +32,7 @@ public class HabitsStoryOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(HabitsStoryOnboarding.this, MainActivity.class);
+                Intent intent = new Intent(HabitsStoryOnboarding.this, StoryEndOnboarding.class);
                 startActivity(intent);
             }
         });

@@ -111,7 +111,7 @@ public class ValuesViewOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(ValuesViewOnboarding.this, MainActivity.class);
+                Intent intent = new Intent(ValuesViewOnboarding.this, HabitsStoryOnboarding.class);
                 startActivity(intent);
             }
         });

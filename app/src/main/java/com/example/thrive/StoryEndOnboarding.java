@@ -19,7 +19,7 @@ public class StoryEndOnboarding extends AppCompatActivity {
         setContentView(R.layout.onboarding_story_end);
 
         // Init next button
-        // initNext();
+        initNext();
     }
 
 
