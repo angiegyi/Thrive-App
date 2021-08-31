@@ -81,5 +81,10 @@ public class HookBehaviours extends AppCompatActivity {
         fab.setOnClickListener(view -> startActivity(new Intent(HookBehaviours.this, NewHookActivity.class)));
     }
 
-
+    @Override
+    public void onBackPressed()
+    {
+        startActivity(new Intent(HookBehaviours.this, MainActivity.class));
+        finish();
+    }
 }

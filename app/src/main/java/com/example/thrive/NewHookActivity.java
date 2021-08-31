@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -15,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Hook;
-import com.example.thrive.Database.entities.Obstacle_value;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -75,12 +73,7 @@ public class NewHookActivity extends AppCompatActivity {
 
         // button
         newHook = findViewById(R.id.createHookButton);
-        newHook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onClickListener();
-            }
-        });
+        newHook.setOnClickListener(view -> onClickListener());
     }
 
     public static JSONObject objectToJSONObject(Object object){
@@ -126,5 +119,4 @@ public class NewHookActivity extends AppCompatActivity {
             Log.i("RESPONSE", e.toString());
         }
     }
-
 }
