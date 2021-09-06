@@ -115,17 +115,27 @@ public class NewValueActivity extends AppCompatActivity{
                 newValue = inputValue.getEditableText().toString();
                 newCat = inputCat.getEditText().getText().toString();
 
-                // Creating value object
-                Value val = new Value(newValue, newCat);
-                tvm.insert(val);
-                // Inserting the value category
-                // Value_Category valCat = new Value_Category(newCat);
-                // Need way to add category value
-                // tvm.insert(valCat);
+                if (newValue.matches("") || newCat.matches("")) {
+                    if (newValue.matches("")) {
+                        inputValue.setError("Enter value name");
+                    }
+                    if (newCat.matches("")) {
+                        inputCat.setError("Enter related category");
+                    }
+                }
+                else {
+                    // Creating value object
+                    Value val = new Value(newValue, newCat);
+                    tvm.insert(val);
+                    // Inserting the value category
+                    // Value_Category valCat = new Value_Category(newCat);
+                    // Need way to add category value
+                    // tvm.insert(valCat);
 
-                //Move to values activity page
-                Intent intent = new Intent(NewValueActivity.this, ValuesActivity.class);
-                startActivity(intent);
+                    //Move to values activity page
+                    Intent intent = new Intent(NewValueActivity.this, ValuesActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
