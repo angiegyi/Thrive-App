@@ -129,7 +129,6 @@ public class NewObstacleActivity extends AppCompatActivity {
      */
     @SuppressLint("NewApi")
     public void onCLickHandler(){
-
         if (TextUtils.isEmpty(obstacleTitleEditText.getText()) || TextUtils.isEmpty(obstacleDescEditText.getText()) || TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())) {
             // Error checking for title
             if (TextUtils.isEmpty(obstacleTitleEditText.getText())) {

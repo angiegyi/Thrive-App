@@ -86,5 +86,12 @@ public class ObstaclesActivity extends AppCompatActivity {
         // If fab button is clicked, the add obstacle activity is shown
         fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, NewObstacleActivity.class)));
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        startActivity(new Intent(ObstaclesActivity.this, MainActivity.class));
+        finish();
+    }
 }
 
