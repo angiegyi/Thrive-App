@@ -55,9 +55,12 @@
         <entry key="app/src/main/res/layout/onboarding_story_1.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/onboarding_story_end.xml" value="0.25" />
         <entry key="app/src/main/res/layout/onboarding_story_habits.xml" value="0.3548677389714729" />
+        <entry key="app/src/main/res/layout/onboarding_story_obstacles.xml" value="0.10914855072463768" />
         <entry key="app/src/main/res/layout/onboarding_story_start.xml" value="0.32348347854672976" />
         <entry key="app/src/main/res/layout/onboarding_story_values.xml" value="0.35249347409210086" />
         <entry key="app/src/main/res/layout/onboarding_sun.xml" value="0.15653249011493103" />
+        <entry key="app/src/main/res/layout/onboarding_view_habits.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/onboarding_view_obstacles.xml" value="0.165" />
         <entry key="app/src/main/res/layout/value_item.xml" value="0.14990942028985507" />
         <entry key="app/src/main/res/layout/values.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_hooks.xml" value="0.15070921985815602" />

@@ -1,6 +1,5 @@
 package com.example.thrive;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -38,7 +37,7 @@ public class ValuesViewOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Take from values xml
-        setContentView(R.layout.onboarding_insert_values);
+        setContentView(R.layout.onboarding_view_values);
 
         // Init add values button
         initAddValues();
