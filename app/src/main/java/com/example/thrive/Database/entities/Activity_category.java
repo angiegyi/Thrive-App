@@ -12,12 +12,10 @@ import com.example.thrive.Database.entities.Activity;
 })
 public class Activity_category {
 
-    //@ForeignKey(entity = activity.class, parentColumns = "activityName", childColumns = "activityName")
     @ColumnInfo(name = "activity_name")
     @NonNull
     private String activityName;
 
-    //@ForeignKey(entity = category.class, parentColumns = "categoryName", childColumns = "categoryName")
     @ColumnInfo(name = "category_name")
     @NonNull
     private String categoryName;

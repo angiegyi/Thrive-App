@@ -13,15 +13,18 @@ public class Activity {
     @NonNull
     private String activityName;
 
-
     @ColumnInfo(name = "activityDescription")
     private String activityDescription;
 
-    @ColumnInfo(name = "activityRating")
-    private String activityRating;
+    @ColumnInfo(name = "activityRating", defaultValue = "5")
+    private int activityRating;
 
     @ColumnInfo(name = "notifyFrequency", defaultValue = "0")
     private int frequency;
+
+    public Activity(String activityName) {
+        this.activityName = activityName;
+    }
 
     public String getActivityName() {
         return activityName;
@@ -39,11 +42,11 @@ public class Activity {
         this.activityDescription = activityDescription;
     }
 
-    public String getActivityRating() {
+    public int getActivityRating() {
         return activityRating;
     }
 
-    public void setActivityRating(String activityRating) {
+    public void setActivityRating(int activityRating) {
         this.activityRating = activityRating;
     }
 
