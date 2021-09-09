@@ -12,11 +12,11 @@
         android:layout_width="430dp"
         android:layout_height="505dp"
         android:layout_marginTop="4dp"
-        android:onClick="toHooksPage"
         android:background="@android:color/transparent"
+        android:onClick="toHooksPage"
         app:layout_constraintBottom_toTopOf="@+id/lake2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread" />
@@ -107,6 +107,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.573" />
+
+    <Button
+        android:id="@+id/helpButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="62dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="helpButtonCallback"
+        app:icon="@android:drawable/ic_menu_info_details"
+        app:iconTint="#323339"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#000000" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

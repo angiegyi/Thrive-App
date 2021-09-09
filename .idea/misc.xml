@@ -38,7 +38,7 @@
         <entry key="..\:/Users/angel/StudioProjects/Thrive-App/app/src/main/res/layout/view_hooks.xml" value="0.30434782608695654" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23242105263157894" />
         <entry key="app/src/main/res/layout/boat.xml" value="0.14990942028985507" />
         <entry key="app/src/main/res/layout/boat_onboarding.xml" value="0.375" />
         <entry key="app/src/main/res/layout/check_in_pop_up.xml" value="0.15070921985815602" />
@@ -56,7 +56,7 @@
         <entry key="app/src/main/res/layout/onboarding_insert_values.xml" value="0.3492063492063492" />
         <entry key="app/src/main/res/layout/onboarding_mountain.xml" value="0.335" />
         <entry key="app/src/main/res/layout/onboarding_story_1.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/onboarding_story_end.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/onboarding_story_end.xml" value="0.5566706798412816" />
         <entry key="app/src/main/res/layout/onboarding_story_habits.xml" value="0.3548677389714729" />
         <entry key="app/src/main/res/layout/onboarding_story_start.xml" value="0.32348347854672976" />
         <entry key="app/src/main/res/layout/onboarding_story_values.xml" value="0.35249347409210086" />

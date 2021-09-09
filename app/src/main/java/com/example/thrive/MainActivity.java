@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void helpButtonCallback(){
+        startActivity(new Intent(MainActivity.this, SunOnboarding.class));
+    }
+
+
     @Override
     protected void onStart()
     {
