@@ -25,7 +25,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
-        android:text="What gets in your way when you try to achieve things?"
+        android:text="What behaviours are associated with the obstacles?"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"

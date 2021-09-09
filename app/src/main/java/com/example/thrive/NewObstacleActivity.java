@@ -152,7 +152,7 @@ public class NewObstacleActivity extends AppCompatActivity {
             newDescription = obstacleDescEditText.getEditableText().toString();
             selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
 
-            addObstacle(selectedValue, importance);
+            addObstacle(selectedValue);
             startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
         }
     }
@@ -202,10 +202,9 @@ public class NewObstacleActivity extends AppCompatActivity {
 
     /**
      * This method handles adding a new obstacle in the database.
-     * @param value name of the related value from dropdown
-     * @param importance the int representing the importance of the obstacle.
+     * @param value name of the related value from dropdow.
      */
-    public void addObstacle(String value, Integer importance){
+    public void addObstacle(String value){
         try {
             Obstacle obs1 = new Obstacle(newTitle, newDescription, timeHour == null, timeHour, timeMinutes, Integer.parseInt(days_data));
             mThriveViewModel.insert(obs1);
