@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -32,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
     ThriveViewModel mThriveViewModel;
     SharedPreferences sp;
     String SHARED_PREFERENCE_NAME;
+    private Button help_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Thrive Island");
 
         // add some conditional statement to check if we need to do start onboarding
 
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
         // createNewCheckInDialog(); // Uncomment this for the Mood Tracker
         startOnBoarding();
+        help_button = findViewById(R.id.helpButton);
+        help_button.setOnClickListener(view -> helpButtonCallback());
+
     }
 
     public void startOnBoarding(){

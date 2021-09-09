@@ -31,6 +31,7 @@ public class HookBehaviours extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_hooks);
+        setTitle("Hook Behaviours");
         initData();
         initFab();
     }

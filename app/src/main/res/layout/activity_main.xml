@@ -35,8 +35,8 @@
 
     <Button
         android:id="@+id/boat2"
-        android:layout_width="139dp"
-        android:layout_height="65dp"
+        android:layout_width="127dp"
+        android:layout_height="58dp"
         android:layout_marginBottom="104dp"
         android:background="@android:color/transparent"
         android:backgroundTint="#755757"
@@ -115,12 +115,11 @@
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:onClick="helpButtonCallback"
         app:icon="@android:drawable/ic_menu_info_details"
-        app:iconTint="#323339"
+        app:iconTint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="#000000" />
+        app:strokeColor="#F6F3F3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

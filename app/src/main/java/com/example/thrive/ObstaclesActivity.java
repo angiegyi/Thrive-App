@@ -29,13 +29,13 @@ public class ObstaclesActivity extends AppCompatActivity {
     ListView list;
     ArrayList<String> objects = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.obstacles);
         initFab();
         initData();
+        setTitle("My Obstacles");
     }
 
     /**

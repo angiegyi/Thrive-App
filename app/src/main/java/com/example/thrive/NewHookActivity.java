@@ -47,6 +47,7 @@ public class NewHookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_hook);
+        setTitle("New Hook");
 
         // Hook Title
         hookTitleTextLayout = findViewById(R.id.hookTitleEditLayout);
