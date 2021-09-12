@@ -49,6 +49,10 @@
             android:name=".HabitsStoryOnboarding"/>
         <activity
             android:name=".StoryEndOnboarding"/>
+        <activity
+            android:name=".HabitsViewOnboarding"/>
+        <activity
+            android:name=".HabitsInsertOnboarding"/>
 
     </application>
 
