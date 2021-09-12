@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -36,7 +35,7 @@ public class HabitsViewOnboarding extends AppCompatActivity {
         setContentView(R.layout.onboarding_view_habits);
 
         // Init add values button
-        initAddValues();
+        initAddHabits();
 
         // Init next button
         initNext();
@@ -63,14 +62,14 @@ public class HabitsViewOnboarding extends AppCompatActivity {
     }
 
     // Initialising next button to values insert page
-    private void initAddValues(){
+    private void initAddHabits(){
         addHabitsButton = findViewById(R.id.add_habits_button);
         // If button is clicked
         addHabitsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(HabitsViewOnboarding.this, StoryEndOnboarding.class);
+                Intent intent = new Intent(HabitsViewOnboarding.this, HabitsInsertOnboarding.class);
                 startActivity(intent);
             }
         });

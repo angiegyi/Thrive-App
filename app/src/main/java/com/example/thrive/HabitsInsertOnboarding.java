@@ -38,7 +38,6 @@ import java.util.Map;
 
 public class HabitsInsertOnboarding extends AppCompatActivity {
 
-
     // DB Model
     ThriveViewModel mThriveViewModel;
 
@@ -220,7 +219,7 @@ public class HabitsInsertOnboarding extends AppCompatActivity {
             Log.i("RESPONSE", e.toString());
         }
         // Return to Habit Page
-        startActivity(new Intent(NewHabitActivity.this, HabitActivity.class));
+        startActivity(new Intent(HabitsInsertOnboarding.this, HabitsViewOnboarding.class));
     }
 
     public static JSONObject objectToJSONObject(Object object){
@@ -257,7 +256,5 @@ public class HabitsInsertOnboarding extends AppCompatActivity {
             days_data += checkBoxObjects.get(findViewById(box.getId()));
         }
     }
-
-
 
 }
