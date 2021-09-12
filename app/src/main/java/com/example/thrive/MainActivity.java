@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -16,13 +17,16 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.thrive.CheckIn.Recommendation;
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Activity;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Mood;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         editor = sp.edit();
         editor.putString("mood", "none");
         editor.apply();
-        // createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+        createNewCheckInDialog(); // Uncomment this for the Mood Tracker
         startOnBoarding();
     }
 
@@ -231,6 +235,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                     checkIn.setMood(relatedMood);
                     mThriveViewModel.insert(checkIn);
+                    Recommendation rec = new Recommendation(relatedMood, mThriveViewModel);
+                    rec.getRecommendation();
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Please choose a related mood", Toast.LENGTH_LONG).show();
                 }

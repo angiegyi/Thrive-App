@@ -118,7 +118,7 @@ public abstract class ThriveDatabase extends RoomDatabase {
                                 db.insert("activity", 1, values4);
                             }
                             for(int i = 0; i < positive_moods.length; i++){
-                                for(int j = 0; j < activities.length; j++){
+                                for(int j = 0; j < (activities.length); j++){
                                     values4.put("mood_name", positive_moods[i]);
                                     values4.put("activity_name", activities[j]);
                                     values4.put("strength", listsOfStrengthsPositive.get(i)[j]);
@@ -141,7 +141,7 @@ public abstract class ThriveDatabase extends RoomDatabase {
                         }
                     };
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ThriveDatabase.class, THRIVE_DATABASE_NAME).addCallback(rdc)
+                            ThriveDatabase.class, THRIVE_DATABASE_NAME).addCallback(rdc).allowMainThreadQueries()
                             .build();
 
                 }

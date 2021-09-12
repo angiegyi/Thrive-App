@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.thrive.Database.entities.Activity;
+import com.example.thrive.Database.entities.ActivityMood;
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
@@ -60,6 +62,9 @@ public class ThriveRepository {
     LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mThriveDAO.getAllPositiveOrNegativeMoods(value);};
     LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     LiveData<List<HabitValue>> getAllHabitValues(){return mAllHabitValues;}
+    List<Activity> findActivityByMoodName(String mood){return mThriveDAO.findActivityByMoodName(mood);}
+    List<ActivityMood> getMoodAndActivity(String mood){return mThriveDAO.getMoodAndActivity(mood);}
+
 
     /*
     INSERT INTO DB
