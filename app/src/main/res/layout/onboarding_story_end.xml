@@ -50,7 +50,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:textAlignment="center"
-            android:text="Let's walk through some of the key elements."
+            android:text="Thank you for taking the time to step through your values and obstacles.\n Now let's walk through some of the key elements of your island!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

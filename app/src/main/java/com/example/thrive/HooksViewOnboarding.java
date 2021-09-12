@@ -91,7 +91,7 @@ public class HooksViewOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(HooksViewOnboarding.this, StoryEndOnboarding.class);
+                Intent intent = new Intent(HooksViewOnboarding.this, HooksInsertOnboarding.class);
                 startActivity(intent);
             }
         });
