@@ -74,7 +74,7 @@
                 android:text="Take some time now to write down what negative behaviours throughout the day have prevented you from living your life in pursuit of your values.\n" />
 
             <Button
-                android:id="@+id/next_button_obstacles"
+                android:id="@+id/next_button_os"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="I'm ready to continue"

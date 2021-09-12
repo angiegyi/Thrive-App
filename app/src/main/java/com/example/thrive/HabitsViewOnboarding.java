@@ -83,7 +83,7 @@ public class HabitsViewOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(HabitsViewOnboarding.this, StoryEndOnboarding.class);
+                Intent intent = new Intent(HabitsViewOnboarding.this, ObstaclesStoryOnboarding.class);
                 startActivity(intent);
             }
         });
