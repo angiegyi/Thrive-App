@@ -23,7 +23,7 @@ public class HabitsViewOnboarding extends AppCompatActivity {
     ThriveViewModel tvm;
     RecyclerView habitRecyclerView;
     RecyclerView.LayoutManager layoutManager;
-    HabitRecyclerAdapter habitAdapter;
+    HabitRecyclerAdapterOnboarding habitAdapter;
     ArrayList<Habit> habitsListOut = new ArrayList<>();
 
     // Initialisation
@@ -49,7 +49,7 @@ public class HabitsViewOnboarding extends AppCompatActivity {
 
     private void initList(){
         tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
-        habitAdapter = new HabitRecyclerAdapter(tvm, getApplicationContext());
+        habitAdapter = new HabitRecyclerAdapterOnboarding(tvm, getApplicationContext());
         tvm.getAllHabits().observe(this, newData -> {
             for (Habit obj : newData) {
                 if (obj != null){
