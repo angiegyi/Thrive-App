@@ -49,7 +49,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/heroes_image"
+                android:id="@+id/obstacles_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
@@ -71,10 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="Take some time now to think about what negative behaviours throughout the day stop you from living your life in line with your values.\n" />
+                android:text="Take some time now to write down what negative behaviours throughout the day have prevented you from living your life in pursuit of your values.\n" />
 
             <Button
-                android:id="@+id/next_button_habits"
+                android:id="@+id/next_button_obstacles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="I'm ready to continue"
