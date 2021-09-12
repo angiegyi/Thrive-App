@@ -61,6 +61,8 @@
             android:name=".ObstaclesInsertOnboarding"/>
         <activity
             android:name=".HooksStoryOnboarding"/>
+        <activity
+            android:name=".HooksViewOnboarding"/>
 
     </application>
 

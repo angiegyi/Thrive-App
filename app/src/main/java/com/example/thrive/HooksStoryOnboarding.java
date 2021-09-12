@@ -32,7 +32,7 @@ public class HooksStoryOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(HooksStoryOnboarding.this, StoryEndOnboarding.class);
+                Intent intent = new Intent(HooksStoryOnboarding.this, HooksViewOnboarding.class);
                 startActivity(intent);
             }
         });

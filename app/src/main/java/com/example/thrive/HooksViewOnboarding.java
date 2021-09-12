@@ -20,14 +20,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ObstaclesViewOnboarding extends AppCompatActivity {
+public class HooksViewOnboarding extends AppCompatActivity {
 
-    Button addObstaclesButton;
+    Button addHooksButton;
     Button nextButton;
     ListView displayList;
     ThriveViewModel tvm;
     ArrayAdapter adapter;
-    ArrayList<String> obstaclesListOut = new ArrayList<>();
+    ArrayList<String> hooksListOut = new ArrayList<>();
 
     // Initialisation
     @Override
@@ -35,10 +35,10 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Take from values xml
-        setContentView(R.layout.onboarding_view_obstacles);
+        setContentView(R.layout.onboarding_view_hooks);
 
         // Init add values button
-        initAddObstacles();
+        initAddHooks();
 
         // Init next button
         initNext();
@@ -49,20 +49,21 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
     }
 
     private void initList(){
-        displayList = findViewById(R.id.obstaclesOnboardList);
+        displayList = findViewById(R.id.hooksOnboardList);
+
         tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
-        tvm.getAllObstacles().observe(this, newData -> {
+        tvm.getAllHooks().observe(this, newData -> {
             for (Object obj : newData) {
                 if (obj != null){
                     try {
-                        obstaclesListOut.add(objectToJSONObject(obj).getString("obstacleName"));
+                        hooksListOut.add(objectToJSONObject(obj).getString("hook_behaviour"));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
             }
             adapter = new ArrayAdapter(this,
-                    android.R.layout.simple_list_item_1, obstaclesListOut.toArray());
+                    android.R.layout.simple_list_item_1, hooksListOut.toArray());
             displayList.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         });
@@ -83,14 +84,14 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
     }
 
     // Initialising next button to values insert page
-    private void initAddObstacles(){
-        addObstaclesButton = findViewById(R.id.add_obstacles_button);
+    private void initAddHooks(){
+        addHooksButton = findViewById(R.id.add_hooks_button);
         // If button is clicked
-        addObstaclesButton.setOnClickListener(new View.OnClickListener(){
+        addHooksButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(ObstaclesViewOnboarding.this, ObstaclesInsertOnboarding.class);
+                Intent intent = new Intent(HooksViewOnboarding.this, StoryEndOnboarding.class);
                 startActivity(intent);
             }
         });
@@ -98,13 +99,13 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
 
     // Initialising next button to the next page
     private void initNext(){
-        nextButton = findViewById(R.id.next_button_oi);
+        nextButton = findViewById(R.id.next_button_hooksi);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(ObstaclesViewOnboarding.this, HooksStoryOnboarding.class);
+                Intent intent = new Intent(HooksViewOnboarding.this, StoryEndOnboarding.class);
                 startActivity(intent);
             }
         });
