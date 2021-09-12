@@ -43,6 +43,8 @@ public class ValuesActivity extends AppCompatActivity {
         // Initialise list data
         initList();
 
+        setTitle("My Values");
+
         // add dummy values
         // dummyValues();
     }

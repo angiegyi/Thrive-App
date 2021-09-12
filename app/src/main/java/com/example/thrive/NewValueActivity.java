@@ -53,6 +53,8 @@ public class NewValueActivity extends AppCompatActivity{
         // Initialise create value button
         initCreateButton();
 
+        setTitle("My Values");
+
     }
 
 
