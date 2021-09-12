@@ -107,7 +107,7 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(ObstaclesViewOnboarding.this, StoryEndOnboarding.class);
+                Intent intent = new Intent(ObstaclesViewOnboarding.this, HooksStoryOnboarding.class);
                 startActivity(intent);
             }
         });
