@@ -13,7 +13,7 @@ public class Activity {
     @NonNull
     private String activityName;
 
-    @ColumnInfo(name = "activityDescription")
+    @ColumnInfo(name = "activityDescription", defaultValue = "")
     private String activityDescription;
 
     @ColumnInfo(name = "activityRating", defaultValue = "5")

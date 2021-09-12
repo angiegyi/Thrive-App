@@ -39,24 +39,24 @@ public class Recommendation {
         this.relatedMood = relatedMood;
     }
 
-    public void getRecommendation(){
+    public Activity getRecommendation(){
         for(int i=0; i < activities.size(); i++){
             int score = activities.get(i).getActivityRating() * activityMoods.get(i).getStrength();
             ActivityScore act = new ActivityScore();
             act.activity = activities.get(i);
             act.score = score;
             activityScores.add(act);
-            Log.i("test", "Activity: " + activityScores.get(i).activity.getActivityName()+
-                    " score: " +activityScores.get(i).score);
+//            Log.i("test", "Activity: " + activityScores.get(i).activity.getActivityName()+
+//                    " score: " +activityScores.get(i).score);
 
         }
         sortScores(activityScores);
-        Log.i("test", "SORTED: ");
-        for(int i=0; i < activities.size(); i++){
-            Log.i("test", "Activity: " + activityScores.get(i).activity.getActivityName()+
-                    " score: " +activityScores.get(i).score);
-
-        }
+//        Log.i("test", "SORTED: ");
+//        for(int i=0; i < activities.size(); i++){
+//            Log.i("test", "Activity: " + activityScores.get(i).activity.getActivityName()+
+//                    " score: " +activityScores.get(i).score);
+//
+//        }
         int maximum = activityScores.get(0).score;
         int maxCount = 0;
         for(int i = 0;i < activityScores.size(); i++){
@@ -70,6 +70,7 @@ public class Recommendation {
             randomNum = ThreadLocalRandom.current().nextInt(0, maxCount + 1);
         }
         Log.i("test", "getRecommendation: " + activityScores.get(randomNum).activity.getActivityName());
+        return activityScores.get(randomNum).activity;
     }
 
     private ArrayList<ActivityScore> sortScores(ArrayList<ActivityScore> scores){
