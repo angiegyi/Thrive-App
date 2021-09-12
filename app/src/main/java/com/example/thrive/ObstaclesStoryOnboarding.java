@@ -32,7 +32,7 @@ public class ObstaclesStoryOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(ObstaclesStoryOnboarding.this, StoryEndOnboarding.class);
+                Intent intent = new Intent(ObstaclesStoryOnboarding.this, ObstaclesViewOnboarding.class);
                 startActivity(intent);
             }
         });

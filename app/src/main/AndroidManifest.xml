@@ -55,6 +55,8 @@
             android:name=".HabitsInsertOnboarding"/>
         <activity
             android:name=".ObstaclesStoryOnboarding"/>
+        <activity
+            android:name=".ObstaclesViewOnboarding"/>
 
     </application>
 
