@@ -29,13 +29,13 @@ public class ObstaclesActivity extends AppCompatActivity {
     ListView list;
     ArrayList<String> objects = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.obstacles);
         initFab();
         initData();
+        setTitle("My Obstacles");
     }
 
     /**
@@ -85,6 +85,13 @@ public class ObstaclesActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         // If fab button is clicked, the add obstacle activity is shown
         fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, NewObstacleActivity.class)));
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        startActivity(new Intent(ObstaclesActivity.this, MainActivity.class));
+        finish();
     }
 }
 

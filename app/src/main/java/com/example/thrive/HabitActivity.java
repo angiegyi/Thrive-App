@@ -43,6 +43,7 @@ public class HabitActivity extends AppCompatActivity {
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         habitAdapter = new HabitRecyclerAdapter(mThriveViewModel, getApplicationContext());
         mThriveViewModel.getAllHabits().observe(this, newData -> {
+            habitAdapter.resetData();
             for (Habit obj : newData) {
                 if (obj != null){
                     habitData.add(obj);
@@ -50,7 +51,6 @@ public class HabitActivity extends AppCompatActivity {
             }
             habitAdapter.setData(habitData);
             habitRecyclerView.setAdapter(habitAdapter);
-            // habitAdapter.notifyDataSetChanged();
         });
     }
 

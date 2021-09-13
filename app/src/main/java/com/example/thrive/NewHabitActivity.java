@@ -153,7 +153,7 @@ public class NewHabitActivity extends AppCompatActivity {
 
         if (nameIsEmpty || valuesIsEmpty || everyNumIsEmpty || everyChoiceIsEmpty || howOftenIsEmpty){
             if (nameIsEmpty)
-                habitNameInput.setError("Fill in habit name");
+                habitNameInput.setError("Fill in the name");
             if(valuesIsEmpty)
                 valuesTextInputLayout.setError("Related value is required!");
             if(everyNumIsEmpty)
@@ -195,6 +195,8 @@ public class NewHabitActivity extends AppCompatActivity {
             */
 
             addHabit(newName, selectedValue, howOftenNum, everyChoice, everyNum, isSwitch, timeHour, timeMinutes);
+
+            super.onBackPressed();
         }
     }
 
@@ -213,13 +215,11 @@ public class NewHabitActivity extends AppCompatActivity {
             newHabitValue.setValueName(value);
             mThriveViewModel.insert(newHabitValue);
             Toast.makeText(getApplicationContext(),
-                    "New Habit: " + name + " added." ,
+                    "New: " + name + " added." ,
                     Toast.LENGTH_LONG).show();
         } catch(Exception e) {
             Log.i("RESPONSE", e.toString());
         }
-        // Return to Habit Page
-        startActivity(new Intent(NewHabitActivity.this, HabitActivity.class));
     }
 
     public static JSONObject objectToJSONObject(Object object){

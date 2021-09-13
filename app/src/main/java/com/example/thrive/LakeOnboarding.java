@@ -15,6 +15,7 @@ public class LakeOnboarding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lake_onboarding);
+        setTitle("The Lake");
 
         nextButton = findViewById(R.id.LakeMaterialButton);
         nextButton.setOnClickListener(new View.OnClickListener() {

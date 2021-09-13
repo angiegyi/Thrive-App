@@ -33,6 +33,12 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         this.habitList = habitList;
     }
 
+    public void resetData(){
+        if(habitList != null) {
+            habitList.clear();
+        }
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView habitName;
@@ -67,7 +73,7 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         holder.habitButton.setOnClickListener(view -> {
             if (habitObject.getCounter() < habitObject.getFrequency()) {
                 mThriveViewModel.updateHabitCounter(habitObject.getName(), habitObject.getCounter() + 1);
-                habitList.clear();
+                //resetData();
             }
             else{
                 Toast.makeText(habitContext, "You have completed: " + habitObject.getName() + " for this period",
@@ -77,7 +83,8 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         String addS = "";
         if(Integer.parseInt(habitObject.getMeasurement()) > 1)
             addS = "s";
-        String strHabitLeft = habitObject.getCounter() + "/" + habitObject.getFrequency()+ " times left per " + habitObject.getMeasurement() + " " + habitObject.getPeriod()+addS;
+        int progress = habitObject.getFrequency() - habitObject.getCounter();
+        String strHabitLeft =  progress + " times left per " + habitObject.getMeasurement() + " " + habitObject.getPeriod()+addS;
         holder.habitLeft.setText(strHabitLeft);
     }
 

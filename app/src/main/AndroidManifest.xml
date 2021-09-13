@@ -33,10 +33,12 @@
 
         <activity android:name=".BoatActivity"/>
         <activity
-            android:name=".HabitActivity"/>
+            android:name=".HabitActivity"
+            android:label="Valued Behaviours"/>
 
         <activity
-            android:name=".NewHabitActivity"/>
+            android:name=".NewHabitActivity"
+            android:label="New Valued Behaviour"/>
         <activity
             android:name=".StartOnboarding"/>
         <activity
