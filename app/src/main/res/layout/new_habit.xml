@@ -50,7 +50,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/targetFrequencyBox"
             android:layout_width="match_parent"

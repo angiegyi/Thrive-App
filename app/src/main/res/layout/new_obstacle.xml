@@ -18,7 +18,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TimePicker
             android:id="@+id/time_picker"
             android:layout_width="match_parent"
@@ -212,12 +211,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="31dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="191dp"
-            android:text="Select obstacle reminder days"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:text="Send me reminders"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/moodsTextInputLayout" />
+
+        <Switch
+            android:id="@+id/switchReminder"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="5dp"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/friBox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.848"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/moodsTextInputLayout"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         <CheckBox
             android:id="@+id/mondayBox"

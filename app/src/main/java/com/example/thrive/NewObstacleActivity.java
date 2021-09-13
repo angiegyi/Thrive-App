@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -56,6 +57,10 @@ public class NewObstacleActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayListAdapter_values;
     String selectedValue;
 
+    // Reminders
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch switchReminder;
+
     // Time
     TimePicker timePicker;
     Integer timeHour;
@@ -93,6 +98,8 @@ public class NewObstacleActivity extends AppCompatActivity {
         obstacleTitleTextLayout = findViewById(R.id.obstacleNameTextField);
         obstacleTitleEditText = findViewById(R.id.obstacleNameEditLayout);
 
+        // Switch
+        switchReminder = findViewById(R.id.switchReminder);
 
         // Obstacle Description
         obstacleDescTextLayout = findViewById(R.id.obstacleDescTextField);
@@ -139,7 +146,6 @@ public class NewObstacleActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(obstacleDescEditText.getText())) {
                 obstacleDescEditText.setError("Fill in obstacle description");
             }
-
             // Error Checking Value
             if (TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())) {
                 valuesTextInputLayout.setError("Related value is required!");
@@ -206,7 +212,7 @@ public class NewObstacleActivity extends AppCompatActivity {
      */
     public void addObstacle(String value){
         try {
-            Obstacle obs1 = new Obstacle(newTitle, newDescription, timeHour == null, timeHour, timeMinutes, Integer.parseInt(days_data));
+            Obstacle obs1 = new Obstacle(newTitle, newDescription, switchReminder.isChecked(), timeHour, timeMinutes, Integer.parseInt(days_data));
             mThriveViewModel.insert(obs1);
             //inserting a related value and obstacle to the Obstacle_value table
             Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
