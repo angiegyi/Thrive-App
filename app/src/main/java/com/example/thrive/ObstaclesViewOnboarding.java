@@ -43,15 +43,17 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
         // Init next button
         initNext();
 
-        // Init all values
+        // Init all obstacles
         initList();
 
     }
 
     private void initList(){
         displayList = findViewById(R.id.obstaclesOnboardList);
+
         tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
         tvm.getAllObstacles().observe(this, newData -> {
+
             for (Object obj : newData) {
                 if (obj != null){
                     try {
@@ -61,10 +63,11 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
                     }
                 }
             }
-            adapter = new ArrayAdapter(this,
-                    android.R.layout.simple_list_item_1, obstaclesListOut.toArray());
-            displayList.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
+
+        adapter = new ArrayAdapter(this, R.layout.list_item, obstaclesListOut.toArray());
+
+        displayList.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         });
     }
 

@@ -57,7 +57,6 @@ public class NewValueActivity extends AppCompatActivity{
 
     }
 
-
     // Initialising the drop down box with categories
     private void initDropDown(){
         // Linking to XML
