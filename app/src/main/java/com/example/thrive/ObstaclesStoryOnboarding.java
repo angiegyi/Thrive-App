@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HabitsStoryOnboarding extends AppCompatActivity {
+public class ObstaclesStoryOnboarding extends AppCompatActivity {
 
     Button nextButton;
 
@@ -16,26 +16,28 @@ public class HabitsStoryOnboarding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Take from habits story xml
-        setContentView(R.layout.onboarding_story_habits);
+        // Take from values story xml
+        setContentView(R.layout.onboarding_story_obstacles);
 
         // Init next button
         initNext();
     }
 
 
-    // Initialising next button to habits insert
+    // Initialising next button to values insert page
     private void initNext(){
-        nextButton = findViewById(R.id.next_button_habits);
+        nextButton = findViewById(R.id.next_button_os);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //Move to the next page
-                Intent intent = new Intent(HabitsStoryOnboarding.this, HabitsViewOnboarding.class);
+                //Move to the values insert page
+                Intent intent = new Intent(ObstaclesStoryOnboarding.this, ObstaclesViewOnboarding.class);
                 startActivity(intent);
             }
         });
     }
+
+
 
 }

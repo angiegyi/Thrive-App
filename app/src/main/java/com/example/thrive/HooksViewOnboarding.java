@@ -1,7 +1,6 @@
 package com.example.thrive;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,15 +20,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ValuesViewOnboarding extends AppCompatActivity {
+public class HooksViewOnboarding extends AppCompatActivity {
 
-    Button addValuesButton;
+    Button addHooksButton;
     Button nextButton;
     ListView displayList;
     ThriveViewModel tvm;
-    ArrayList<String> valuesListOut = new ArrayList<>();
-    SharedPreferences sp;
-    String SHARED_PREFERENCE_NAME;
+    ArrayAdapter adapter;
+    ArrayList<String> hooksListOut = new ArrayList<>();
 
     // Initialisation
     @Override
@@ -37,10 +35,10 @@ public class ValuesViewOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Take from values xml
-        setContentView(R.layout.onboarding_view_values);
+        setContentView(R.layout.onboarding_view_hooks);
 
         // Init add values button
-        initAddValues();
+        initAddHooks();
 
         // Init next button
         initNext();
@@ -51,24 +49,21 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     }
 
     private void initList(){
-        displayList = findViewById(R.id.valuesList2);
+        displayList = findViewById(R.id.hooksOnboardList);
 
         tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
-        tvm.getAllValues().observe(this, valData -> {
-
-            // Iterate through each value in the valData that's returned
-            for (Object obj : valData){
-                // add each value to the arraylist
-                try {
-                    valuesListOut.add(objectToJSONObject(obj).getString("name"));
-                }
-                catch (JSONException e){
-                    e.printStackTrace();
+        tvm.getAllHooks().observe(this, newData -> {
+            for (Object obj : newData) {
+                if (obj != null){
+                    try {
+                        hooksListOut.add(objectToJSONObject(obj).getString("hook_behaviour"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-
-            ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, valuesListOut.toArray());
-
+            adapter = new ArrayAdapter(this,
+                    android.R.layout.simple_list_item_1, hooksListOut.toArray());
             displayList.setAdapter(adapter);
             adapter.notifyDataSetChanged();
         });
@@ -89,14 +84,14 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     }
 
     // Initialising next button to values insert page
-    private void initAddValues(){
-        addValuesButton = findViewById(R.id.add_values_button);
+    private void initAddHooks(){
+        addHooksButton = findViewById(R.id.add_hooks_button);
         // If button is clicked
-        addValuesButton.setOnClickListener(new View.OnClickListener(){
+        addHooksButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(ValuesViewOnboarding.this, ValuesInsertOnboarding.class);
+                Intent intent = new Intent(HooksViewOnboarding.this, HooksInsertOnboarding.class);
                 startActivity(intent);
             }
         });
@@ -104,17 +99,16 @@ public class ValuesViewOnboarding extends AppCompatActivity {
 
     // Initialising next button to the next page
     private void initNext(){
-        nextButton = findViewById(R.id.next_button_vi);
+        nextButton = findViewById(R.id.next_button_hooksi);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(ValuesViewOnboarding.this, HabitsStoryOnboarding.class);
+                Intent intent = new Intent(HooksViewOnboarding.this, StoryEndOnboarding.class);
                 startActivity(intent);
             }
         });
     }
-
 
 }
