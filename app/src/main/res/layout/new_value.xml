@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="32dp"
-            android:hint="Select a related category for your value"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,8 +48,10 @@
 
             <AutoCompleteTextView
                 android:id="@+id/categoryOptions"
+                android:hint="Select a related category"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:inputType="none"
                 android:paddingLeft="12dp"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>

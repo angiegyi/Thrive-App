@@ -6,6 +6,7 @@ import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.view.View;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -43,8 +44,16 @@ public class ValuesActivity extends AppCompatActivity {
         // Initialise list data
         initList();
 
+        setTitle("My Values");
+
         // add dummy values
         // dummyValues();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(ValuesActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     private void dummyValues(){

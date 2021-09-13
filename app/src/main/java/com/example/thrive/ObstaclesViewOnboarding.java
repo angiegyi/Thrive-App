@@ -1,7 +1,6 @@
 package com.example.thrive;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -21,15 +20,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ValuesViewOnboarding extends AppCompatActivity {
+public class ObstaclesViewOnboarding extends AppCompatActivity {
 
-    Button addValuesButton;
+    Button addObstaclesButton;
     Button nextButton;
     ListView displayList;
     ThriveViewModel tvm;
-    ArrayList<String> valuesListOut = new ArrayList<>();
-    SharedPreferences sp;
-    String SHARED_PREFERENCE_NAME;
+    ArrayAdapter adapter;
+    ArrayList<String> obstaclesListOut = new ArrayList<>();
 
     // Initialisation
     @Override
@@ -37,40 +35,39 @@ public class ValuesViewOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Take from values xml
-        setContentView(R.layout.onboarding_view_values);
+        setContentView(R.layout.onboarding_view_obstacles);
 
         // Init add values button
-        initAddValues();
+        initAddObstacles();
 
         // Init next button
         initNext();
 
-        // Init all values
+        // Init all obstacles
         initList();
 
     }
 
     private void initList(){
-        displayList = findViewById(R.id.valuesList2);
+        displayList = findViewById(R.id.obstaclesOnboardList);
 
         tvm = new ViewModelProvider(this).get(ThriveViewModel.class);
-        tvm.getAllValues().observe(this, valData -> {
+        tvm.getAllObstacles().observe(this, newData -> {
 
-            // Iterate through each value in the valData that's returned
-            for (Object obj : valData){
-                // add each value to the arraylist
-                try {
-                    valuesListOut.add(objectToJSONObject(obj).getString("name"));
-                }
-                catch (JSONException e){
-                    e.printStackTrace();
+            for (Object obj : newData) {
+                if (obj != null){
+                    try {
+                        obstaclesListOut.add(objectToJSONObject(obj).getString("obstacleName"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
-            ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item, valuesListOut.toArray());
+        adapter = new ArrayAdapter(this, R.layout.list_item, obstaclesListOut.toArray());
 
-            displayList.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
+        displayList.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         });
     }
 
@@ -89,14 +86,14 @@ public class ValuesViewOnboarding extends AppCompatActivity {
     }
 
     // Initialising next button to values insert page
-    private void initAddValues(){
-        addValuesButton = findViewById(R.id.add_values_button);
+    private void initAddObstacles(){
+        addObstaclesButton = findViewById(R.id.add_obstacles_button);
         // If button is clicked
-        addValuesButton.setOnClickListener(new View.OnClickListener(){
+        addObstaclesButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(ValuesViewOnboarding.this, ValuesInsertOnboarding.class);
+                Intent intent = new Intent(ObstaclesViewOnboarding.this, ObstaclesInsertOnboarding.class);
                 startActivity(intent);
             }
         });
@@ -104,17 +101,16 @@ public class ValuesViewOnboarding extends AppCompatActivity {
 
     // Initialising next button to the next page
     private void initNext(){
-        nextButton = findViewById(R.id.next_button_vi);
+        nextButton = findViewById(R.id.next_button_oi);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the next page
-                Intent intent = new Intent(ValuesViewOnboarding.this, HabitsStoryOnboarding.class);
+                Intent intent = new Intent(ObstaclesViewOnboarding.this, HooksStoryOnboarding.class);
                 startActivity(intent);
             }
         });
     }
-
 
 }
