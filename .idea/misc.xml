@@ -28,6 +28,7 @@
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/habits.xml" value="0.1" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_habit.xml" value="0.3265625" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_obstacle.xml" value="0.22" />
+        <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_value.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/obstacles.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/recommendation_pop_up.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/values.xml" value="0.22" />
@@ -75,7 +76,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

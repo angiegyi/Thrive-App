@@ -15,11 +15,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.thrive.CheckIn.Recommendation;
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Activity;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Mood;
+import com.google.android.material.slider.Slider;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         editor = sp.edit();
         editor.putString("mood", "none");
         editor.apply();
-        // createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+        //createNewCheckInDialog(); // Uncomment this for the Mood Tracker
         startOnBoarding();
         help_button = findViewById(R.id.helpButton);
         help_button.setOnClickListener(view -> helpButtonCallback());
@@ -170,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         /*
         Next Dialog #CheckIn2
          */
-        View nextButtonCheckIn = checkInDialog.findViewById(R.id.nextButtonCheckIn);
+        View nextButtonCheckIn = checkInDialog.findViewById(R.id.btn_okay);
         nextButtonCheckIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
@@ -241,10 +245,44 @@ public class MainActivity extends AppCompatActivity {
                         checkIn.setReason(editTextReason.getText().toString());
                     }
                     checkIn.setMood(relatedMood);
+                    Recommendation rec = new Recommendation(relatedMood, mThriveViewModel);
+                    Activity activity = rec.getRecommendation();
+                    checkIn.setActivityName(activity.getActivityName());
                     mThriveViewModel.insert(checkIn);
+                    showRecommendationPopUp(activity);
                 } else {
                     Toast.makeText(getApplicationContext(), "Please choose a related mood", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+    }
+
+    public void showRecommendationPopUp(Activity activity){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        View checkInPopUpView = getLayoutInflater().inflate(R.layout.recommendation_pop_up, null);
+        dialogBuilder.setView(checkInPopUpView);
+        AlertDialog checkInDialog = dialogBuilder.create();
+        checkInDialog.setCancelable(false); //prevent dialog box from getting dismissed by back button
+        checkInDialog.setCanceledOnTouchOutside(false); // prevent dialog from getting dismissed on outside touch
+        checkInDialog.show();
+
+        //set activity title
+        TextView activityName = checkInDialog.findViewById(R.id.tv_activity);
+        activityName.setText(activity.getActivityName());
+
+        // set activity description
+        TextView description = checkInDialog.findViewById(R.id.tv_description);
+        description.setText(activity.getActivityDescription());
+
+        // set activityRating
+        Slider rating = checkInDialog.findViewById(R.id.ratingSlider);
+        rating.setValue(activity.getActivityRating());
+
+        View nextButtonCheckIn = checkInDialog.findViewById(R.id.btn_okay);
+        nextButtonCheckIn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                checkInDialog.dismiss();
+                //update rating
             }
         });
     }

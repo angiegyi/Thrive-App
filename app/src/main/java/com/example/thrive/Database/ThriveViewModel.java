@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.thrive.Database.entities.Activity;
+import com.example.thrive.Database.entities.ActivityMood;
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
@@ -65,6 +67,8 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
     public LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     public LiveData<List<HabitValue>> getmAllHabitValues() {return mAllHabitValues;}
+    public List<Activity> findActivityByMoodName(String mood){return mRepository.findActivityByMoodName(mood);}
+    public List<ActivityMood> getMoodAndActivity(String mood){return mRepository.getMoodAndActivity(mood);}
 
     /*
     INSERT INTO DB
