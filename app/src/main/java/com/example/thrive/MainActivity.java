@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         editor = sp.edit();
         editor.putString("mood", "none");
         editor.apply();
-        createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+        //createNewCheckInDialog(); // Uncomment this for the Mood Tracker
         startOnBoarding();
     }
 
