@@ -16,7 +16,6 @@ public class Obstacle {
     @ColumnInfo(name = "obstacle_description")
     private String description;
 
-    @NonNull
     @ColumnInfo(name = "reminder_on", defaultValue = "false")
     private boolean reminder_on;
 
@@ -33,13 +32,9 @@ public class Obstacle {
     Constructor
      */
 
-    public Obstacle(@NonNull String obstacleName, String description, boolean reminder_on, int reminderHour, int reminderMinutes, int reminderDays) {
+    public Obstacle(@NonNull String obstacleName, String description) {
         this.obstacleName = obstacleName;
         this.description = description;
-        this.reminder_on = reminder_on;
-        this.reminderHour = reminderHour;
-        this.reminderMinutes = reminderMinutes;
-        this.reminderDays = reminderDays;
     }
 
     @NonNull

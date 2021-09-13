@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -42,6 +43,10 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
     TextInputLayout obstacleTitleTextLayout;
     TextInputEditText obstacleTitleEditText;
     String newTitle;
+
+    // Reminders
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch switchReminder;
 
     // Obstacle Description
     TextInputLayout obstacleDescTextLayout;
@@ -91,6 +96,8 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
         obstacleTitleTextLayout = findViewById(R.id.obstacleNameTextField);
         obstacleTitleEditText = findViewById(R.id.obstacleNameEditLayout);
 
+        // Switch
+        switchReminder = findViewById(R.id.switchReminder);
 
         // Obstacle Description
         obstacleDescTextLayout = findViewById(R.id.obstacleDescTextField);
@@ -206,7 +213,13 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
      */
     public void addObstacle(String value, Integer importance){
         try {
-            Obstacle obs1 = new Obstacle(newTitle, newDescription, timeHour == null, timeHour, timeMinutes, Integer.parseInt(days_data));
+            Obstacle obs1 = new Obstacle(newTitle, newDescription);
+            if (switchReminder.isChecked()){
+                obs1.setReminder_on(true);
+                obs1.setReminderHour(timeHour);
+                obs1.setReminderMinutes(timeMinutes);
+                obs1.setReminderDays(Integer.parseInt(days_data));
+            }
             mThriveViewModel.insert(obs1);
             //inserting a related value and obstacle to the Obstacle_value table
             Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
