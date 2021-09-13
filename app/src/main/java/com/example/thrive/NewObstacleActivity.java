@@ -76,6 +76,7 @@ public class NewObstacleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_obstacle);
+        setTitle("New Obstacle");
 
         // Slider
         slider = findViewById(R.id.slider);
@@ -129,7 +130,6 @@ public class NewObstacleActivity extends AppCompatActivity {
      */
     @SuppressLint("NewApi")
     public void onCLickHandler(){
-
         if (TextUtils.isEmpty(obstacleTitleEditText.getText()) || TextUtils.isEmpty(obstacleDescEditText.getText()) || TextUtils.isEmpty(valuesTextInputLayout.getEditText().getText())) {
             // Error checking for title
             if (TextUtils.isEmpty(obstacleTitleEditText.getText())) {
@@ -152,7 +152,7 @@ public class NewObstacleActivity extends AppCompatActivity {
             newDescription = obstacleDescEditText.getEditableText().toString();
             selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
 
-            addObstacle(selectedValue, importance);
+            addObstacle(selectedValue);
             startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
         }
     }
@@ -202,10 +202,9 @@ public class NewObstacleActivity extends AppCompatActivity {
 
     /**
      * This method handles adding a new obstacle in the database.
-     * @param value name of the related value from dropdown
-     * @param importance the int representing the importance of the obstacle.
+     * @param value name of the related value from dropdow.
      */
-    public void addObstacle(String value, Integer importance){
+    public void addObstacle(String value){
         try {
             Obstacle obs1 = new Obstacle(newTitle, newDescription, timeHour == null, timeHour, timeMinutes, Integer.parseInt(days_data));
             mThriveViewModel.insert(obs1);

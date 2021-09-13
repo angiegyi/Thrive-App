@@ -31,7 +31,7 @@ public class StoryEndOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the values story page
-                Intent intent = new Intent(StoryEndOnboarding.this, MainActivity.class);
+                Intent intent = new Intent(StoryEndOnboarding.this, SunOnboarding.class);
                 startActivity(intent);
             }
         });

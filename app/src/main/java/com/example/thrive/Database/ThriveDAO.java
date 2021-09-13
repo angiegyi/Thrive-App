@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.example.thrive.Database.entities.Activity;
+import com.example.thrive.Database.entities.ActivityMood;
 import com.example.thrive.Database.entities.Category;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Habit;
@@ -54,6 +56,27 @@ public interface ThriveDAO {
 
     @Query("SELECT * FROM MOOD WHERE mood_isPositive = :value")
     LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value);
+
+    @Query("SELECT * FROM ACTIVITYMOOD WHERE mood_name =:mood ORDER BY mood_name")
+    ActivityMood[] getActivityAndMood(String mood);
+
+//    @Query("SELECT * FROM book " +
+//            "INNER JOIN loan ON loan.book_id = book.id " +
+//            "INNER JOIN user ON user.id = loan.user_id " +
+//            "WHERE user.name LIKE :userName")
+//    public List<Book> findBooksBorrowedByNameSync(String userName);
+
+    @Query("SELECT * FROM ACTIVITY " +
+            "INNER JOIN activityMood ON activitymood.activity_name = activity.activity_name " +
+            "INNER JOIN mood ON mood.mood_name = activityMood.mood_name " +
+            "WHERE (mood.mood_name LIKE :mood AND activityMood.strength >= 4) ORDER BY activity.activity_name")
+    public List<Activity> findActivityByMoodName(String mood);
+
+    @Query("SELECT * FROM ACTIVITYMOOD " +
+            "INNER JOIN activity ON activity.activity_name = activityMood.activity_name " +
+            "INNER JOIN mood ON mood.mood_name = activityMood.mood_name " +
+            "WHERE (mood.mood_name LIKE :mood AND activityMood.strength >= 4) ORDER BY activity.activity_name")
+    public List<ActivityMood> getMoodAndActivity(String mood);
 
     /*
     INSERT INTO DB

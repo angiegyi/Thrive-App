@@ -33,6 +33,7 @@ public class ValuesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("My Values");
 
         // Take from values xml
         setContentView(R.layout.values);

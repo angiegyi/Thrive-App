@@ -15,6 +15,7 @@ public class MountainOnboarding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.onboarding_mountain);
+        setTitle("The Mountain");
 
         nextButton = findViewById(R.id.MountainMaterialButton);
         nextButton.setOnClickListener(new View.OnClickListener() {

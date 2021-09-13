@@ -13,7 +13,7 @@
                 android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/tv_checkIn_welcome4"
+                    android:id="@+id/tv_activity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Welcome Back User"
@@ -33,11 +33,11 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_checkIn_welcome4"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_activity"
                     app:layout_constraintVertical_bias="0.00999999" />
 
                 <Button
-                    android:id="@+id/nextButtonCheckIn"
+                    android:id="@+id/btn_okay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Next"

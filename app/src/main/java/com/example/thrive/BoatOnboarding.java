@@ -15,6 +15,7 @@ public class BoatOnboarding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.boat_onboarding);
+        setTitle("The Boat");
 
         nextButton = findViewById(R.id.BoatMaterialButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
