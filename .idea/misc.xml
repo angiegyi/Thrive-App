@@ -29,16 +29,35 @@
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/habits.xml" value="0.1" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_habit.xml" value="0.3265625" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_obstacle.xml" value="0.22" />
+        <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_value.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/obstacles.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/recommendation_pop_up.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/values.xml" value="0.22" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/layout/view_obstacles.xml" value="0.17685185185185184" />
         <entry key="..\:/Users/Han/Documents/GitHub/Thrive-App/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21203703703703702" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_alarm_icon_grey.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_accessibility_new_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_app_blocking_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_arrow_right_alt_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_pan_tool_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_sentiment_dissatisfied_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_sentiment_satisfied_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_sentiment_satisfied_alt_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_sentiment_very_dissatisfied_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_sentiment_very_satisfied_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_baseline_timeline_24.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22239583333333332" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/drawable/ic_outline_face_24.xml" value="0.22239583333333332" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.1875" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/boat.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/boat_onboarding.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/card_habit.xml" value="0.4" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/habits.xml" value="0.264" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_habit.xml" value="0.1875" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/obstacles.xml" value="0.21195652173913043" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/progress.xml" value="0.264" />
         <entry key="..\:/Users/angel/StudioProjects/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/angel/StudioProjects/Thrive-App/app/src/main/res/layout/new_obstacle.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/angel/StudioProjects/Thrive-App/app/src/main/res/layout/view_hooks.xml" value="0.30434782608695654" />
@@ -57,7 +76,6 @@
         <entry key="app/src/main/res/layout/habits.xml" value="0.335" />
         <entry key="app/src/main/res/layout/lake_onboarding.xml" value="0.335" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/loading.xml" value="0.2640506132228233" />
         <entry key="app/src/main/res/layout/new_habit.xml" value="0.34068173992222917" />
         <entry key="app/src/main/res/layout/new_hook.xml" value="0.55" />
         <entry key="app/src/main/res/layout/new_obstacle.xml" value="0.3058210251954822" />
@@ -69,8 +87,6 @@
         <entry key="app/src/main/res/layout/onboarding_story_1.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/onboarding_story_end.xml" value="0.5566706798412816" />
         <entry key="app/src/main/res/layout/onboarding_story_habits.xml" value="0.3548677389714729" />
-        <entry key="app/src/main/res/layout/onboarding_story_hooks.xml" value="0.10914855072463768" />
-        <entry key="app/src/main/res/layout/onboarding_story_obstacles.xml" value="0.10914855072463768" />
         <entry key="app/src/main/res/layout/onboarding_story_start.xml" value="0.32348347854672976" />
         <entry key="app/src/main/res/layout/onboarding_story_values.xml" value="0.35249347409210086" />
         <entry key="app/src/main/res/layout/onboarding_sun.xml" value="0.375" />
