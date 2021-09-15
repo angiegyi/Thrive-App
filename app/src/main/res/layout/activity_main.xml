@@ -13,7 +13,6 @@
         android:layout_height="505dp"
         android:layout_marginTop="4dp"
         android:background="@android:color/transparent"
-        android:onClick="toHooksPage"
         app:layout_constraintBottom_toTopOf="@+id/lake2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -59,7 +58,7 @@
         app:backgroundTint="#FFC107"
         app:cornerRadius="200dp"
         app:layout_constraintEnd_toEndOf="@+id/sky2"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

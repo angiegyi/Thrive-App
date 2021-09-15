@@ -92,27 +92,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toValuesPage(View view){
+        Toast.makeText(getApplicationContext(),
+                "Clicked Sun, opening Values",
+                Toast.LENGTH_LONG).show();
         startActivity(new Intent(MainActivity.this, ValuesActivity.class));
     }
 
     public void toObstaclesPage(View view){
+        Toast.makeText(getApplicationContext(),
+                "Clicked Lake, opening Obstacles",
+                Toast.LENGTH_LONG).show();
         startActivity(new Intent(MainActivity.this, ObstaclesActivity.class));
     }
 
     public void toBoatPage(View view) {
+        Toast.makeText(getApplicationContext(),
+                "Clicked Boat, opening Tools",
+                Toast.LENGTH_LONG).show();
         startActivity(new Intent(MainActivity.this, BoatActivity.class));
     }
 
     public void toHabitsPage(View view){
+        Toast.makeText(getApplicationContext(),
+                "Clicked Mountain, opening Valued Behaviours",
+                Toast.LENGTH_LONG).show();
         startActivity(new Intent(MainActivity.this, HabitActivity.class));
     }
 
-    public void toHooksPage(View view){
-        startActivity(new Intent(MainActivity.this, HookBehaviours.class));
-    }
-
     public boolean checkOnboarding(){
-
         // Get onboarding status
         SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         boolean onboarded = get_data.getBoolean("onboarded", false);
