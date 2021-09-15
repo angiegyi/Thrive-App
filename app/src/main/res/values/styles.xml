@@ -2,7 +2,6 @@
 <resources>
     <style name="tooltip" parent="Widget.MaterialComponents.Tooltip">
         <item name="shapeAppearanceOverlay">@style/tooltipShOverylay</item>
-        <item name="backgroundTint"></item>
     </style>
 
     <style name="tooltipShOverylay">
