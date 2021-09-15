@@ -16,59 +16,41 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SunOnboarding"/>
-        <activity android:name=".LakeOnboarding"/>
-        <activity android:name=".MountainOnboarding"/>
-        <activity android:name=".NewObstacleActivity"/>
-        <activity android:name=".HookBehaviours"/>
-        <activity android:name=".NewHookActivity"/>
-        <activity android:name=".BoatOnboarding"/>
-        <activity
-            android:name=".ValuesActivity"/>
-        <activity
-            android:name=".NewValueActivity"/>
-
-        <activity
-            android:name=".ObstaclesActivity"/>
-
-        <activity android:name=".BoatActivity"/>
+        <activity android:name=".SunOnboarding" />
+        <activity android:name=".LakeOnboarding" />
+        <activity android:name=".MountainOnboarding" />
+        <activity android:name=".NewObstacleActivity" />
+        <activity android:name=".HookBehaviours" />
+        <activity android:name=".NewHookActivity" />
+        <activity android:name=".BoatOnboarding" />
+        <activity android:name=".ValuesActivity" />
+        <activity android:name=".NewValueActivity" />
+        <activity android:name=".ObstaclesActivity" />
+        <activity android:name=".BoatActivity" />
         <activity
             android:name=".HabitActivity"
-            android:label="Valued Behaviours"/>
-
+            android:label="Valued Behaviours" />
         <activity
             android:name=".NewHabitActivity"
-            android:label="New Valued Behaviour"/>
+            android:label="New Valued Behaviour" />
+        <activity android:name=".StartOnboarding" />
+        <activity android:name=".ValuesStoryOnboarding" />
+        <activity android:name=".ValuesViewOnboarding" />
+        <activity android:name=".ValuesInsertOnboarding" />
+        <activity android:name=".HabitsStoryOnboarding" />
+        <activity android:name=".StoryEndOnboarding" />
+        <activity android:name=".HabitsViewOnboarding" />
+        <activity android:name=".HabitsInsertOnboarding" />
+        <activity android:name=".ObstaclesStoryOnboarding" />
+        <activity android:name=".ObstaclesViewOnboarding" />
+        <activity android:name=".ObstaclesInsertOnboarding" />
+        <activity android:name=".HooksStoryOnboarding" />
+        <activity android:name=".HooksViewOnboarding" />
+        <activity android:name=".HooksInsertOnboarding" />
         <activity
-            android:name=".StartOnboarding"/>
-        <activity
-            android:name=".ValuesStoryOnboarding"/>
-        <activity
-            android:name=".ValuesViewOnboarding"/>
-        <activity
-            android:name=".ValuesInsertOnboarding"/>
-        <activity
-            android:name=".HabitsStoryOnboarding"/>
-        <activity
-            android:name=".StoryEndOnboarding"/>
-        <activity
-            android:name=".HabitsViewOnboarding"/>
-        <activity
-            android:name=".HabitsInsertOnboarding"/>
-        <activity
-            android:name=".ObstaclesStoryOnboarding"/>
-        <activity
-            android:name=".ObstaclesViewOnboarding"/>
-        <activity
-            android:name=".ObstaclesInsertOnboarding"/>
-        <activity
-            android:name=".HooksStoryOnboarding"/>
-        <activity
-            android:name=".HooksViewOnboarding"/>
-        <activity
-            android:name=".HooksInsertOnboarding"/>
-
-
+            android:name=".ProgressActivity"
+            android:exported="true"
+            android:label="My Progress"/>
     </application>
 
 </manifest>
