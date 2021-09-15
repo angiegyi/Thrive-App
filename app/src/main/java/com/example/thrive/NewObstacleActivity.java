@@ -212,7 +212,13 @@ public class NewObstacleActivity extends AppCompatActivity {
      */
     public void addObstacle(String value){
         try {
-            Obstacle obs1 = new Obstacle(newTitle, newDescription, switchReminder.isChecked(), timeHour, timeMinutes, Integer.parseInt(days_data));
+            Obstacle obs1 = new Obstacle(newTitle, newDescription);
+            if (switchReminder.isChecked()){
+                obs1.setReminder_on(true);
+                obs1.setReminderHour(timeHour);
+                obs1.setReminderMinutes(timeMinutes);
+                obs1.setReminderDays(Integer.parseInt(days_data));
+            }
             mThriveViewModel.insert(obs1);
             //inserting a related value and obstacle to the Obstacle_value table
             Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
