@@ -67,7 +67,7 @@ public class Recommendation {
         }
         int randomNum = 0;
         if(maxCount > 1){
-            randomNum = ThreadLocalRandom.current().nextInt(0, maxCount + 1);
+            randomNum = ThreadLocalRandom.current().nextInt(0, maxCount);
         }
         Log.i("test", "getRecommendation: " + activityScores.get(randomNum).activity.getActivityName());
         return activityScores.get(randomNum).activity;

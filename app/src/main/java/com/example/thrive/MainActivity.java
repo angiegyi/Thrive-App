@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         editor = sp.edit();
         editor.putString("mood", "none");
         editor.apply();
-        //createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+        createNewCheckInDialog(); // Uncomment this for the Mood Tracker
         startOnBoarding();
         help_button = findViewById(R.id.helpButton);
         help_button.setOnClickListener(view -> helpButtonCallback());
@@ -127,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         checkInPopUpView = getLayoutInflater().inflate(R.layout.check_in_pop_up, null);
         dialogBuilder.setView(checkInPopUpView);
         checkInDialog = dialogBuilder.create();
+        checkInDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         checkInDialog.setCancelable(false); //prevent dialog box from getting dismissed by back button
         checkInDialog.setCanceledOnTouchOutside(false); // prevent dialog from getting dismissed on outside touch
         checkInDialog.show();
