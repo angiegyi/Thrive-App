@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:hardwareAccelerated = "true"
+    android:layout_margin="10dp"
     android:background="@android:drawable/dialog_holo_light_frame"
     card_view:cardBackgroundColor="@android:color/white"
     card_view:cardCornerRadius="15dp"

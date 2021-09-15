@@ -29,7 +29,7 @@ public class HookBehaviours extends AppCompatActivity {
     ListView list;
     ArrayList<String> objects = new ArrayList<>();
     String obstacleName;
-    TextView obstacle_related_value;
+    TextView obstacle_related_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class HookBehaviours extends AppCompatActivity {
             obstacleName = extras.getString("name");
             System.out.println(obstacleName);
         }
-        obstacle_related_value = findViewById(R.id.obstacle_related_value);
-        obstacle_related_value.setText(obstacleName);
+        obstacle_related_text = findViewById(R.id.obstacle_related_text);
+        obstacle_related_text.setText(obstacleName);
         initData();
         initFab();
     }
@@ -52,11 +52,13 @@ public class HookBehaviours extends AppCompatActivity {
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         mThriveViewModel.getAllHooksByObstacle(obstacleName).observe(this, newData -> {
             for (Object obj : newData) {
-                if (obj != null){
-                    try {
-                        objects.add(objectToJSONObject(obj).getString("hook_behaviour"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                if (obj != null) {
+                    if (objects.size() < 10) {
+                        try {
+                            objects.add(objectToJSONObject(obj).getString("hook_behaviour"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -89,7 +91,6 @@ public class HookBehaviours extends AppCompatActivity {
      */
     private void initFab(){
         fab = findViewById(R.id.hookNewFab);
-        // If fab button is clicked, the add obstacle activity is shown
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,5 +100,12 @@ public class HookBehaviours extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        startActivity(new Intent(HookBehaviours.this, ObstaclesActivity.class));
+        finish();
     }
 }
