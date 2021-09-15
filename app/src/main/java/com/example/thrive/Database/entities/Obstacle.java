@@ -16,25 +16,17 @@ public class Obstacle {
     @ColumnInfo(name = "obstacle_description")
     private String description;
 
-    @ColumnInfo(name = "reminder_on", defaultValue = "false")
-    private boolean reminder_on;
-
-    @ColumnInfo(name = "reminder_hour")
-    private int reminderHour;
-
-    @ColumnInfo(name = "reminder_minutes")
-    private int reminderMinutes;
-
-    @ColumnInfo(name = "reminder_days")
-    private int reminderDays;
+    @ColumnInfo(name = "obstacle_importance")
+    private int importance;
 
     /*
     Constructor
      */
 
-    public Obstacle(@NonNull String obstacleName, String description) {
+    public Obstacle(@NonNull String obstacleName, String description, int importance) {
         this.obstacleName = obstacleName;
         this.description = description;
+        this.importance = importance;
     }
 
     @NonNull
@@ -42,47 +34,11 @@ public class Obstacle {
         return obstacleName;
     }
 
-    public void setObstacleName(@NonNull String obstacleName) {
-        this.obstacleName = obstacleName;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getReminderHour() {
-        return reminderHour;
-    }
-
-    public void setReminderHour(int reminderHour) {
-        this.reminderHour = reminderHour;
-    }
-
-    public int getReminderMinutes() {
-        return reminderMinutes;
-    }
-
-    public void setReminderMinutes(int reminderMinutes) {
-        this.reminderMinutes = reminderMinutes;
-    }
-
-    public int getReminderDays() {
-        return reminderDays;
-    }
-
-    public void setReminderDays(int reminderDays) {
-        this.reminderDays = reminderDays;
-    }
-
-    public boolean isReminder_on() {
-        return reminder_on;
-    }
-
-    public void setReminder_on(boolean reminder_on) {
-        this.reminder_on = reminder_on;
+    public int getImportance() {
+        return importance;
     }
 }

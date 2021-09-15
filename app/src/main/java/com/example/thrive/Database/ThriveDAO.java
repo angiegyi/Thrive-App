@@ -42,7 +42,7 @@ public interface ThriveDAO {
     @Query("SELECT * from OBSTACLE_VALUE")
     LiveData<List<Obstacle_value>> getAllObstacle_values();
 
-    @Query("SELECT * FROM OBSTACLE")
+    @Query("SELECT * FROM OBSTACLE ORDER BY obstacle_importance")
     LiveData<List<Obstacle>> getAllObstacles();
 
     @Query("SELECT * FROM HOOK")
@@ -54,17 +54,14 @@ public interface ThriveDAO {
     @Query("SELECT * FROM HABIT_VALUE")
     LiveData<List<HabitValue>> getAllHabitValues();
 
+    @Query("SELECT * FROM HOOK WHERE obstacle_name = :value")
+    LiveData<List<Hook>> getAllHooksByObstacle(String value);
+
     @Query("SELECT * FROM MOOD WHERE mood_isPositive = :value")
     LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value);
 
     @Query("SELECT * FROM ACTIVITYMOOD WHERE mood_name =:mood ORDER BY mood_name")
     ActivityMood[] getActivityAndMood(String mood);
-
-//    @Query("SELECT * FROM book " +
-//            "INNER JOIN loan ON loan.book_id = book.id " +
-//            "INNER JOIN user ON user.id = loan.user_id " +
-//            "WHERE user.name LIKE :userName")
-//    public List<Book> findBooksBorrowedByNameSync(String userName);
 
     @Query("SELECT * FROM ACTIVITY " +
             "INNER JOIN activityMood ON activitymood.activity_name = activity.activity_name " +

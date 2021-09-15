@@ -64,6 +64,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Obstacle_value>> getAllObstacle_values(){return mAllObstacle_values;}
     public LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
     public LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
+    public LiveData<List<Hook>> getAllHooksByObstacle(String value){return mRepository.getAllHooksByObstacle(value);};
     public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
     public LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     public LiveData<List<HabitValue>> getmAllHabitValues() {return mAllHabitValues;}

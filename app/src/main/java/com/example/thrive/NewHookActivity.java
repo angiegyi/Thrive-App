@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,12 +38,10 @@ public class NewHookActivity extends AppCompatActivity {
     String newTitle;
 
     // Hook Obstacle
-    TextInputLayout hookTextInputLayout;
-    AutoCompleteTextView hookInput;
-    ArrayList<String> arrayList_obstacles;
-    ArrayAdapter<String> arrayListAdapter_obstacles;
-    String selectedObstacle;
     Button newHook;
+    String obstacleName;
+
+    TextView obstacle_related_value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,69 +49,41 @@ public class NewHookActivity extends AppCompatActivity {
         setContentView(R.layout.new_hook);
         setTitle("New Hook");
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            obstacleName = extras.getString("name");
+        }
+        obstacle_related_value = findViewById(R.id.obstacle_related_value);
+        obstacle_related_value.setText(obstacleName);
+
         // Hook Title
         hookTitleTextLayout = findViewById(R.id.hookTitleEditLayout);
         hookTitleEditText = findViewById(R.id.hookTitleTextField);
-
-        // Select Obstacles -> Values -> need to add values to database
-        hookTextInputLayout = findViewById(R.id.hookTextDropdownLayout);
-        hookInput = findViewById(R.id.hookInput);
-        arrayList_obstacles = new ArrayList<>();
-        mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        // Pull values from DB and add to drop-down
-        mThriveViewModel.getAllObstacles().observe(this, newData -> {
-            for (Object obj : newData) {
-                try {
-                    arrayList_obstacles.add(objectToJSONObject(obj).get("obstacleName").toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        arrayListAdapter_obstacles = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_item, arrayList_obstacles);
-        hookInput.setAdapter(arrayListAdapter_obstacles);
-        hookInput.setThreshold(1);
 
         // button
         newHook = findViewById(R.id.createHookButton);
         newHook.setOnClickListener(view -> onClickListener());
     }
 
-    public static JSONObject objectToJSONObject(Object object){
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        JSONObject obj = null;
-
-        try {
-            obj = new JSONObject(ow.writeValueAsString(object));
-        } catch (JsonProcessingException | JSONException e) {
-            e.printStackTrace();
-        }
-        return obj;
-    }
-
     public void onClickListener(){
         // Error checking for title
 
-        if (TextUtils.isEmpty(hookTitleEditText.getText()) || TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
-            if( TextUtils.isEmpty(hookTitleEditText.getText())){
-                hookTitleEditText.setError( "Hook title is required!" );
-            }
-            // Error Checking Obstacle
-            if (TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
-                hookTextInputLayout.setError( "Related Obstacle is required!" );
-            }
+        if (TextUtils.isEmpty(hookTitleEditText.getText())){
+            hookTitleEditText.setError( "Hook title is required!" );
         }
         else {
             newTitle = hookTitleEditText.getEditableText().toString();
-            selectedObstacle = (hookTextInputLayout.getEditText()).getText().toString();
             addHook();
-            startActivity(new Intent(NewHookActivity.this, HookBehaviours.class));
+            Intent intent = new Intent(NewHookActivity.this,HookBehaviours.class);
+            intent.putExtra("name", obstacleName);
+            startActivity(intent);
         }
     }
 
     public void addHook(){
+        mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         try {
-            Hook hook = new Hook(newTitle, selectedObstacle);
+            Hook hook = new Hook(newTitle, obstacleName);
             mThriveViewModel.insert(hook);
             Toast.makeText(getApplicationContext(),
                     "New Hook: " + newTitle + " added." ,

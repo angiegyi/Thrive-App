@@ -107,10 +107,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, HabitActivity.class));
     }
 
-    public void toHooksPage(View view){
-        startActivity(new Intent(MainActivity.this, HookBehaviours.class));
-    }
-
     public boolean checkOnboarding(){
 
         // Get onboarding status

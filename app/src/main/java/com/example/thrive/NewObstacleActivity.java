@@ -57,19 +57,6 @@ public class NewObstacleActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayListAdapter_values;
     String selectedValue;
 
-    // Reminders
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
-    Switch switchReminder;
-
-    // Time
-    TimePicker timePicker;
-    Integer timeHour;
-    Integer timeMinutes;
-
-    // Days
-    Map<CheckBox, String> checkBoxObjects = new HashMap<>();
-    String days_data = "";
-
     // Button
     Button createObstacleButton;
 
@@ -87,9 +74,6 @@ public class NewObstacleActivity extends AppCompatActivity {
         slider = findViewById(R.id.slider);
         slider.addOnChangeListener((slider, value, fromUser) -> importance = Float.floatToIntBits(value));
 
-        // Check Boxes
-        setUpCheckBoxes();
-
         // Button
         createObstacleButton = findViewById(R.id.createObstacleButton);
         createObstacleButton.setOnClickListener(v -> onCLickHandler());
@@ -97,9 +81,6 @@ public class NewObstacleActivity extends AppCompatActivity {
         // Obstacle Title
         obstacleTitleTextLayout = findViewById(R.id.obstacleNameTextField);
         obstacleTitleEditText = findViewById(R.id.obstacleNameEditLayout);
-
-        // Switch
-        switchReminder = findViewById(R.id.switchReminder);
 
         // Obstacle Description
         obstacleDescTextLayout = findViewById(R.id.obstacleDescTextField);
@@ -123,13 +104,6 @@ public class NewObstacleActivity extends AppCompatActivity {
         arrayListAdapter_values = new ArrayAdapter<>(getApplicationContext(), R.layout.dropdown_item, arrayList_values);
         valuesInput.setAdapter(arrayListAdapter_values);
         valuesInput.setThreshold(1);
-
-        // Notifications
-        timePicker = findViewById(R.id.time_picker);
-        timePicker.setIs24HourView(true);
-
-        // Dummy Values
-        addValues();
     }
 
     /**
@@ -153,11 +127,8 @@ public class NewObstacleActivity extends AppCompatActivity {
         }
         else {
             newTitle = obstacleTitleEditText.getEditableText().toString();
-            timeHour = timePicker.getHour();
-            timeMinutes = timePicker.getMinute();
             newDescription = obstacleDescEditText.getEditableText().toString();
             selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
-
             addObstacle(selectedValue);
             startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
         }
@@ -176,49 +147,12 @@ public class NewObstacleActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets up check boxes by adding on click listeners
-     */
-    public void setUpCheckBoxes(){
-        checkBoxObjects.put((CheckBox) findViewById(R.id.mondayBox), "1");
-        checkBoxObjects.put((CheckBox) findViewById(R.id.tuesdayBox), "2");
-        checkBoxObjects.put((CheckBox) findViewById(R.id.wedBox), "3");
-        checkBoxObjects.put((CheckBox) findViewById(R.id.thursBox), "4");
-        checkBoxObjects.put((CheckBox) findViewById(R.id.friBox), "5");
-        checkBoxObjects.put((CheckBox) findViewById(R.id.satBox), "6");
-        checkBoxObjects.put((CheckBox) findViewById(R.id.sunBox), "7");
-
-        for (CheckBox box : checkBoxObjects.keySet()){
-            box.setOnClickListener(view -> getCheckBox(box));
-        }
-    }
-
-    public void getCheckBox(CheckBox box){
-        if (box.isChecked()) {
-            days_data += checkBoxObjects.get(findViewById(box.getId()));
-        }
-    }
-
-    public void addValues(){
-        // this is for testing purposes while we don't have any inserted values from the user
-        Value testValue = new Value("fit3162", "education");
-        mThriveViewModel.insert(testValue);
-        Value testValue2 = new Value("fit3122", "education");
-        mThriveViewModel.insert(testValue2);
-    }
-
-    /**
      * This method handles adding a new obstacle in the database.
      * @param value name of the related value from dropdow.
      */
     public void addObstacle(String value){
         try {
-            Obstacle obs1 = new Obstacle(newTitle, newDescription);
-            if (switchReminder.isChecked()){
-                obs1.setReminder_on(true);
-                obs1.setReminderHour(timeHour);
-                obs1.setReminderMinutes(timeMinutes);
-                obs1.setReminderDays(Integer.parseInt(days_data));
-            }
+            Obstacle obs1 = new Obstacle(newTitle, newDescription, importance);
             mThriveViewModel.insert(obs1);
             //inserting a related value and obstacle to the Obstacle_value table
             Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
