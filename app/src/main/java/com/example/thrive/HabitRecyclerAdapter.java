@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Habit;
+import com.example.thrive.Database.entities.HabitValue;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdapter.ViewHolder> {
@@ -42,6 +45,8 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView habitName;
+        public TextView habitValue;
+        public TextView habitPercentage;
         public TextView habitLeft;
         public ProgressBar habitProgress;
         public Button habitButton;
@@ -49,6 +54,8 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             habitName = itemView.findViewById(R.id.habit_name);
+            habitValue = itemView.findViewById(R.id.habit_value);
+            habitPercentage = itemView.findViewById(R.id.habit_percent);
             habitLeft = itemView.findViewById(R.id.habit_left);
             habitProgress = itemView.findViewById(R.id.habit_progress_bar);
             habitButton = itemView.findViewById(R.id.habit_button);
@@ -68,6 +75,12 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
     public void onBindViewHolder(@NonNull HabitRecyclerAdapter.ViewHolder holder, int position) {
         Habit habitObject = habitList.get(position);
         holder.habitName.setText(habitObject.getName());
+        HabitValue habitValue = mThriveViewModel.getHabitValue(habitObject.getName());
+        holder.habitValue.setText("Related Value: " + habitValue.getValueName());
+        float percentage = ((float) habitObject.getCounter() / (float) habitObject.getFrequency()) * 100;
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setRoundingMode(RoundingMode.CEILING);
+        holder.habitPercentage.setText(decimalFormat.format(percentage) + "%");
         holder.habitProgress.setProgress(habitObject.getCounter());
         holder.habitProgress.setMax(habitObject.getFrequency());
         holder.habitButton.setOnClickListener(view -> {

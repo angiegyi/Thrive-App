@@ -29,7 +29,7 @@
         <activity android:name=".BoatActivity" />
         <activity
             android:name=".HabitActivity"
-            android:label="Valued Behaviours" />
+            android:label="My Valued Behaviours" />
         <activity
             android:name=".NewHabitActivity"
             android:label="New Valued Behaviour" />
