@@ -64,7 +64,7 @@ experience this negative emotion? "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Related Value:"
+            android:text="Related Obstacle:"
             android:textSize="14sp"
             android:textStyle="bold" />
 
