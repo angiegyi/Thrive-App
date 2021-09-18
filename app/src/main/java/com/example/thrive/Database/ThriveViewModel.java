@@ -72,6 +72,11 @@ public class ThriveViewModel extends AndroidViewModel {
     public List<ActivityMood> getMoodAndActivity(String mood){return mRepository.getMoodAndActivity(mood);}
 
     /*
+    GET ONE
+     */
+    public HabitValue getHabitValue (String habitName){return mRepository.getHabitValue(habitName);}
+
+    /*
     INSERT INTO DB
      */
     public void insert(Value value) {
@@ -98,6 +103,7 @@ public class ThriveViewModel extends AndroidViewModel {
     UPDATE
      */
     public void updateHabitCounter(String habitName, int newCounter){mRepository.updateHabitCounter(habitName, newCounter);}
+
 
 
 

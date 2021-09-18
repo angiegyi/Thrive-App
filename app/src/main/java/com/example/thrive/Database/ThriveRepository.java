@@ -66,6 +66,11 @@ public class ThriveRepository {
     List<Activity> findActivityByMoodName(String mood){return mThriveDAO.findActivityByMoodName(mood);}
     List<ActivityMood> getMoodAndActivity(String mood){return mThriveDAO.getMoodAndActivity(mood);}
 
+    /*
+    FIND FROM TABLE
+     */
+    HabitValue getHabitValue(String habitName){return mThriveDAO.getHabitValue(habitName);}
+
 
     /*
     INSERT INTO DB

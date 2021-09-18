@@ -10,6 +10,9 @@
     <color name="dark_blue">#0031CA</color>
     <color name="blue">#3D5AFE</color>
 
+    <!--    card stroke colour-->
+    <color name="grey">#818181</color>
+
     <color name="colorPrimary">#448aff</color>
     <color name="colorPrimaryDark">#005ecb</color>
 <!--    fab button colour-->

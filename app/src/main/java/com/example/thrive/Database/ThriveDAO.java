@@ -76,6 +76,12 @@ public interface ThriveDAO {
     public List<ActivityMood> getMoodAndActivity(String mood);
 
     /*
+    SELECT FIND
+     */
+    @Query("SELECT * FROM HABIT_VALUE WHERE habit_name = :habitName")
+    HabitValue getHabitValue(String habitName);
+
+    /*
     INSERT INTO DB
      */
     @Insert(onConflict = OnConflictStrategy.IGNORE)
