@@ -152,7 +152,7 @@ public class NewObstacleActivity extends AppCompatActivity {
      */
     public void addObstacle(String value){
         try {
-            Obstacle obs1 = new Obstacle(newTitle, newDescription, importance);
+            Obstacle obs1 = new Obstacle(newTitle, newDescription, importance, value);
             mThriveViewModel.insert(obs1);
             //inserting a related value and obstacle to the Obstacle_value table
             Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);

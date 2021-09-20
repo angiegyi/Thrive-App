@@ -5,9 +5,11 @@ import static androidx.core.content.ContextCompat.startActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Obstacle;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
@@ -43,6 +46,8 @@ public class ObstacleRecyclerAdapter extends RecyclerView.Adapter<ObstacleRecycl
         public TextView obstacleDescription;
         public TextView obstacle_related_text;
         public Button new_hook_button;
+        TextInputLayout valuesTextInputLayout;
+        AutoCompleteTextView valuesInput;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,7 +70,9 @@ public class ObstacleRecyclerAdapter extends RecyclerView.Adapter<ObstacleRecycl
         Obstacle obstacleObject = obstacleList.get(position);
         holder.obstacleName.setText(obstacleObject.getObstacleName());
         holder.obstacleDescription.setText(obstacleObject.getDescription());
-        holder.obstacle_related_text.setText(obstacleObject.getObstacleName());
+        // need to get the value
+        System.out.println("hello " + obstacleObject.getValueName());
+        holder.obstacle_related_text.setText("hello");
         holder.new_hook_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

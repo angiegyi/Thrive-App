@@ -19,14 +19,18 @@ public class Obstacle {
     @ColumnInfo(name = "obstacle_importance")
     private int importance;
 
+    @ColumnInfo(name = "value_name")
+    private String valueName;
+
     /*
     Constructor
      */
 
-    public Obstacle(@NonNull String obstacleName, String description, int importance) {
+    public Obstacle(@NonNull String obstacleName, String description, int importance, String valueName) {
         this.obstacleName = obstacleName;
         this.description = description;
         this.importance = importance;
+        this.valueName = valueName;
     }
 
     @NonNull
@@ -37,6 +41,8 @@ public class Obstacle {
     public String getDescription() {
         return description;
     }
+
+    public String getValueName() { return valueName; }
 
     public int getImportance() {
         return importance;
