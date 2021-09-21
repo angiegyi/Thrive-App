@@ -18,6 +18,7 @@ import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
 import com.example.thrive.Database.entities.Value;
+import com.example.thrive.Database.entities.ValueProgress;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class ThriveViewModel extends AndroidViewModel {
     private LiveData<List<Hook>> mAllHooks;
     private LiveData<List<Habit>> mAllHabits;
     private LiveData<List<HabitValue>> mAllHabitValues;
-
+    private LiveData<List<ValueProgress>> mAllValueProgresses;
 
     public ThriveViewModel(@NonNull Application application) {
         super(application);
@@ -49,6 +50,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllHooks = mRepository.getAllHooks();
         mAllHabits = mRepository.getAllHabits();
         mAllHabitValues = mRepository.getAllHabitValues();
+        mAllValueProgresses = mRepository.getAllValueProgesses();
     }
 
     /*
@@ -57,6 +59,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Value>> getAllValues() {
         return mAllValues;
     }
+    public List<Value> getValues() { return mRepository.getValues(); }
     public LiveData<List<Category>> getAllCategories() {
         return mAllCategories;
     }
@@ -67,14 +70,17 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Hook>> getAllHooksByObstacle(String value){return mRepository.getAllHooksByObstacle(value);};
     public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
     public LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
-    public LiveData<List<HabitValue>> getmAllHabitValues() {return mAllHabitValues;}
+    public LiveData<List<HabitValue>> getAllHabitValues() {return mAllHabitValues;}
     public List<Activity> findActivityByMoodName(String mood){return mRepository.findActivityByMoodName(mood);}
     public List<ActivityMood> getMoodAndActivity(String mood){return mRepository.getMoodAndActivity(mood);}
-
+    public LiveData<List<ValueProgress>> getAllValueProgresses() { return mAllValueProgresses;}
+    public List<ValueProgress> getValueProgresses() { return mRepository.getValueProgesses();}
+    public List<ValueProgress> getAllValueProgressesDate(String date) { return mRepository.getAllValueProgessesDate(date);}
     /*
-    GET ONE
-     */
+        GET ONE
+         */
     public HabitValue getHabitValue (String habitName){return mRepository.getHabitValue(habitName);}
+    public ValueProgress getValueProgress (String valueName, String date) {return mRepository.getValueProgress(valueName, date);}
 
     /*
     INSERT INTO DB
@@ -90,6 +96,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public void insert(Hook hook){mRepository.insert(hook);}
     public void addCategory(String category_name){mRepository.addCategory(category_name);}
     public void insert(CheckIn checkIn){mRepository.insert(checkIn);}
+    public void insert(ValueProgress valueProgress){mRepository.insert(valueProgress);}
 
     /*
     DELETE
@@ -103,6 +110,8 @@ public class ThriveViewModel extends AndroidViewModel {
     UPDATE
      */
     public void updateHabitCounter(String habitName, int newCounter){mRepository.updateHabitCounter(habitName, newCounter);}
+    public void updateValueProgressTotal(String valueName, String valueDate, int newTotal){mRepository.updateValueProgressTotal(valueName
+    , valueDate, newTotal);}
 
 
 

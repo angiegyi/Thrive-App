@@ -19,13 +19,14 @@ import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
 import com.example.thrive.Database.entities.Value;
+import com.example.thrive.Database.entities.ValueProgress;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @Database(entities = {Category.class, Value.class, Activity.class, Activity_category.class,
 Habit.class, HabitValue.class, Obstacle.class, Obstacle_value.class, CheckIn.class, Mood.class,
-        Hook.class, ActivityMood.class},
+        Hook.class, ActivityMood.class, ValueProgress.class},
         version = 1, exportSchema = false)
 public abstract class ThriveDatabase extends RoomDatabase {
     // database objects provides the interface of the underlying

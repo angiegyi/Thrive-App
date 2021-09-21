@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -23,11 +24,15 @@ import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Activity;
 import com.example.thrive.Database.entities.CheckIn;
 import com.example.thrive.Database.entities.Mood;
+import com.example.thrive.Database.entities.Value;
+import com.example.thrive.Database.entities.ValueProgress;
 import com.google.android.material.slider.Slider;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sp;
     String SHARED_PREFERENCE_NAME;
     private Button help_button;
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         startOnBoarding();
         help_button = findViewById(R.id.helpButton);
         help_button.setOnClickListener(view -> helpButtonCallback());
-
+        createValueProgress();
     }
 
     public void startOnBoarding(){
@@ -87,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
         editor = sp.edit();
         editor.putBoolean("onboarded", true);
         editor.apply();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        createValueProgress();
     }
 
     public void toValuesPage(View view){
@@ -290,6 +302,31 @@ public class MainActivity extends AppCompatActivity {
                 //update rating
             }
         });
+    }
+
+    public void createValueProgress(){
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        int lastDay = settings.getInt("last_time_started", -1);
+        Calendar calendar = Calendar.getInstance();
+        int today = calendar.get(Calendar.DAY_OF_YEAR);
+
+        if (today != lastDay) {
+            mThriveViewModel.getAllValues().observe(this, newData -> {
+                for (Value obj : newData) {
+                    if (obj != null){
+                        String valueName = obj.getName();
+                        ValueProgress valueProgress =  mThriveViewModel.getValueProgress(valueName, dateFormat.format(today));
+                        if(valueProgress == null){
+                            valueProgress = new ValueProgress(valueName, calendar.getTime());
+                            mThriveViewModel.insert(valueProgress);
+                        }
+                    }
+                }
+            });
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("last_time_started", today);
+            editor.commit();
+        }
     }
 
 }

@@ -17,6 +17,7 @@ import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
 import com.example.thrive.Database.entities.Value;
+import com.example.thrive.Database.entities.ValueProgress;
 
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class ThriveRepository {
     private LiveData<List<Mood>> mAllPositiveMoods;
     private LiveData<List<Habit>> mAllHabits;
     private LiveData<List<HabitValue>> mAllHabitValues;
+    private LiveData<List<ValueProgress>> mAllValueProgesses;
 
 
     ThriveRepository(Application application) {
@@ -48,12 +50,14 @@ public class ThriveRepository {
         mAllHooks = mThriveDAO.getAllHooks();
         mAllHabits = mThriveDAO.getAllHabits();
         mAllHabitValues = mThriveDAO.getAllHabitValues();
+        mAllValueProgesses = mThriveDAO.getAllValueProgresses();
     }
 
     /*
     GET ALL FROM TABLE
      */
     LiveData<List<Value>> getAllValues() {return mAllValues;}
+    List<Value> getValues() {return mThriveDAO.getValues();}
     LiveData<List<Category>> getAllCategories(){return mAllCategories;}
     LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
     LiveData<List<Obstacle_value>> getAllObstacle_values(){ return mAllObstacle_values;}
@@ -65,12 +69,14 @@ public class ThriveRepository {
     LiveData<List<HabitValue>> getAllHabitValues(){return mAllHabitValues;}
     List<Activity> findActivityByMoodName(String mood){return mThriveDAO.findActivityByMoodName(mood);}
     List<ActivityMood> getMoodAndActivity(String mood){return mThriveDAO.getMoodAndActivity(mood);}
-
+    LiveData<List<ValueProgress>> getAllValueProgesses(){return mAllValueProgesses;}
+    List<ValueProgress> getValueProgesses(){return mThriveDAO.getValueProgresses();}
+    List<ValueProgress> getAllValueProgessesDate(String date){return mThriveDAO.getValueProgressDate(date);}
     /*
     FIND FROM TABLE
      */
     HabitValue getHabitValue(String habitName){return mThriveDAO.getHabitValue(habitName);}
-
+    ValueProgress getValueProgress (String valueName, String date) {return mThriveDAO.getValueProgress(valueName, date);}
 
     /*
     INSERT INTO DB
@@ -102,6 +108,10 @@ public class ThriveRepository {
 
     void insert(CheckIn checkIn){
         ThriveDatabase.databaseWriteExecutor.execute(()->mThriveDAO.addCheckIn(checkIn));
+    }
+
+    void insert(ValueProgress valueProgress){
+        ThriveDatabase.databaseWriteExecutor.execute(()->mThriveDAO.addValueProgress(valueProgress));
     }
     /*
     DELETE METHODS
@@ -135,6 +145,12 @@ public class ThriveRepository {
     void updateHabitCounter(String habitName, int newCounter){
         ThriveDatabase.databaseWriteExecutor.execute(()->{
             mThriveDAO.updateHabitCounter(habitName, newCounter);
+        });
+    }
+
+    void updateValueProgressTotal(String valueName, String valueDate, int newTotal){
+        ThriveDatabase.databaseWriteExecutor.execute(()->{
+            mThriveDAO.updateValueProgressTotal(valueName, valueDate, newTotal);
         });
     }
 }
