@@ -18,6 +18,7 @@ import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
 import com.example.thrive.Database.entities.Value;
 import com.example.thrive.Database.entities.Hook;
+import com.example.thrive.Database.entities.ValueProgress;
 
 import java.util.List;
 
@@ -29,6 +30,9 @@ public interface ThriveDAO {
      */
     @Query("select * from Value")
     LiveData<List<Value>> getAllValues();
+
+    @Query("select * from Value")
+    List<Value> getValues();
 
     @Query("SELECT COUNT(value_name) FROM Value")
     LiveData<Integer> getRowCount();
@@ -75,11 +79,23 @@ public interface ThriveDAO {
             "WHERE (mood.mood_name LIKE :mood AND activityMood.strength >= 4) ORDER BY activity.activity_name")
     public List<ActivityMood> getMoodAndActivity(String mood);
 
+    @Query("SELECT * FROM value_progress")
+    LiveData<List<ValueProgress>> getAllValueProgresses();
+
+    @Query("SELECT * FROM value_progress")
+    List<ValueProgress> getValueProgresses();
+
     /*
     SELECT FIND
      */
     @Query("SELECT * FROM HABIT_VALUE WHERE habit_name = :habitName")
     HabitValue getHabitValue(String habitName);
+
+    @Query("SELECT * FROM value_progress where progress_value = :valueName and progress_date = :date")
+    ValueProgress getValueProgress(String valueName, String date);
+
+    @Query("SELECT * FROM value_progress where progress_date = :date")
+    List<ValueProgress> getValueProgressDate(String date);
 
     /*
     INSERT INTO DB
@@ -111,6 +127,9 @@ public interface ThriveDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void addCheckIn(CheckIn checkIn);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void addValueProgress(ValueProgress valueProgress);
+
 
     /*
     DELETE QUERIES
@@ -135,5 +154,7 @@ public interface ThriveDAO {
     @Query("update habit set habit_counter=:newCounter where habit_name=:habitName")
     void updateHabitCounter(String habitName, int newCounter );
 
+    @Query("update value_progress set progress_total=:newTotal where progress_value=:valueName and progress_date=:valueDate")
+    void updateValueProgressTotal(String valueName, String valueDate, int newTotal);
 
 }
