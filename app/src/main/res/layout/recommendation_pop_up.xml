@@ -2,17 +2,31 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_gravity="center"
     android:layout_width="330dp"
-    android:layout_height="500dp">
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:background="#00000000">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        card_view:cardCornerRadius="15dp"
+        card_view:cardElevation="3dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="71dp"
+                android:layout_height="68dp"
+                android:layout_marginTop="16dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:srcCompat="@drawable/logo_blue" />
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/ratingSlider"
@@ -34,29 +48,28 @@
 
             <TextView
                 android:id="@+id/tv_activity"
-                android:layout_width="wrap_content"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:text="Activity"
+                android:textAlignment="center"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                app:layout_constraintVertical_bias="0.038" />
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:layout_width="255dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="76dp"
-                android:text="Here's an activity to help boost your mood.."
-                android:textSize="16sp"
+                android:background="@color/white"
+                android:text="Based on your mood and preferences, Thrive recommends:"
+                android:textAlignment="center"
+                android:textSize="17dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.64"
+                app:layout_constraintHorizontal_bias="0.533"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
             <Button
                 android:id="@+id/btn_okay"
@@ -73,9 +86,12 @@
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="286dp"
-                android:layout_height="114dp"
-                android:layout_marginTop="24dp"
-                android:text="Description of the activity"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_view"
+                android:text="Description of the activity ajdisajdisjdiajsidjai
+                        asjdiasdjasijdiasjdaisjdiasjdisajdjas
+                        aisjdisad iasjdiasjdijsad iajsdijasjdas jiasjdijasd iasjd "
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_activity" />
@@ -102,7 +118,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="28dp"
                 android:text="Adjust the rating to your liking"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

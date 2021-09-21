@@ -76,9 +76,9 @@ public abstract class ThriveDatabase extends RoomDatabase {
                             }
 
                             ContentValues values4 = new ContentValues();
-                            String[] activities= {"exercising", "meditation", "trying something new", "connecting with people",	"go for a walk",
-                                    "personal hobbies/interests",	"organising/tidying", "disobey on purpose", "give your mind a name and listen to it politely",
-                            "appreciate what your mind is trying to do", "carry it with you "};
+                            String[] activities= {"Exercising", "Meditating", "Trying something new", "Connecting with people",	"Going for a stroll",
+                                    "Doing personal hobbies or interests",	"Organising and tidying", "Disobeying on purpose", "Giving your mind a name and listening to it politely",
+                            "Appreciating what your mind is trying to do", "Carrying it with you "};
                             ArrayList<int[]> listsOfStrengthsPositive = new ArrayList<int[]>();
                             ArrayList<int[]> listsOfStrengthsNegative = new ArrayList<int[]>();
                             int[] happyStrength = {5,5,4,5,5,5,3,1,1,1,1};
@@ -115,14 +115,20 @@ public abstract class ThriveDatabase extends RoomDatabase {
                             listsOfStrengthsNegative.add(lowSelfEsteemStrength);
                             for(String activity: activities){
                                 values4.put("activity_name", activity);
+                                values4.put("activityDescription", "Exercise involves engaging in physical activity and increasing the heart rate beyond resting levels. It is an important part of preserving physical and mental health.\n" +
+                                        "\n" +
+                                        "Whether people engage in light exercise, such as going for a walk, or high intensity activities, for example, uphill cycling or weight training, regular exercise provides a huge range of benefits for the body and mind.\n" +
+                                        "\n" +
+                                        "Taking part in exercise of any intensity every day is essential for preventing a range of diseases and other health issues.");
                                 db.insert("activity", 1, values4);
                             }
+                            ContentValues values4a = new ContentValues();
                             for(int i = 0; i < positive_moods.length; i++){
                                 for(int j = 0; j < (activities.length); j++){
-                                    values4.put("mood_name", positive_moods[i]);
-                                    values4.put("activity_name", activities[j]);
-                                    values4.put("strength", listsOfStrengthsPositive.get(i)[j]);
-                                    db.insert("activityMood", 1, values4);
+                                    values4a.put("mood_name", positive_moods[i]);
+                                    values4a.put("activity_name", activities[j]);
+                                    values4a.put("strength", listsOfStrengthsPositive.get(i)[j]);
+                                    db.insert("activityMood", 1, values4a);
                                 }
                             }
                             ContentValues values5 = new ContentValues();

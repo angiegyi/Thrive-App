@@ -203,6 +203,7 @@ public class MainActivity extends AppCompatActivity {
         View checkInPopUpView2 = getLayoutInflater().inflate(R.layout.check_in_pop_up2, null);
         dialogBuilder2.setView(checkInPopUpView2);
         AlertDialog checkInDialog2 = dialogBuilder2.create();
+        checkInDialog2.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         checkInDialog2.setCancelable(false); //prevent dialog box from getting dismissed by back button
         checkInDialog2.setCanceledOnTouchOutside(false); // prevent dialog from getting dismissed on outside touch
         checkInDialog2.show();
@@ -269,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
         View checkInPopUpView = getLayoutInflater().inflate(R.layout.recommendation_pop_up, null);
         dialogBuilder.setView(checkInPopUpView);
         AlertDialog checkInDialog = dialogBuilder.create();
+        checkInDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         checkInDialog.setCancelable(false); //prevent dialog box from getting dismissed by back button
         checkInDialog.setCanceledOnTouchOutside(false); // prevent dialog from getting dismissed on outside touch
         checkInDialog.show();
