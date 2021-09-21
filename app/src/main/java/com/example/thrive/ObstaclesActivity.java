@@ -3,12 +3,17 @@ package com.example.thrive;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thrive.Database.ThriveViewModel;
+import com.example.thrive.Database.entities.Habit;
+import com.example.thrive.Database.entities.Obstacle;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,6 +22,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,16 +30,20 @@ import java.util.ArrayList;
 public class ObstaclesActivity extends AppCompatActivity {
 
     ThriveViewModel mThriveViewModel;
-    ArrayAdapter adapter;
     FloatingActionButton fab;
-    ListView list;
-    ArrayList<String> objects = new ArrayList<>();
+    ArrayList<Obstacle> data = new ArrayList<>();
+    RecyclerView obstacleRecyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    ObstacleRecyclerAdapter obstacleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.obstacles);
         initFab();
+        obstacleRecyclerView = findViewById(R.id.obstacle_recycler);
+        layoutManager = new LinearLayoutManager(this);
+        obstacleRecyclerView.setLayoutManager(layoutManager);
         initData();
         setTitle("My Obstacles");
     }
@@ -42,22 +52,17 @@ public class ObstaclesActivity extends AppCompatActivity {
      * Initialises all data for the application including addapter logic.
      */
     private void initData(){
-        list = findViewById(R.id.obstacleList);
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
+        obstacleAdapter = new ObstacleRecyclerAdapter(getApplicationContext());
         mThriveViewModel.getAllObstacles().observe(this, newData -> {
-            for (Object obj : newData) {
-                if (obj != null){
-                    try {
-                        objects.add(objectToJSONObject(obj).getString("obstacleName"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+            obstacleAdapter.resetData();
+            for (Obstacle obj : newData) {
+                if (obj != null) {
+                    data.add(obj);
                 }
             }
-            adapter = new ArrayAdapter(this,
-                    android.R.layout.simple_list_item_1, objects.toArray());
-            list.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
+            obstacleAdapter.setData(data);
+            obstacleRecyclerView.setAdapter(obstacleAdapter);
         });
     }
 

@@ -23,8 +23,9 @@
         android:id="@+id/hooksTitle"
         android:layout_width="326dp"
         android:layout_height="49dp"
-        android:layout_marginTop="60dp"
-        android:text="What behaviours are associated with the obstacles?"
+        android:layout_marginTop="40dp"
+        android:text="What actions do you take when you
+experience this negative emotion? "
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -32,16 +33,65 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--    List-->
+    <TextView
+        android:id="@+id/hookSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="eg. binge Netflix."
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hooksTitle" />
+
+    <LinearLayout
+        android:id="@+id/currentObstacle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:orientation="horizontal"
+        android:layout_gravity="start"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hookSubtitle">
+
+
+        <TextView
+            android:id="@+id/obstacle_related_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Related Obstacle:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/obstacle_related_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="left"
+            android:text="Related Value"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/blue"/>
+
+    </LinearLayout>
+
     <ListView
         android:id="@+id/hooksList"
         android:layout_width="0dp"
         android:layout_height="490dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ListView>
+        app:layout_constraintTop_toBottomOf="@+id/currentObstacle">
+    </ListView>
 
 
 

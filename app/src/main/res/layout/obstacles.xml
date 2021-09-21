@@ -22,25 +22,42 @@
         android:id="@+id/hookTitle"
         android:layout_width="326dp"
         android:layout_height="49dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="24dp"
-        android:text="What behaviours are associated with the obstacles?"
+        android:text="What negative emotions do you often experience?"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/obstacleList"
+    <TextView
+        android:id="@+id/hookSubtitle"
         android:layout_width="0dp"
-        android:layout_height="490dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="156dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        android:text="eg. feeling bored."
+        android:textSize="14sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/hookTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/obstacle_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hookSubtitle"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

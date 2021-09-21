@@ -2,8 +2,10 @@ package com.example.thrive;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -26,12 +28,21 @@ public class HookBehaviours extends AppCompatActivity {
     FloatingActionButton fab;
     ListView list;
     ArrayList<String> objects = new ArrayList<>();
+    String obstacleName;
+    TextView obstacle_related_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_hooks);
         setTitle("Hook Behaviours");
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            obstacleName = extras.getString("name");
+            System.out.println(obstacleName);
+        }
+        obstacle_related_text = findViewById(R.id.obstacle_related_text);
+        obstacle_related_text.setText(obstacleName);
         initData();
         initFab();
     }
@@ -39,13 +50,15 @@ public class HookBehaviours extends AppCompatActivity {
     private void initData(){
         list = findViewById(R.id.hooksList);
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        mThriveViewModel.getAllHooks().observe(this, newData -> {
+        mThriveViewModel.getAllHooksByObstacle(obstacleName).observe(this, newData -> {
             for (Object obj : newData) {
-                if (obj != null){
-                    try {
-                        objects.add(objectToJSONObject(obj).getString("hook_behaviour"));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                if (obj != null) {
+                    if (objects.size() < 10) {
+                        try {
+                            objects.add(objectToJSONObject(obj).getString("hook_behaviour"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
@@ -78,14 +91,21 @@ public class HookBehaviours extends AppCompatActivity {
      */
     private void initFab(){
         fab = findViewById(R.id.hookNewFab);
-        // If fab button is clicked, the add obstacle activity is shown
-        fab.setOnClickListener(view -> startActivity(new Intent(HookBehaviours.this, NewHookActivity.class)));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = obstacleName;
+                Intent intent = new Intent(HookBehaviours.this,NewHookActivity.class);
+                intent.putExtra("name", ""+ name);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public void onBackPressed()
     {
-        startActivity(new Intent(HookBehaviours.this, MainActivity.class));
+        startActivity(new Intent(HookBehaviours.this, ObstaclesActivity.class));
         finish();
     }
 }

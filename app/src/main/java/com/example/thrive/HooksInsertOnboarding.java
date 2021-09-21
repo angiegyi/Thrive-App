@@ -54,8 +54,6 @@ public class HooksInsertOnboarding extends AppCompatActivity {
         hookTitleEditText = findViewById(R.id.hookTitleTextField);
 
         // Select Obstacles -> Values -> need to add values to database
-        hookTextInputLayout = findViewById(R.id.hookTextDropdownLayout);
-        hookInput = findViewById(R.id.hookInput);
         arrayList_obstacles = new ArrayList<>();
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
         // Pull values from DB and add to drop-down

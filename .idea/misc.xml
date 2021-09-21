@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Library/Android/sdk/platforms/android-30/data/res/drawable/background_holo_dark.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/boat.xml" value="0.4" />
         <entry key="..\:/Users/Adeline/Desktop/Thrive-App/app/src/main/res/layout/card_habit.xml" value="0.33076923076923076" />
@@ -68,21 +69,29 @@
         <entry key="..\:/Users/angel/StudioProjects/Thrive-App/app/src/main/res/layout/new_obstacle.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/angel/StudioProjects/Thrive-App/app/src/main/res/layout/view_hooks.xml" value="0.30434782608695654" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23242105263157894" />
         <entry key="app/src/main/res/layout/boat.xml" value="0.25" />
         <entry key="app/src/main/res/layout/boat_onboarding.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/card_habit.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/card_habit_onboard.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/card_obstacle.xml" value="0.42246642246642246" />
         <entry key="app/src/main/res/layout/check_in_pop_up.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/check_in_pop_up2.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/dropdown_item.xml" value="0.16032608695652173" />
-        <entry key="app/src/main/res/layout/habits.xml" value="0.16770833333333332" />
+        <entry key="app/src/main/res/layout/habits.xml" value="0.335" />
         <entry key="app/src/main/res/layout/lake_onboarding.xml" value="0.335" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/new_habit.xml" value="0.34068173992222917" />
+        <entry key="app/src/main/res/layout/new_hook.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/new_obstacle.xml" value="0.3058210251954822" />
         <entry key="app/src/main/res/layout/new_hook.xml" value="0.7097365959935767" />
         <entry key="app/src/main/res/layout/new_obstacle.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/new_hook.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/new_obstacle.xml" value="0.3058210251954822" />
         <entry key="app/src/main/res/layout/new_value.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/obstacles.xml" value="0.27819451486772606" />
+        <entry key="app/src/main/res/layout/obstacles.xml" value="0.22741433021806853" />
         <entry key="app/src/main/res/layout/onboarding_empty.xml" value="0.13496376811594202" />
         <entry key="app/src/main/res/layout/onboarding_insert_values.xml" value="0.3492063492063492" />
         <entry key="app/src/main/res/layout/onboarding_mountain.xml" value="0.335" />
@@ -92,10 +101,14 @@
         <entry key="app/src/main/res/layout/onboarding_story_start.xml" value="0.32348347854672976" />
         <entry key="app/src/main/res/layout/onboarding_story_values.xml" value="0.35249347409210086" />
         <entry key="app/src/main/res/layout/onboarding_sun.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/onboarding_view_habits.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/onboarding_view_hooks.xml" value="0.2222515680581928" />
+        <entry key="app/src/main/res/layout/onboarding_view_obstacles.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/splash_screen.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/value_item.xml" value="0.14990942028985507" />
         <entry key="app/src/main/res/layout/values.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_hooks.xml" value="0.3892988929889299" />
-        <entry key="app/src/main/res/layout/view_obstacles.xml" value="0.14990942028985507" />
+        <entry key="app/src/main/res/layout/view_obstacles.xml" value="0.3201754385964912" />
       </map>
     </option>
   </component>

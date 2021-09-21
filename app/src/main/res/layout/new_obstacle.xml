@@ -5,7 +5,7 @@
 <ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:fillViewport="true"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
@@ -18,18 +18,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TimePicker
-            android:id="@+id/time_picker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView5"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
-            android:timePickerMode="spinner"
-            app:layout_constraintBottom_toTopOf="@+id/textView5"
-            app:layout_constraintTop_toBottomOf="@+id/sunBox"
-            app:layout_constraintVertical_bias="0.121"
-            tools:layout_editor_absoluteX="0dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/obstacleDescTextField"
@@ -73,66 +61,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="127dp" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <CheckBox
-            android:id="@+id/satBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="Sat"
-            app:layout_constraintEnd_toStartOf="@+id/tuesdayBox"
-            app:layout_constraintHorizontal_bias="0.222"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mondayBox" />
-
-        <CheckBox
-            android:id="@+id/thursBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="5dp"
-            android:text="Thurs"
-            app:layout_constraintEnd_toStartOf="@+id/friBox"
-            app:layout_constraintStart_toEndOf="@+id/wedBox"
-            app:layout_constraintTop_toBottomOf="@+id/moodsTextInputLayout" />
-
-        <CheckBox
-            android:id="@+id/friBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="36dp"
-            android:text="Fri"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/thursBox"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <CheckBox
-            android:id="@+id/wedBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="5dp"
-            android:text="Wed"
-            app:layout_constraintEnd_toStartOf="@+id/thursBox"
-            app:layout_constraintStart_toEndOf="@+id/tuesdayBox"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <CheckBox
-            android:id="@+id/tuesdayBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="5dp"
-            android:text="Tues"
-            app:layout_constraintEnd_toStartOf="@+id/wedBox"
-            app:layout_constraintStart_toEndOf="@+id/mondayBox"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <!--    this is dropdown  -->
 
@@ -183,7 +111,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="24dp"
             android:text="Add Obstacle"
@@ -191,69 +119,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slider" />
+            app:layout_constraintTop_toBottomOf="@+id/slider"
+            app:layout_constraintVertical_bias="0.946" />
 
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="19dp"
             android:layout_marginStart="25dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="25dp"
             android:text="Rate the importance of this obstacle."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.053"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="542dp"
-            app:layout_constraintTop_toBottomOf="@+id/time_picker"/>
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="31dp"
-            android:layout_marginTop="24dp"
-            android:text="Send me reminders"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/moodsTextInputLayout" />
-
-        <Switch
-            android:id="@+id/switchReminder"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="5dp"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/friBox"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.848"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/moodsTextInputLayout"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-        <CheckBox
-            android:id="@+id/mondayBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="5dp"
-            android:text="Mon"
-            app:layout_constraintEnd_toStartOf="@+id/tuesdayBox"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <CheckBox
-            android:id="@+id/sunBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="9dp"
-            android:text="Sun"
-            app:layout_constraintStart_toEndOf="@+id/satBox"
-            app:layout_constraintTop_toBottomOf="@+id/tuesdayBox" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

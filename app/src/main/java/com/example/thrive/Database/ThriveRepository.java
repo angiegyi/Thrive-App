@@ -59,11 +59,17 @@ public class ThriveRepository {
     LiveData<List<Obstacle_value>> getAllObstacle_values(){ return mAllObstacle_values;}
     LiveData<List<Obstacle>> getAllObstacles(){return mAllObstacles;}
     LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
+    LiveData<List<Hook>> getAllHooksByObstacle(String value){return mThriveDAO.getAllHooksByObstacle(value);};
     LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mThriveDAO.getAllPositiveOrNegativeMoods(value);};
     LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     LiveData<List<HabitValue>> getAllHabitValues(){return mAllHabitValues;}
     List<Activity> findActivityByMoodName(String mood){return mThriveDAO.findActivityByMoodName(mood);}
     List<ActivityMood> getMoodAndActivity(String mood){return mThriveDAO.getMoodAndActivity(mood);}
+
+    /*
+    FIND FROM TABLE
+     */
+    HabitValue getHabitValue(String habitName){return mThriveDAO.getHabitValue(habitName);}
 
 
     /*

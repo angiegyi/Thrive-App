@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.THRIVE">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SunOnboarding" />
+        <activity android:name=".MainActivity" />
+
         <activity android:name=".LakeOnboarding" />
         <activity android:name=".MountainOnboarding" />
         <activity android:name=".NewObstacleActivity" />
@@ -29,7 +31,7 @@
         <activity android:name=".BoatActivity" />
         <activity
             android:name=".HabitActivity"
-            android:label="Valued Behaviours" />
+            android:label="My Valued Behaviours" />
         <activity
             android:name=".NewHabitActivity"
             android:label="New Valued Behaviour" />
