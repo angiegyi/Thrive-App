@@ -33,7 +33,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -193,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         /*
         Next Dialog #CheckIn2
          */
-        View nextButtonCheckIn = checkInDialog.findViewById(R.id.btn_okay);
+        View nextButtonCheckIn = checkInDialog.findViewById(R.id.btn_next);
         nextButtonCheckIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);

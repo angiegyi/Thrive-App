@@ -38,6 +38,7 @@ public class ThriveViewModel extends AndroidViewModel {
     private LiveData<List<Habit>> mAllHabits;
     private LiveData<List<HabitValue>> mAllHabitValues;
     private LiveData<List<ValueProgress>> mAllValueProgresses;
+    private LiveData<List<Activity>> mAllActivities;
 
     public ThriveViewModel(@NonNull Application application) {
         super(application);
@@ -51,6 +52,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllHabits = mRepository.getAllHabits();
         mAllHabitValues = mRepository.getAllHabitValues();
         mAllValueProgresses = mRepository.getAllValueProgesses();
+        mAllActivities = mRepository.getAllActivities();
     }
 
     /*
@@ -71,6 +73,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
     public LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     public LiveData<List<HabitValue>> getAllHabitValues() {return mAllHabitValues;}
+    public LiveData<List<Activity>> getAllActivities(){return mAllActivities;}
     public List<Activity> findActivityByMoodName(String mood){return mRepository.findActivityByMoodName(mood);}
     public List<ActivityMood> getMoodAndActivity(String mood){return mRepository.getMoodAndActivity(mood);}
     public LiveData<List<ValueProgress>> getAllValueProgresses() { return mAllValueProgresses;}

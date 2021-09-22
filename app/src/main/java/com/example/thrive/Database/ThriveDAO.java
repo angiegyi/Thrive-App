@@ -85,6 +85,9 @@ public interface ThriveDAO {
     @Query("SELECT * FROM value_progress")
     List<ValueProgress> getValueProgresses();
 
+    @Query("SELECT * FROM activity")
+    LiveData<List<Activity>> getAllActivities();
+
     /*
     SELECT FIND
      */
