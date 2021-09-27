@@ -46,7 +46,6 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
 
     // Reminders
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    Switch switchReminder;
 
     // Obstacle Description
     TextInputLayout obstacleDescTextLayout;
@@ -59,15 +58,6 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
     ArrayList<String> arrayList_values;
     ArrayAdapter<String> arrayListAdapter_values;
     String selectedValue;
-
-    // Time
-    TimePicker timePicker;
-    Integer timeHour;
-    Integer timeMinutes;
-
-    // Days
-    Map<CheckBox, String> checkBoxObjects = new HashMap<>();
-    String days_data = "";
 
     // Button
     Button createObstacleButton;
@@ -83,8 +73,6 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
 
         // Slider
         slider = findViewById(R.id.slider);
-        slider.addOnChangeListener((slider, value, fromUser) -> importance = Float.floatToIntBits(value));
-
 
         // Button
         createObstacleButton = findViewById(R.id.createObstacleButton);
@@ -140,12 +128,10 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
             }
         }
         else {
+            importance = (int) slider.getValue();
             newTitle = obstacleTitleEditText.getEditableText().toString();
-            timeHour = timePicker.getHour();
-            timeMinutes = timePicker.getMinute();
             newDescription = obstacleDescEditText.getEditableText().toString();
             selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
-
             addObstacle(selectedValue, importance);
             startActivity(new Intent(ObstaclesInsertOnboarding.this, ObstaclesViewOnboarding.class));
         }
@@ -176,10 +162,10 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
             Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
             mThriveViewModel.insert(obstacle_value);
             Toast.makeText(getApplicationContext(),
-                    "New Value: " + newTitle + " added." ,
+                    "New Obstacle: " + newTitle + " added." ,
                     Toast.LENGTH_LONG).show();
         } catch(Exception e) {
-            Log.i("RESPONSE", e.toString());
+            Log.i("OBSTACLE RESPONSE", e.toString());
         }
     }
 
