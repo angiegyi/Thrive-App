@@ -69,7 +69,7 @@ public class HabitsViewOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(HabitsViewOnboarding.this, HabitsInsertOnboarding.class);
+                Intent intent = new Intent(HabitsViewOnboarding.this, NewHabitActivity.class);
                 startActivity(intent);
             }
         });

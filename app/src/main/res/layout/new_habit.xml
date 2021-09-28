@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:hint="Related Values"
+            android:hint="Related Value"
             app:layout_constraintTop_toBottomOf="@+id/habitNameText">
 
             <AutoCompleteTextView

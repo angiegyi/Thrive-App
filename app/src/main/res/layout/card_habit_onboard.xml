@@ -30,13 +30,41 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:id="@+id/habit_related_value_onboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/habit_name_onboard"
+            android:layout_alignLeft="@id/habit_name_onboard"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Related Value:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/habit_value_onboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="6sp"
+                android:text="Related Value"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/habit_time_onboard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/habit_name_onboard"
+            android:layout_below="@+id/habit_related_value_onboard"
             android:layout_alignLeft="@id/habit_name_onboard"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="3dp"
             android:text="x days left"
             android:textSize="14sp" />

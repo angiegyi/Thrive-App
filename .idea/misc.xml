@@ -53,13 +53,15 @@
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.1875" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/boat.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/boat_onboarding.xml" value="0.11041666666666666" />
-        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/card_habit.xml" value="0.4" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/card_habit.xml" value="0.2" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/card_habit_onboard.xml" value="0.264" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/card_obstacle.xml" value="0.4" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/habits.xml" value="0.264" />
-        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_habit.xml" value="0.4" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/new_habit.xml" value="0.1" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/obstacles.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/onboarding_mountain.xml" value="0.1" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/onboarding_story_habits.xml" value="0.4" />
-        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/onboarding_view_habits.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/onboarding_view_habits.xml" value="0.264" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/onboarding_view_hooks.xml" value="0.18489583333333334" />
         <entry key="..\:/Users/adeli/Documents/GitHub/Thrive-App/app/src/main/res/layout/progress.xml" value="0.264" />
         <entry key="..\:/Users/angel/StudioProjects/Thrive-App/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
