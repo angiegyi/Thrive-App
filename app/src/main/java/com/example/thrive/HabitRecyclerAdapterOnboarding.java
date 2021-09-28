@@ -54,10 +54,7 @@ public class HabitRecyclerAdapterOnboarding extends RecyclerView.Adapter<HabitRe
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         Habit habitObject = habitList.get(position);
         holder.habitName.setText(habitObject.getName());
-        String addS = "";
-        if(Integer.parseInt(habitObject.getMeasurement()) > 1)
-            addS = "s";
-        String strHabitLeft = habitObject.getFrequency()+ " times per " + habitObject.getMeasurement() + " " + habitObject.getPeriod() + addS;
+        String strHabitLeft = habitObject.getFrequency()+ " times left per " + habitObject.getPeriod();
         holder.habitTime.setText(strHabitLeft);
     }
 

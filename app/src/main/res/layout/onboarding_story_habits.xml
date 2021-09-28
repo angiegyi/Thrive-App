@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingBottom="20dp"
-                android:text="What habits would you have that promote those values?"
+                android:text="What behaviours would you have that promote those values?"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 

@@ -116,11 +116,8 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
                         Toast.LENGTH_LONG).show();
             }
         });
-        String addS = "";
-        if(Integer.parseInt(habitObject.getMeasurement()) > 1)
-            addS = "s";
         int progress = habitObject.getFrequency() - habitObject.getCounter();
-        String strHabitLeft =  progress + " times left per " + habitObject.getMeasurement() + " " + habitObject.getPeriod()+addS;
+        String strHabitLeft =  progress + " times left per " + habitObject.getPeriod();
         holder.habitLeft.setText(strHabitLeft);
     }
 
