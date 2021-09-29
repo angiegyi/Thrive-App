@@ -105,7 +105,9 @@ public class HookBehaviours extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        startActivity(new Intent(HookBehaviours.this, ObstaclesActivity.class));
-        finish();
+//        startActivity(new Intent(HookBehaviours.this, ObstaclesActivity.class));
+//        finish();
+        super.onBackPressed();
+        super.onBackPressed();
     }
 }

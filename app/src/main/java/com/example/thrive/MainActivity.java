@@ -7,15 +7,19 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +38,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         editor = sp.edit();
         editor.putString("mood", "none");
         editor.apply();
-        createNewCheckInDialog(); // Uncomment this for the Mood Tracker
+        startMoodTracker();
         startOnBoarding();
         help_button = findViewById(R.id.helpButton);
         help_button.setOnClickListener(view -> helpButtonCallback());
@@ -73,10 +79,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void startMoodTracker(){
+        SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+        boolean moodChecked = get_data.getBoolean("moodChecked", false);
+        if(!moodChecked){
+            sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor;
+            editor = sp.edit();
+            editor.putBoolean("moodChecked", true);
+            editor.apply();
+            createNewCheckInDialog();
+        }
+    }
+
     public void helpButtonCallback(){
         startActivity(new Intent(MainActivity.this, SunOnboarding.class));
     }
-
 
     @Override
     protected void onStart()
@@ -92,8 +110,11 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         editor = sp.edit();
         editor.putBoolean("onboarded", true);
+        editor.putBoolean("moodChecked", false);
         editor.apply();
+        Log.i("test", "main: onStop()");
     }
+
 
     @Override
     protected void onResume() {
@@ -268,12 +289,42 @@ public class MainActivity extends AppCompatActivity {
                     Activity activity = rec.getRecommendation();
                     checkIn.setActivityName(activity.getActivityName());
                     mThriveViewModel.insert(checkIn);
-                    showRecommendationPopUp(activity);
+                    showLoadingPopUp(activity);
+                    //showRecommendationPopUp(activity);
                 } else {
                     Toast.makeText(getApplicationContext(), "Please choose a related mood", Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    public void showLoadingPopUp(Activity activity){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        View checkInPopUpView = getLayoutInflater().inflate(R.layout.loading_screen_recommendation, null);
+        dialogBuilder.setView(checkInPopUpView);
+        AlertDialog checkInDialog = dialogBuilder.create();
+        checkInDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        checkInDialog.show();
+        /*
+        Finding the animation in animation_loading layout and starting the loading animation
+         */
+        AnimationDrawable animation;
+        ImageView loading = checkInDialog.findViewById(R.id.animation_loading);
+        assert loading != null;
+        animation = (AnimationDrawable) loading.getDrawable();
+        animation.start();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                // close your dialog
+                checkInDialog.dismiss();
+                showRecommendationPopUp(activity);
+            }
+
+        }, 3000); // 5,000 ms delay
     }
 
     public void showRecommendationPopUp(Activity activity){
@@ -331,5 +382,7 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
         }
     }
+
+
 
 }

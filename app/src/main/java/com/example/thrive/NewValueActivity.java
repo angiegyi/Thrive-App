@@ -99,6 +99,12 @@ public class NewValueActivity extends AppCompatActivity{
         return obj;
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        super.onBackPressed();
+    }
+
     // Initialising create button to  value page
     private void initCreateButton(){
         createButton = findViewById(R.id.createValueButton);
@@ -134,8 +140,10 @@ public class NewValueActivity extends AppCompatActivity{
                     // tvm.insert(valCat);
 
                     //Move to values activity page
-                    Intent intent = new Intent(NewValueActivity.this, ValuesActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(NewValueActivity.this, ValuesActivity.class);
+//                    startActivity(intent);
+                    onBackPressed();
+
                 }
             }
         });

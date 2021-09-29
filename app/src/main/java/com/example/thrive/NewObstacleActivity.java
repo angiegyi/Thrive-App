@@ -131,7 +131,8 @@ public class NewObstacleActivity extends AppCompatActivity {
             newDescription = obstacleDescEditText.getEditableText().toString();
             selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
             addObstacle(selectedValue);
-            startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
+            //startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
+            super.onBackPressed();
         }
     }
 
