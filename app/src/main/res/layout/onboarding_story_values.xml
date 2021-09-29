@@ -32,6 +32,7 @@
                 android:paddingRight="0dp"
                 android:paddingBottom="10dp"
                 android:text="Think about your heroes"
+                android:textAlignment="center"
                 android:textSize="30sp" />
 
             <ImageView

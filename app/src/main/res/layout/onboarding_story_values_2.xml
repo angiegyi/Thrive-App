@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="32dp"
+    android:layout_marginTop="32dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginBottom="32dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/story_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/story_title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:paddingBottom="40dp"
+                android:textAlignment="center"
+                android:text="Take some time now to pick one person you really admire." />
+
+            <TextView
+                android:id="@+id/story_desc4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="30dp"
+                android:textSize="20sp"
+                android:text="Now think about all the qualities you really admire in this person—not the person’s circumstances, but personal qualities— and write them down.\n\nOnce you’ve done this, look over what you've written and think about how these might translate into your own personal values." />
+
+            <Button
+                android:id="@+id/next_button_vs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I'm ready to continue"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/Author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rob Archer, 2013."
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/next_button_vs" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
