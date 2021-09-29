@@ -31,71 +31,102 @@
                 android:paddingTop="5dp"
                 android:paddingRight="0dp"
                 android:paddingBottom="10dp"
-                android:text="Think about your heroes..."
+                android:text="Think about your heroes"
                 android:textSize="30sp" />
 
+            <ImageView
+                android:id="@+id/heroes_image"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:cropToPadding="true"
+                android:paddingLeft="60dp"
+                android:paddingTop="0dp"
+                android:paddingRight="60dp"
+                android:paddingBottom="0dp"
+                android:scaleType="centerInside"
+                android:textAlignment="center"
+                app:srcCompat="@mipmap/sun_background"
+                tools:srcCompat="@drawable/_097277" />
+
             <TextView
-                android:id="@+id/Story_desc1"
+                android:id="@+id/story_desc1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="0dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="10dp"
-                android:text="Consider people who have played a direct role in your life: family members, friends, teachers, coaches, teammates, and so on. Now think about people who have inspired you indirectly: authors, artists, celebrities, or even fictional characters."
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Consider people who have played a direct role in your life: "
+                android:textSize="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <ImageView
-                android:id="@+id/heroes_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:paddingBottom="10dp"
-                app:srcCompat="@mipmap/sun_background" />
-
             <TextView
                 android:id="@+id/story_desc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="0dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="10dp"
+                android:textAlignment="center"
+                android:text="Family members, friends, teachers, coaches, teammates, and so on."
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/story_desc3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="0dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="0dp"
+                android:text="Now think about people who have inspired you indirectly:"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/story_desc4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="0dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="10dp"
+                android:textAlignment="center"
+                android:text="Authors, artists, celebrities, or even fictional characters."
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <!--<TextView
+                android:id="@+id/story_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingBottom="20dp"
                 android:text="Who would you most like to be like?"
                 android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/story_desc3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:text="Take some time now to pick one person you really admire." />
-
-            <TextView
-                android:id="@+id/story_desc4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="30dp"
-                android:text="Now think about all the qualities you really admire in this person—not the person’s circumstances, but personal qualities— and write them down.\n\nOnce you’ve done this, look over what you've written and think about how these might translate into your own personal values." />
+                android:textSize="20sp" />-->
 
             <Button
                 android:id="@+id/next_button_vs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="I'm ready to continue"
+                android:text="Who would you most like to be like?"
                 android:textAllCaps="false" />
 
-            <TextView
-                android:id="@+id/Author"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Rob Archer, 2013."
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/next_button_vs" />
         </LinearLayout>
     </ScrollView>
 
