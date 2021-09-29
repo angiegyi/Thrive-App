@@ -48,6 +48,8 @@ public class ValuesViewOnboarding extends AppCompatActivity {
         // Init all values
         initList();
 
+        setTitle("Discovering your values");
+
     }
 
     private void initList(){

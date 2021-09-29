@@ -20,6 +20,8 @@ public class ValuesStoryOnboarding extends AppCompatActivity {
 
         // Init next button
         initNext();
+
+        setTitle("Discovering your values");
     }
 
 

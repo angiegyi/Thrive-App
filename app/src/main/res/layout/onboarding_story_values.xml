@@ -125,7 +125,7 @@
                 android:id="@+id/next_button_vs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Who would you most like to be like?"
+                android:text="Who would you most want to be like?"
                 android:textAllCaps="false" />
 
         </LinearLayout>

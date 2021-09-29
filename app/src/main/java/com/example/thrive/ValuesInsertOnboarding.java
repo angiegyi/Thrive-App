@@ -50,6 +50,8 @@ public class ValuesInsertOnboarding extends AppCompatActivity {
 
         // Initialise create value button
         initCreateButton();
+
+        setTitle("Discovering your values");
     }
 
     // Initialising the drop down box with categories
