@@ -17,7 +17,7 @@
         android:paddingTop="5dp"
         android:paddingRight="12dp"
         android:paddingBottom="10dp"
-        android:text="From your notes, what obstacles are holding you back?"
+        android:text="From your notes, what feelings are holding you back?"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

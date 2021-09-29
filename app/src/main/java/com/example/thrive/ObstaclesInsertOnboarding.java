@@ -71,6 +71,8 @@ public class ObstaclesInsertOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_obstacle);
 
+        setTitle("Discovering your hooks");
+
         // Slider
         slider = findViewById(R.id.slider);
 

@@ -21,6 +21,8 @@ public class ObstaclesStoryOnboarding extends AppCompatActivity {
 
         // Init next button
         initNext();
+
+        setTitle("Discovering your hooks");
     }
 
 
