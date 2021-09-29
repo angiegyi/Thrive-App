@@ -45,6 +45,7 @@ public class HabitsViewOnboarding extends AppCompatActivity {
         habitRecyclerView.setLayoutManager(layoutManager);
         initList();
 
+        setTitle("Discovering your valued behaviours");
     }
 
     private void initList(){

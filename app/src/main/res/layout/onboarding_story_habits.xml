@@ -31,16 +31,19 @@
                 android:paddingTop="5dp"
                 android:paddingRight="0dp"
                 android:paddingBottom="10dp"
-                android:text="Now think about your values..."
+                android:text="Think about your values"
+                android:textAlignment="center"
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/Story_desc1"
+                android:id="@+id/story_desc1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="0dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="10dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
                 android:text="Now that you've identified what's most important to you, imagine yourself living a life that focuses on those values."
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +52,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
-                android:id="@+id/heroes_image"
+                android:id="@+id/habits_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
@@ -71,6 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
                 android:text="Take some time now to think about what behaviours you would have if you lived in line with your values, and how you could implement them now.\n" />
 
             <Button

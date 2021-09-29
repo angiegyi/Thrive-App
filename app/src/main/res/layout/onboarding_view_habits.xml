@@ -19,7 +19,7 @@
             android:paddingTop="5dp"
             android:paddingRight="12dp"
             android:paddingBottom="10dp"
-            android:text="What behaviours support your values?"
+            android:text="What behaviours would you like to have that would help to achieve your values?"
             android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
