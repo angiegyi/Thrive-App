@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="30dp"
                 android:textSize="20sp"
-                android:text="Now think about all the qualities you really admire in this person—not the person’s circumstances, but personal qualities— and write them down.\n\nOnce you’ve done this, look over what you've written and think about how these might translate into your own personal values." />
+                android:text="Now think about all the qualities you really admire in this person—not the person’s circumstances, but personal qualities— and write them down with pen and paper.\n\nOnce you’ve done this, look over what you've written and think about how these might translate into your own personal values." />
 
             <Button
                 android:id="@+id/next_button_vs"
