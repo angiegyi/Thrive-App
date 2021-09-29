@@ -49,6 +49,8 @@ public class HooksInsertOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_hook);
 
+        setTitle("Discovering your hook behaviours");
+
         // Hook Title
         hookTitleTextLayout = findViewById(R.id.hookTitleEditLayout);
         hookTitleEditText = findViewById(R.id.hookTitleTextField);

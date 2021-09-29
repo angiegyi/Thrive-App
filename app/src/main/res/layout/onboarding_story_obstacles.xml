@@ -76,7 +76,7 @@
                 android:paddingBottom="10dp"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:text="Take some time now to write down what feelings prevent you from being your happiest self. These are your obstacles. \nFor example, feeling bored or irritated.\n" />
+                android:text="Take some time now to write down what feelings prevent you from being your happiest self. These are your obstacles, or hooks. \nFor example, feeling bored or irritated.\n" />
 
             <Button
                 android:id="@+id/next_button_os"

@@ -31,7 +31,8 @@
                 android:paddingTop="5dp"
                 android:paddingRight="0dp"
                 android:paddingBottom="10dp"
-                android:text="Now think about your obstacles..."
+                android:text="Think about your obstacles"
+                android:textAlignment="center"
                 android:textSize="30sp" />
 
             <TextView
@@ -41,7 +42,9 @@
                 android:paddingLeft="0dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="10dp"
-                android:text="Now that you've thought about what things stop you from living your life according to your values, try to think about what you are physically doing to enable these obstacles."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:text="Now that you've thought about what things stop you from living your life according to your values, think about what actions enable these obstacles."
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:paddingBottom="20dp"
-                android:text="What actions reflect your obstacles?"
+                android:text="What actions arise from your obstacles?"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -71,7 +74,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="30dp"
-                android:text="Take some time now to write down any behaviours and activities that may contribute to these obstacles." />
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:text="Take some time now to write down what you are doing when you have the feelings that you identified as obstacles.\nFor example, spending a lot of time indoors when you're irritated." />
 
             <Button
                 android:id="@+id/next_button_hs"

@@ -46,6 +46,8 @@ public class HooksViewOnboarding extends AppCompatActivity {
         // Init all values
         initList();
 
+        setTitle("Discovering your hook behaviours");
+
     }
 
     private void initList(){
