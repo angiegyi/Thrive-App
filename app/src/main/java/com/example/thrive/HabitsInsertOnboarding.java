@@ -101,7 +101,7 @@ public class HabitsInsertOnboarding extends AppCompatActivity {
 
         // Target Frequency
         //      Every
-        everyInput = findViewById(R.id.everyInput);
+        // everyInput = findViewById(R.id.everyInput); // the object is deleted
         everyMenuText = findViewById(R.id.everyMenuText);
         everyMenuInput = findViewById(R.id.everyMenuInput);
         setUpEveryMenu();

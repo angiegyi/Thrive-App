@@ -46,8 +46,6 @@ public class ObstacleRecyclerAdapter extends RecyclerView.Adapter<ObstacleRecycl
         public TextView obstacleDescription;
         public TextView obstacle_related_text;
         public Button new_hook_button;
-        TextInputLayout valuesTextInputLayout;
-        AutoCompleteTextView valuesInput;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,7 +59,7 @@ public class ObstacleRecyclerAdapter extends RecyclerView.Adapter<ObstacleRecycl
     @NonNull
     @Override
     public ObstacleRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_obstacle, parent, false);//CardView inflated as RecyclerView list item null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_obstacle, parent, false);
         return new ViewHolder(view);
     }
 
@@ -70,9 +68,7 @@ public class ObstacleRecyclerAdapter extends RecyclerView.Adapter<ObstacleRecycl
         Obstacle obstacleObject = obstacleList.get(position);
         holder.obstacleName.setText(obstacleObject.getObstacleName());
         holder.obstacleDescription.setText(obstacleObject.getDescription());
-        // need to get the value
-        System.out.println("hello " + obstacleObject.getValueName());
-        holder.obstacle_related_text.setText("hello");
+        holder.obstacle_related_text.setText(obstacleObject.getValueName());
         holder.new_hook_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Habit;
+import com.example.thrive.Database.entities.HabitValue;
 
 import java.util.ArrayList;
 
@@ -34,11 +35,13 @@ public class HabitRecyclerAdapterOnboarding extends RecyclerView.Adapter<HabitRe
 
         public TextView habitName;
         public TextView habitTime;
+        public TextView habitValue;
 
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             habitName = itemView.findViewById(R.id.habit_name_onboard);
             habitTime = itemView.findViewById(R.id.habit_time_onboard);
+            habitValue = itemView.findViewById(R.id.habit_value_onboard);
         }
     }
 
@@ -54,11 +57,13 @@ public class HabitRecyclerAdapterOnboarding extends RecyclerView.Adapter<HabitRe
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         Habit habitObject = habitList.get(position);
         holder.habitName.setText(habitObject.getName());
-        String addS = "";
-        if(Integer.parseInt(habitObject.getMeasurement()) > 1)
-            addS = "s";
-        String strHabitLeft = habitObject.getFrequency()+ " times per " + habitObject.getMeasurement() + " " + habitObject.getPeriod() + addS;
+        String strHabitLeft = habitObject.getFrequency()+ " times left per " + habitObject.getPeriod();
         holder.habitTime.setText(strHabitLeft);
+        HabitValue habitValue = mThriveViewModel.getHabitValue(habitObject.getName());
+        if(habitValue == null)
+            holder.habitValue.setText("  ");
+        else
+            holder.habitValue.setText(habitValue.getValueName());
     }
 
     @Override

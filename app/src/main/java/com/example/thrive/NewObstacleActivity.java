@@ -72,7 +72,7 @@ public class NewObstacleActivity extends AppCompatActivity {
 
         // Slider
         slider = findViewById(R.id.slider);
-        slider.addOnChangeListener((slider, value, fromUser) -> importance = Float.floatToIntBits(value));
+        //slider.addOnChangeListener((slider, value, fromUser) -> importance = (int) value);
 
         // Button
         createObstacleButton = findViewById(R.id.createObstacleButton);
@@ -126,6 +126,7 @@ public class NewObstacleActivity extends AppCompatActivity {
             }
         }
         else {
+            importance = (int) slider.getValue();
             newTitle = obstacleTitleEditText.getEditableText().toString();
             newDescription = obstacleDescEditText.getEditableText().toString();
             selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
@@ -161,7 +162,7 @@ public class NewObstacleActivity extends AppCompatActivity {
                     "New Value: " + newTitle + " added." ,
                     Toast.LENGTH_LONG).show();
         } catch(Exception e) {
-            Log.i("RESPONSE", e.toString());
+            Log.i("O RESPONSE", e.toString());
         }
     }
 

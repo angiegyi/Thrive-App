@@ -54,7 +54,7 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         public TextView habitName;
         public TextView habitValue;
         public TextView habitPercentage;
-        public TextView habitLeft;
+        public TextView habitTime;
         public ProgressBar habitProgress;
         public Button habitButton;
 
@@ -63,7 +63,7 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
             habitName = itemView.findViewById(R.id.habit_name);
             habitValue = itemView.findViewById(R.id.habit_value);
             habitPercentage = itemView.findViewById(R.id.habit_percent);
-            habitLeft = itemView.findViewById(R.id.habit_left);
+            habitTime = itemView.findViewById(R.id.habit_left);
             habitProgress = itemView.findViewById(R.id.habit_progress_bar);
             habitButton = itemView.findViewById(R.id.habit_button);
         }
@@ -87,7 +87,7 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         if(habitValue == null)
             holder.habitValue.setText("  ");
         else
-            holder.habitValue.setText("Related Value: " + habitValue.getValueName());
+            holder.habitValue.setText(habitValue.getValueName());
         float percentage = ((float) habitObject.getCounter() / (float) habitObject.getFrequency()) * 100;
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         decimalFormat.setRoundingMode(RoundingMode.CEILING);
@@ -115,12 +115,9 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
                         Toast.LENGTH_LONG).show();
             }
         });
-        String addS = "";
-        if(Integer.parseInt(habitObject.getMeasurement()) > 1)
-            addS = "s";
         int progress = habitObject.getFrequency() - habitObject.getCounter();
-        String strHabitLeft =  progress + " times left per " + habitObject.getMeasurement() + " " + habitObject.getPeriod()+addS;
-        holder.habitLeft.setText(strHabitLeft);
+        String strHabitLeft =  progress + " times left per " + habitObject.getPeriod();
+        holder.habitTime.setText(strHabitLeft);
     }
 
     @Override

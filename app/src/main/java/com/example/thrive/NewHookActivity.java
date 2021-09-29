@@ -41,8 +41,6 @@ public class NewHookActivity extends AppCompatActivity {
     Button newHook;
     String obstacleName;
 
-    TextView obstacle_related_value;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +51,6 @@ public class NewHookActivity extends AppCompatActivity {
         if (extras != null) {
             obstacleName = extras.getString("name");
         }
-        obstacle_related_value = findViewById(R.id.obstacle_related_value);
-        obstacle_related_value.setText(obstacleName);
 
         // Hook Title
         hookTitleTextLayout = findViewById(R.id.hookTitleEditLayout);
