@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ValuesStoryOnboarding extends AppCompatActivity {
+public class ValuesStoryOnboardingSecond extends AppCompatActivity {
     Button nextButton;
 
     // Initialisation
@@ -16,7 +16,7 @@ public class ValuesStoryOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Take from values story xml
-        setContentView(R.layout.onboarding_story_values);
+        setContentView(R.layout.onboarding_story_values_2);
 
         // Init next button
         initNext();
@@ -31,7 +31,7 @@ public class ValuesStoryOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(ValuesStoryOnboarding.this, ValuesStoryOnboardingSecond.class);
+                Intent intent = new Intent(ValuesStoryOnboardingSecond.this, ValuesViewOnboarding.class);
                 startActivity(intent);
             }
         });

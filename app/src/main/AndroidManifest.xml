@@ -37,6 +37,7 @@
             android:label="New Valued Behaviour" />
         <activity android:name=".StartOnboarding" />
         <activity android:name=".ValuesStoryOnboarding" />
+        <activity android:name=".ValuesStoryOnboardingSecond" />
         <activity android:name=".ValuesViewOnboarding" />
         <activity android:name=".ValuesInsertOnboarding" />
         <activity android:name=".HabitsStoryOnboarding" />
