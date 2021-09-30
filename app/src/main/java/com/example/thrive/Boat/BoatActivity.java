@@ -1,10 +1,13 @@
 package com.example.thrive.Boat;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,28 +15,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Activity;
 import com.example.thrive.Database.entities.RecentActivity;
+import com.example.thrive.Database.entities.Tool;
+import com.example.thrive.ProgressActivity;
 import com.example.thrive.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class ActivitiesActivity extends AppCompatActivity {
-
-    FloatingActionButton fab;
+public class BoatActivity extends AppCompatActivity {
+    ThriveViewModel mThriveViewModel;
+    BoatRecyclerAdapter boatAdapter;
     RecyclerView activityRecyclerView;
     RecyclerView.LayoutManager layoutManager;
-    ActivityRecyclerAdapter activityAdapter;
-    ThriveViewModel mThriveViewModel;
-    ArrayList<Activity> activityData = new ArrayList<>();
+    ArrayList<Tool> activityData = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activities_activity);
-        activityRecyclerView = findViewById(R.id.activity_recycler);
+        setContentView(R.layout.boat);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("My Tools");
+        activityRecyclerView = findViewById(R.id.boat_reyclerView);
         layoutManager = new LinearLayoutManager(this);
         activityRecyclerView.setLayoutManager(layoutManager);
         initData();
+
     }
 
     /**
@@ -42,17 +47,17 @@ public class ActivitiesActivity extends AppCompatActivity {
     @SuppressLint("NotifyDataSetChanged")
     private void initData(){
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-        activityAdapter = new ActivityRecyclerAdapter(mThriveViewModel, getApplicationContext());
-        mThriveViewModel.getRecentActivities().observe(this, newData -> {
-            activityAdapter.resetData();
-            for (RecentActivity obj : newData) {
+        boatAdapter = new BoatRecyclerAdapter(mThriveViewModel, getApplicationContext());
+        mThriveViewModel.getTools().observe(this, newData -> {
+            boatAdapter.resetData();
+            for (Tool obj : newData) {
                 if (obj != null){
-                    Log.i("test", "RecentActivity: " + obj.getActivityName());
-                    activityData.add(mThriveViewModel.getActivity(obj.getActivityName()));
+//                    Log.i("test", "RecentActivity: " + obj.getActivityName());
+                    activityData.add(obj);
                 }
             }
-            activityAdapter.setData(activityData);
-            activityRecyclerView.setAdapter(activityAdapter);
+            boatAdapter.setData(activityData);
+            activityRecyclerView.setAdapter(boatAdapter);
         });
     }
 }

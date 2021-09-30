@@ -24,6 +24,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.thrive.Boat.BoatActivity;
 import com.example.thrive.CheckIn.Recommendation;
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Activity;
@@ -38,8 +39,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
                 showRecommendationPopUp(activity);
             }
 
-        }, 3000); // 5,000 ms delay
+        }, 2000); // 2,000 ms delay
     }
 
     public void showRecommendationPopUp(Activity activity){

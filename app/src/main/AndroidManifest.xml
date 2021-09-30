@@ -28,9 +28,9 @@
         <activity android:name=".ValuesActivity" />
         <activity android:name=".NewValueActivity" />
         <activity android:name=".ObstaclesActivity" />
-        <activity android:name=".BoatActivity" />
+        <activity android:name=".Boat.BoatActivity" />
         <activity android:name=".Boat.ActivitiesActivity"
-            android:label="Activities"/>
+            android:label="Recent Activities"/>
         <activity
             android:name=".HabitActivity"
             android:label="My Valued Behaviours" />
@@ -51,6 +51,7 @@
         <activity android:name=".HooksStoryOnboarding" />
         <activity android:name=".HooksViewOnboarding" />
         <activity android:name=".HooksInsertOnboarding" />
+        <activity android:name=".ActivityInfo" />
         <activity
             android:name=".ProgressActivity"
             android:exported="true"
