@@ -92,11 +92,11 @@ public class ObstaclesActivity extends AppCompatActivity {
         fab.setOnClickListener(view -> startActivity(new Intent(ObstaclesActivity.this, NewObstacleActivity.class)));
     }
 
-    @Override
-    public void onBackPressed()
-    {
-        startActivity(new Intent(ObstaclesActivity.this, MainActivity.class));
-        finish();
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        startActivity(new Intent(ObstaclesActivity.this, MainActivity.class));
+//        finish();
+//    }
 }
 

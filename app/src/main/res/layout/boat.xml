@@ -7,6 +7,7 @@
     android:onClick="toValuesPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/myActivitiesLayout"
         android:layout_width="410dp"
         android:layout_height="106dp"
         android:layout_marginTop="2dp"

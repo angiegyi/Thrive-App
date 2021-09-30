@@ -37,6 +37,7 @@ public class ThriveRepository {
     private LiveData<List<Habit>> mAllHabits;
     private LiveData<List<HabitValue>> mAllHabitValues;
     private LiveData<List<ValueProgress>> mAllValueProgesses;
+    private LiveData<List<Activity>> mAllActivities;
 
 
     ThriveRepository(Application application) {
@@ -51,6 +52,7 @@ public class ThriveRepository {
         mAllHabits = mThriveDAO.getAllHabits();
         mAllHabitValues = mThriveDAO.getAllHabitValues();
         mAllValueProgesses = mThriveDAO.getAllValueProgresses();
+        mAllActivities = mThriveDAO.getAllActivities();
     }
 
     /*
@@ -67,11 +69,13 @@ public class ThriveRepository {
     LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mThriveDAO.getAllPositiveOrNegativeMoods(value);};
     LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     LiveData<List<HabitValue>> getAllHabitValues(){return mAllHabitValues;}
+    LiveData<List<Activity>> getAllActivities(){return mAllActivities;}
     List<Activity> findActivityByMoodName(String mood){return mThriveDAO.findActivityByMoodName(mood);}
     List<ActivityMood> getMoodAndActivity(String mood){return mThriveDAO.getMoodAndActivity(mood);}
     LiveData<List<ValueProgress>> getAllValueProgesses(){return mAllValueProgesses;}
     List<ValueProgress> getValueProgesses(){return mThriveDAO.getValueProgresses();}
     List<ValueProgress> getAllValueProgessesDate(String date){return mThriveDAO.getValueProgressDate(date);}
+
     /*
     FIND FROM TABLE
      */

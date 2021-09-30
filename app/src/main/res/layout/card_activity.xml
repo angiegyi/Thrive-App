@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="5dp"
+    android:background="@android:drawable/dialog_holo_light_frame"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="15dp"
+    card_view:cardElevation="5dp"
+    card_view:cardPreventCornerOverlap="false"
+    card_view:strokeColor="@color/grey"
+    card_view:strokeWidth="0.5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardCornerRadius="15dp"
+        card_view:cardElevation="3dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/card_activity_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="left"
+                android:layout_marginTop="24dp"
+                android:text="Activity Name"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.126"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/activity_related_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="Related Value:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_activity_name" />
+
+            <TextView
+                android:id="@+id/activity_related_text"
+                android:layout_width="223dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Related Value"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                card_view:layout_constraintBaseline_toBaselineOf="@+id/activity_related_value"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.111"
+                card_view:layout_constraintStart_toEndOf="@+id/activity_related_value" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/card_activity_rating_slider"
+                android:layout_width="312dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="rating"
+                android:stepSize="1.0"
+                android:value="1"
+                android:valueFrom="1"
+                android:valueTo="5"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/activity_related_text" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not effective"
+                card_view:layout_constraintStart_toStartOf="@+id/card_activity_rating_slider"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_activity_rating_slider" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Effective!"
+                card_view:layout_constraintEnd_toEndOf="@+id/card_activity_rating_slider"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_activity_rating_slider" />
+
+            <Button
+                android:id="@+id/card_activity_see_more_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="see more"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/card_activity_rating_slider" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
