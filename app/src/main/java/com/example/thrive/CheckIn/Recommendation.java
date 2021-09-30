@@ -46,17 +46,10 @@ public class Recommendation {
             act.activity = activities.get(i);
             act.score = score;
             activityScores.add(act);
-//            Log.i("test", "Activity: " + activityScores.get(i).activity.getActivityName()+
-//                    " score: " +activityScores.get(i).score);
 
         }
         sortScores(activityScores);
-//        Log.i("test", "SORTED: ");
-//        for(int i=0; i < activities.size(); i++){
-//            Log.i("test", "Activity: " + activityScores.get(i).activity.getActivityName()+
-//                    " score: " +activityScores.get(i).score);
-//
-//        }
+
         int maximum = activityScores.get(0).score;
         int maxCount = 0;
         for(int i = 0;i < activityScores.size(); i++){
@@ -67,7 +60,7 @@ public class Recommendation {
         }
         int randomNum = 0;
         if(maxCount > 1){
-            randomNum = ThreadLocalRandom.current().nextInt(0, maxCount + 1);
+            randomNum = ThreadLocalRandom.current().nextInt(0, maxCount);
         }
         Log.i("test", "getRecommendation: " + activityScores.get(randomNum).activity.getActivityName());
         return activityScores.get(randomNum).activity;

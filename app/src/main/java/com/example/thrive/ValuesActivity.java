@@ -52,8 +52,9 @@ public class ValuesActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(ValuesActivity.this, MainActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(ValuesActivity.this, MainActivity.class);
+//        startActivity(intent);
+        super.onBackPressed();
     }
 
     private void dummyValues(){
