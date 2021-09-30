@@ -208,9 +208,7 @@ public class HabitsInsertOnboarding extends AppCompatActivity {
             // Create a new Habit and HabitValue
             Habit newHabit = new Habit(name, period, freq, measurement, reminder, remH, remM, days);
             mThriveViewModel.insert(newHabit);
-            HabitValue newHabitValue = new HabitValue();
-            newHabitValue.setHabitName(name);
-            newHabitValue.setValueName(value);
+            HabitValue newHabitValue = new HabitValue(name, value);
             mThriveViewModel.insert(newHabitValue);
             Toast.makeText(getApplicationContext(),
                     "New Habit: " + name + " added." ,
