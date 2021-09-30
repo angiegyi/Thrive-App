@@ -5,10 +5,12 @@ import android.util.Log;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.thrive.ActivityInfo;
 import com.example.thrive.Database.ThriveDAO;
 import com.example.thrive.Database.ThriveViewModel;
 import com.example.thrive.Database.entities.Activity;
 import com.example.thrive.Database.entities.ActivityMood;
+import com.example.thrive.Database.entities.RecentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,28 @@ public class Recommendation {
         this.relatedMood = relatedMood;
     }
 
+    public void updateRecentActivities(Activity activity){
+        // insert new recent activity
+        Log.i("test", "updateRecentActivities: PLEASE WORK PLEASE " + mThriveViewModel.containsActivity(activity.getActivityName()));
+        if (!mThriveViewModel.containsActivity(activity.getActivityName())){
+            RecentActivity act = new RecentActivity(activity.getActivityName());
+            act.setRecentRank(0);
+            Log.i("test", "here: ");
+            mThriveViewModel.insert(act);
+        } else {
+            // update occurred activity rank
+            mThriveViewModel.updateRecentRank(activity.getActivityName(), 0);
+        }
+        // increment other activities' rank by 1
+        if(mThriveViewModel.recentActivityCount() >= 1) {
+            List<RecentActivity> otherActivities = mThriveViewModel.getLessRecentActivities(activity.getActivityName());
+            for (int i = 0; i < otherActivities.size(); i++) {
+                RecentActivity act = otherActivities.get(i);
+                mThriveViewModel.updateRecentRank(act.getActivityName(), act.getRecentRank() + 1);
+            }
+        }
+    }
+
     public Activity getRecommendation(){
         for(int i=0; i < activities.size(); i++){
             int score = activities.get(i).getActivityRating() * activityMoods.get(i).getStrength();
@@ -62,8 +86,9 @@ public class Recommendation {
         if(maxCount > 1){
             randomNum = ThreadLocalRandom.current().nextInt(0, maxCount);
         }
-        Log.i("test", "getRecommendation: " + activityScores.get(randomNum).activity.getActivityName());
-        return activityScores.get(randomNum).activity;
+        Activity recommended = activityScores.get(randomNum).activity;
+        updateRecentActivities(recommended);
+        return recommended;
     }
 
     private ArrayList<ActivityScore> sortScores(ArrayList<ActivityScore> scores){

@@ -35,7 +35,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="left"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
                 android:text="Activity Name"
                 android:textColor="@color/black"
                 android:textSize="20sp"
@@ -56,6 +58,8 @@
                 android:text="Related Value:"
                 android:textSize="14sp"
                 android:textStyle="bold"
+                card_view:layout_constraintEnd_toStartOf="@+id/activity_related_text"
+                card_view:layout_constraintHorizontal_bias="0.5"
                 card_view:layout_constraintStart_toStartOf="parent"
                 card_view:layout_constraintTop_toBottomOf="@+id/card_activity_name" />
 
@@ -70,14 +74,16 @@
                 android:textStyle="bold"
                 card_view:layout_constraintBaseline_toBaselineOf="@+id/activity_related_value"
                 card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintHorizontal_bias="0.111"
+                card_view:layout_constraintHorizontal_bias="0.5"
                 card_view:layout_constraintStart_toEndOf="@+id/activity_related_value" />
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/card_activity_rating_slider"
-                android:layout_width="312dp"
-                android:layout_height="45dp"
+                android:layout_width="277dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="32dp"
                 android:contentDescription="rating"
                 android:stepSize="1.0"
                 android:value="1"
@@ -107,7 +113,9 @@
                 android:id="@+id/card_activity_see_more_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
                 android:layout_marginBottom="24dp"
                 android:text="see more"
                 card_view:layout_constraintBottom_toBottomOf="parent"

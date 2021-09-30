@@ -18,6 +18,8 @@ import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
+import com.example.thrive.Database.entities.RecentActivity;
+import com.example.thrive.Database.entities.Tool;
 import com.example.thrive.Database.entities.Value;
 import com.example.thrive.Database.entities.ValueProgress;
 
@@ -26,7 +28,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @Database(entities = {Category.class, Value.class, Activity.class, Activity_category.class,
 Habit.class, HabitValue.class, Obstacle.class, Obstacle_value.class, CheckIn.class, Mood.class,
-        Hook.class, ActivityMood.class, ValueProgress.class},
+        Hook.class, ActivityMood.class, ValueProgress.class, RecentActivity.class, Tool.class},
         version = 1, exportSchema = false)
 public abstract class ThriveDatabase extends RoomDatabase {
     // database objects provides the interface of the underlying
@@ -140,6 +142,15 @@ public abstract class ThriveDatabase extends RoomDatabase {
                                     values5.put("strength", listsOfStrengthsNegative.get(i)[j]);
                                     db.insert("activityMood", 1, values5);
                                 }
+                            }
+
+                            String[] tools = {"Activity Timer", "App Blocker", "My Progress", "Activities"};
+                            String[] icons = {"timer", "blocker", "progress", "activities"};
+                            ContentValues values6 = new ContentValues();
+                            for(int i = 0; i < tools.length; i++){
+                                values6.put("tool_name", tools[i]);
+                                values6.put("icon_name", icons[i]);
+                                db.insert("tool", 1, values6);
                             }
 
                         }
