@@ -40,8 +40,8 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="185dp"
-            app:srcCompat="@mipmap/mountain"
-            tools:srcCompat="@drawable/untitled_design" />
+            app:srcCompat="@drawable/untitled_design__1__2"
+            tools:srcCompat="@drawable/untitled_design__1__2" />
 
         <TextView
             android:id="@+id/Story_desc1"
@@ -50,7 +50,7 @@
             android:paddingLeft="0dp"
             android:paddingTop="5dp"
             android:paddingBottom="10dp"
-            android:text="Let's work through a story to help you identify what’s most important to you, and how you can work towards it."
+            android:text="Let's go through a story to help you identify what’s most important to you, and how you can work towards it."
             android:textSize="20sp"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
