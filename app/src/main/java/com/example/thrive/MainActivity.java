@@ -13,6 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         editor = sp.edit();
         editor.putBoolean("onboarded", true);
-//        editor.putBoolean("moodChecked", false);
         editor.apply();
         Log.i("test", "main: onStop()");
     }
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.neutralRadioButton:
                         editor.putString("mood", "neutral");
                         editor.apply();
-                        Toast.makeText(getApplicationContext(), "neutral", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "neutral", Toast.LENGTH_SHORT).show();
                         get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
                         mood_value = get_data.getString("mood", "none");
                         break;
@@ -346,6 +346,7 @@ public class MainActivity extends AppCompatActivity {
         // set activity description
         TextView description = checkInDialog.findViewById(R.id.tv_description);
         description.setText(activity.getActivityDescription());
+        description.setMovementMethod(new ScrollingMovementMethod());
 
         // set activityRating
         Slider rating = checkInDialog.findViewById(R.id.ratingSlider);
