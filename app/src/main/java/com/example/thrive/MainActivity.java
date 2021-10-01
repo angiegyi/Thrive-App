@@ -1,5 +1,6 @@
 package com.example.thrive;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     public void startMoodTracker(){
         SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         boolean moodChecked = get_data.getBoolean("moodChecked", false);
+        Log.i("test", "startMoodTracker: " + moodChecked);
         if(!moodChecked){
             sp = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor;
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         editor = sp.edit();
         editor.putBoolean("onboarded", true);
-        editor.putBoolean("moodChecked", false);
+//        editor.putBoolean("moodChecked", false);
         editor.apply();
         Log.i("test", "main: onStop()");
     }
@@ -245,17 +247,17 @@ public class MainActivity extends AppCompatActivity {
 
         int value_of_mood;
         SharedPreferences get_data = getApplicationContext().getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
-        String mood_value = get_data.getString("mood", "");
+        String mood_value = get_data.getString("mood", "neutral");
         if (mood_value.equals("negative")){
             value_of_mood = 0;
         } else if (mood_value.equals("positive")){
             value_of_mood = 1;
         } else {
-            value_of_mood =0;
+            value_of_mood =2;
         }
 
         //get data source for adapter
-        mThriveViewModel.getAllPositiveOrNegativeMoods(value_of_mood).observe(this, newData -> {
+        mThriveViewModel.getMoodType(value_of_mood).observe(this, newData -> {
             Mood mood;
             for(int i =0; i<newData.size(); i++) {
                 mood = newData.get(i);
@@ -348,6 +350,15 @@ public class MainActivity extends AppCompatActivity {
         // set activityRating
         Slider rating = checkInDialog.findViewById(R.id.ratingSlider);
         rating.setValue(activity.getActivityRating());
+
+
+        rating.addOnChangeListener(new Slider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+                //Update user rating
+                mThriveViewModel.updateActivityRating(activity.getActivityName(), (int) value);
+            }
+        });
 
         View nextButtonCheckIn = checkInDialog.findViewById(R.id.btn_okay);
         nextButtonCheckIn.setOnClickListener(new View.OnClickListener() {

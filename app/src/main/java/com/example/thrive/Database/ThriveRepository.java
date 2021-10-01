@@ -68,7 +68,7 @@ public class ThriveRepository {
     LiveData<List<Obstacle>> getAllObstacles(){return mAllObstacles;}
     LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
     LiveData<List<Hook>> getAllHooksByObstacle(String value){return mThriveDAO.getAllHooksByObstacle(value);};
-    LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mThriveDAO.getAllPositiveOrNegativeMoods(value);};
+    LiveData<List<Mood>> getMoodType(int value){return mThriveDAO.getMoodType(value);};
     LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     LiveData<List<HabitValue>> getAllHabitValues(){return mAllHabitValues;}
     LiveData<List<Activity>> getAllActivities(){return mAllActivities;}
@@ -171,6 +171,12 @@ public class ThriveRepository {
     void updateRecentRank(String activityName, int rank){
         ThriveDatabase.databaseWriteExecutor.execute(()->{
             mThriveDAO.updateRecentRank(activityName, rank);
+        });
+    }
+
+    void updateActivityRating(String activityName, int value){
+        ThriveDatabase.databaseWriteExecutor.execute(()->{
+            mThriveDAO.updateActivityRating(activityName, value);
         });
     }
 

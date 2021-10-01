@@ -67,8 +67,8 @@ public interface ThriveDAO {
     LiveData<List<Tool>> getTools();
 
 
-    @Query("SELECT * FROM MOOD WHERE mood_isPositive = :value")
-    LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value);
+    @Query("SELECT * FROM MOOD WHERE mood_type = :value")
+    LiveData<List<Mood>> getMoodType(int value);
 
     @Query("SELECT * FROM ACTIVITYMOOD WHERE mood_name =:mood ORDER BY mood_name")
     ActivityMood[] getActivityAndMood(String mood);
@@ -183,6 +183,9 @@ public interface ThriveDAO {
 
     @Query("update recentActivity set recent_rank=:rank where activity_name=:activityName")
     void updateRecentRank(String activityName, int rank);
+
+    @Query("update activity set activityRating=:value where activity_name=:activityName")
+    void updateActivityRating(String activityName, int value);
 
     /*
     OTHER QUERIES
