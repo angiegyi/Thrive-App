@@ -12,16 +12,17 @@ public class Mood {
     @ColumnInfo(name = "mood_name")
     private String mood_name;
 
-    @ColumnInfo(name = "mood_isPositive")
-    private boolean mood_isPositive;
+    @ColumnInfo(name = "mood_type")
+    // 0, negative, 1 positive, 2, neutral
+    private int mood_type;
 
     /*
     Constructor
      */
 
-    public Mood(@NonNull String mood_name, boolean mood_isPositive) {
+    public Mood(@NonNull String mood_name, int mood_type) {
         this.mood_name = mood_name;
-        this.mood_isPositive = mood_isPositive;
+        this.mood_type = mood_type;
     }
 
 /*
@@ -37,11 +38,11 @@ public class Mood {
         this.mood_name = mood_name;
     }
 
-    public boolean isMood_isPositive() {
-        return mood_isPositive;
+    public int getMood_type() {
+        return mood_type;
     }
 
-    public void setMood_isPositive(boolean mood_isPositive) {
-        this.mood_isPositive = mood_isPositive;
+    public void setMood_type(int mood_type) {
+        this.mood_type = mood_type;
     }
 }

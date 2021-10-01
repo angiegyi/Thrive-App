@@ -69,6 +69,7 @@ public class ActivityRecyclerAdapter extends RecyclerView.Adapter<ActivityRecycl
     public void onBindViewHolder(@NonNull ActivityRecyclerAdapter.ActivityViewHolder holder, int position) {
         Activity activityObject = activityList.get(position);
         holder.activityName.setText(activityObject.getActivityName());
+        holder.activitySlider.setValue(activityObject.getActivityRating());
         holder.seeMoreButton.setOnClickListener(view -> {
             //showLoadingPopUp(activityObject);
             Intent intent = new Intent(activityContext, ActivityInfo.class);
@@ -76,6 +77,14 @@ public class ActivityRecyclerAdapter extends RecyclerView.Adapter<ActivityRecycl
             intent.putExtra("name", activityObject.getActivityName());
             intent.putExtra("description", activityObject.getActivityDescription());
             activityContext.startActivity(intent);
+        });
+        holder.activitySlider.addOnChangeListener(new Slider.OnChangeListener() {
+            @Override
+            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+                //Update user rating
+                String activityName = holder.activityName.getText().toString();
+                mThriveViewModel.updateActivityRating(activityName, (int) value);
+            }
         });
     }
 
