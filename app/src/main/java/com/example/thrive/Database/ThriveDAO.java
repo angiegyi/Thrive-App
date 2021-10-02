@@ -48,7 +48,7 @@ public interface ThriveDAO {
     @Query("SELECT * from OBSTACLE_VALUE")
     LiveData<List<Obstacle_value>> getAllObstacle_values();
 
-    @Query("SELECT * FROM OBSTACLE ORDER BY obstacle_importance")
+    @Query("SELECT * FROM OBSTACLE ORDER BY obstacle_importance DESC")
     LiveData<List<Obstacle>> getAllObstacles();
 
     @Query("SELECT * FROM HOOK")
