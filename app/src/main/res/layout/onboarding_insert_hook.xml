@@ -11,7 +11,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -43,6 +42,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hooksTitle" />
 
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/hookTitleEditLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -59,7 +59,7 @@
                 android:id="@+id/hookTitleTextField"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Hook Behaviour Title" />
+                android:hint="Hook Title" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
