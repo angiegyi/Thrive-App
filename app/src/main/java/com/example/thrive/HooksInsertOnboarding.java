@@ -55,6 +55,7 @@ public class HooksInsertOnboarding extends AppCompatActivity {
         hookTitleTextLayout = findViewById(R.id.hookTitleEditLayout);
         hookTitleEditText = findViewById(R.id.hookTitleTextField);
         hookTextInputLayout = findViewById(R.id.hookTextDropdownLayout);
+        hookInput = findViewById(R.id.hookInput);
 
         // Select Obstacles -> Values -> need to add values to database
         arrayList_obstacles = new ArrayList<>();
