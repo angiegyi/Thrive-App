@@ -17,6 +17,8 @@ import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
+import com.example.thrive.Database.entities.RecentActivity;
+import com.example.thrive.Database.entities.Tool;
 import com.example.thrive.Database.entities.Value;
 import com.example.thrive.Database.entities.ValueProgress;
 
@@ -38,6 +40,7 @@ public class ThriveViewModel extends AndroidViewModel {
     private LiveData<List<Habit>> mAllHabits;
     private LiveData<List<HabitValue>> mAllHabitValues;
     private LiveData<List<ValueProgress>> mAllValueProgresses;
+    private LiveData<List<Activity>> mAllActivities;
 
     public ThriveViewModel(@NonNull Application application) {
         super(application);
@@ -51,6 +54,7 @@ public class ThriveViewModel extends AndroidViewModel {
         mAllHabits = mRepository.getAllHabits();
         mAllHabitValues = mRepository.getAllHabitValues();
         mAllValueProgresses = mRepository.getAllValueProgesses();
+        mAllActivities = mRepository.getAllActivities();
     }
 
     /*
@@ -68,19 +72,25 @@ public class ThriveViewModel extends AndroidViewModel {
     public LiveData<List<Mood>> getAllMoods(){return mAllMoods;}
     public LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
     public LiveData<List<Hook>> getAllHooksByObstacle(String value){return mRepository.getAllHooksByObstacle(value);};
-    public LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mRepository.getAllPositiveOrNegativeMoods(value);};
+    public LiveData<List<Mood>> getMoodType(int value){return mRepository.getMoodType(value);};
     public LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     public LiveData<List<HabitValue>> getAllHabitValues() {return mAllHabitValues;}
+    public LiveData<List<Activity>> getAllActivities(){return mAllActivities;}
     public List<Activity> findActivityByMoodName(String mood){return mRepository.findActivityByMoodName(mood);}
     public List<ActivityMood> getMoodAndActivity(String mood){return mRepository.getMoodAndActivity(mood);}
     public LiveData<List<ValueProgress>> getAllValueProgresses() { return mAllValueProgresses;}
     public List<ValueProgress> getValueProgresses() { return mRepository.getValueProgesses();}
     public List<ValueProgress> getAllValueProgressesDate(String date) { return mRepository.getAllValueProgessesDate(date);}
+    public LiveData<List<RecentActivity>> getRecentActivities(){return mRepository.getRecentActivities();}
+    public LiveData<List<Tool>> getTools(){return mRepository.getTools();}
     /*
         GET ONE
          */
     public HabitValue getHabitValue (String habitName){return mRepository.getHabitValue(habitName);}
     public ValueProgress getValueProgress (String valueName, String date) {return mRepository.getValueProgress(valueName, date);}
+    public List<RecentActivity> getLessRecentActivities(String activityName){return mRepository.getLessRecentActivities(activityName);}
+    public Activity getActivity(String activityName){return mRepository.getActivity(activityName);}
+    public int recentActivityCount(){return mRepository.recentActivityCount();}
 
     /*
     INSERT INTO DB
@@ -97,6 +107,7 @@ public class ThriveViewModel extends AndroidViewModel {
     public void addCategory(String category_name){mRepository.addCategory(category_name);}
     public void insert(CheckIn checkIn){mRepository.insert(checkIn);}
     public void insert(ValueProgress valueProgress){mRepository.insert(valueProgress);}
+    public void insert(RecentActivity recentActivity){mRepository.addRecentActivity(recentActivity);}
 
     /*
     DELETE
@@ -112,8 +123,16 @@ public class ThriveViewModel extends AndroidViewModel {
     public void updateHabitCounter(String habitName, int newCounter){mRepository.updateHabitCounter(habitName, newCounter);}
     public void updateValueProgressTotal(String valueName, String valueDate, int newTotal){mRepository.updateValueProgressTotal(valueName
     , valueDate, newTotal);}
+    public void updateRecentRank(String activityName, int rank){mRepository.updateRecentRank(activityName, rank);}
+    public void updateActivityRating(String activityName, int value){mRepository.updateActivityRating(activityName, value);}
 
+    /*
+    OTHER
+     */
 
+    public boolean containsActivity(String activityName){
+        return mRepository.containsActivity(activityName);
+    }
 
 
 }

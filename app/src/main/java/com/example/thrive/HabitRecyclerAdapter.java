@@ -33,10 +33,15 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
     private ArrayList<Habit> habitList;
     private ThriveViewModel mThriveViewModel;
     private Context habitContext;
+    private SimpleDateFormat dateFormat;
+    private DecimalFormat decimalFormat;
 
     public HabitRecyclerAdapter(ThriveViewModel mThriveViewModel, Context context){
         this.mThriveViewModel = mThriveViewModel;
         this.habitContext = context;
+        this.dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        this.decimalFormat = new DecimalFormat("#.##");
+        decimalFormat.setRoundingMode(RoundingMode.CEILING);
     }
 
     public void setData(ArrayList<Habit> habitList) {
@@ -89,26 +94,20 @@ public class HabitRecyclerAdapter extends RecyclerView.Adapter<HabitRecyclerAdap
         else
             holder.habitValue.setText(habitValue.getValueName());
         float percentage = ((float) habitObject.getCounter() / (float) habitObject.getFrequency()) * 100;
-        DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        decimalFormat.setRoundingMode(RoundingMode.CEILING);
         holder.habitPercentage.setText(decimalFormat.format(percentage) + "%");
         holder.habitProgress.setProgress(habitObject.getCounter());
         holder.habitProgress.setMax(habitObject.getFrequency());
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date today = Calendar.getInstance().getTime();
         holder.habitButton.setOnClickListener(view -> {
             if (habitObject.getCounter() < habitObject.getFrequency()) {
                 mThriveViewModel.updateHabitCounter(habitObject.getName(), habitObject.getCounter() + 1);
                 ValueProgress valueProgress =  mThriveViewModel.getValueProgress(habitValue.getValueName(), dateFormat.format(today));
-                //Log.i("HabitRec", String.valueOf(Objects.isNull(valueProgress)) + " " + habitValue.getValueName() + " " + dateFormat.format(today));
                 if(Objects.isNull(valueProgress)){
                     valueProgress = new ValueProgress(habitValue.getValueName(),today);
                     mThriveViewModel.insert(valueProgress);
                 }
                 int curTotal = valueProgress.getTotal();
                 mThriveViewModel.updateValueProgressTotal(habitValue.getValueName(), dateFormat.format(today), curTotal + 1);
-                //Log.i("HabitRec", valueProgress.getProgressValue()+ " " + valueProgress.getDate() + " " + valueProgress.getTotal());
-                //resetData();
             }
             else{
                 Toast.makeText(habitContext, "You have completed: " + habitObject.getName() + " for this period",

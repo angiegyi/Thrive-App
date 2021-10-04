@@ -131,7 +131,7 @@ public class NewObstacleActivity extends AppCompatActivity {
             newDescription = obstacleDescEditText.getEditableText().toString();
             selectedValue = (valuesTextInputLayout.getEditText()).getText().toString();
             addObstacle(selectedValue);
-            startActivity(new Intent(NewObstacleActivity.this, ObstaclesActivity.class));
+            super.onBackPressed();
         }
     }
 
@@ -155,9 +155,6 @@ public class NewObstacleActivity extends AppCompatActivity {
         try {
             Obstacle obs1 = new Obstacle(newTitle, newDescription, importance, value);
             mThriveViewModel.insert(obs1);
-            //inserting a related value and obstacle to the Obstacle_value table
-            Obstacle_value obstacle_value = new Obstacle_value(newTitle, value);
-            mThriveViewModel.insert(obstacle_value);
             Toast.makeText(getApplicationContext(),
                     "New Value: " + newTitle + " added." ,
                     Toast.LENGTH_LONG).show();

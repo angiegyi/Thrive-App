@@ -16,6 +16,8 @@ import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
+import com.example.thrive.Database.entities.RecentActivity;
+import com.example.thrive.Database.entities.Tool;
 import com.example.thrive.Database.entities.Value;
 import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.ValueProgress;
@@ -46,7 +48,7 @@ public interface ThriveDAO {
     @Query("SELECT * from OBSTACLE_VALUE")
     LiveData<List<Obstacle_value>> getAllObstacle_values();
 
-    @Query("SELECT * FROM OBSTACLE ORDER BY obstacle_importance")
+    @Query("SELECT * FROM OBSTACLE ORDER BY obstacle_importance DESC")
     LiveData<List<Obstacle>> getAllObstacles();
 
     @Query("SELECT * FROM HOOK")
@@ -61,8 +63,12 @@ public interface ThriveDAO {
     @Query("SELECT * FROM HOOK WHERE obstacle_name = :value")
     LiveData<List<Hook>> getAllHooksByObstacle(String value);
 
-    @Query("SELECT * FROM MOOD WHERE mood_isPositive = :value")
-    LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value);
+    @Query("SELECT * FROM TOOL")
+    LiveData<List<Tool>> getTools();
+
+
+    @Query("SELECT * FROM MOOD WHERE mood_type = :value")
+    LiveData<List<Mood>> getMoodType(int value);
 
     @Query("SELECT * FROM ACTIVITYMOOD WHERE mood_name =:mood ORDER BY mood_name")
     ActivityMood[] getActivityAndMood(String mood);
@@ -85,6 +91,12 @@ public interface ThriveDAO {
     @Query("SELECT * FROM value_progress")
     List<ValueProgress> getValueProgresses();
 
+    @Query("SELECT * FROM activity")
+    LiveData<List<Activity>> getAllActivities();
+
+    @Query("SELECT * FROM RECENTACTIVITY ORDER BY RECENT_RANK ASC")
+    LiveData<List<RecentActivity>> getRecentActivities();
+
     /*
     SELECT FIND
      */
@@ -96,6 +108,16 @@ public interface ThriveDAO {
 
     @Query("SELECT * FROM value_progress where progress_date = :date")
     List<ValueProgress> getValueProgressDate(String date);
+
+    @Query("SELECT * FROM recentActivity where activity_name != :activityName")
+    List<RecentActivity> getLessRecentActivities(String activityName);
+
+    @Query("SELECT * FROM ACTIVITY WHERE activity_name = :activityName")
+    Activity getActivity(String activityName);
+
+    @Query("SELECT COUNT(*) FROM RECENTACTIVITY")
+    int recentActivityCount();
+
 
     /*
     INSERT INTO DB
@@ -130,6 +152,8 @@ public interface ThriveDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void addValueProgress(ValueProgress valueProgress);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void addRecentActivity(RecentActivity recentActivity);
 
     /*
     DELETE QUERIES
@@ -156,5 +180,18 @@ public interface ThriveDAO {
 
     @Query("update value_progress set progress_total=:newTotal where progress_value=:valueName and progress_date=:valueDate")
     void updateValueProgressTotal(String valueName, String valueDate, int newTotal);
+
+    @Query("update recentActivity set recent_rank=:rank where activity_name=:activityName")
+    void updateRecentRank(String activityName, int rank);
+
+    @Query("update activity set activityRating=:value where activity_name=:activityName")
+    void updateActivityRating(String activityName, int value);
+
+    /*
+    OTHER QUERIES
+     */
+
+    @Query("SELECT count(*)!=0 FROM RECENTACTIVITY WHERE activity_name = :activityName ")
+    boolean containsActivity(String activityName);
 
 }

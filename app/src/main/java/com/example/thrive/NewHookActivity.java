@@ -70,9 +70,10 @@ public class NewHookActivity extends AppCompatActivity {
         else {
             newTitle = hookTitleEditText.getEditableText().toString();
             addHook();
-            Intent intent = new Intent(NewHookActivity.this,HookBehaviours.class);
-            intent.putExtra("name", obstacleName);
-            startActivity(intent);
+            super.onBackPressed();
+//            Intent intent = new Intent(NewHookActivity.this,HookBehaviours.class);
+//            intent.putExtra("name", obstacleName);
+//            startActivity(intent);
         }
     }
 

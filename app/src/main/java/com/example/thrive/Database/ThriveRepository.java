@@ -16,6 +16,8 @@ import com.example.thrive.Database.entities.Hook;
 import com.example.thrive.Database.entities.Mood;
 import com.example.thrive.Database.entities.Obstacle;
 import com.example.thrive.Database.entities.Obstacle_value;
+import com.example.thrive.Database.entities.RecentActivity;
+import com.example.thrive.Database.entities.Tool;
 import com.example.thrive.Database.entities.Value;
 import com.example.thrive.Database.entities.ValueProgress;
 
@@ -37,6 +39,7 @@ public class ThriveRepository {
     private LiveData<List<Habit>> mAllHabits;
     private LiveData<List<HabitValue>> mAllHabitValues;
     private LiveData<List<ValueProgress>> mAllValueProgesses;
+    private LiveData<List<Activity>> mAllActivities;
 
 
     ThriveRepository(Application application) {
@@ -51,6 +54,7 @@ public class ThriveRepository {
         mAllHabits = mThriveDAO.getAllHabits();
         mAllHabitValues = mThriveDAO.getAllHabitValues();
         mAllValueProgesses = mThriveDAO.getAllValueProgresses();
+        mAllActivities = mThriveDAO.getAllActivities();
     }
 
     /*
@@ -64,20 +68,25 @@ public class ThriveRepository {
     LiveData<List<Obstacle>> getAllObstacles(){return mAllObstacles;}
     LiveData<List<Hook>> getAllHooks(){return mAllHooks;}
     LiveData<List<Hook>> getAllHooksByObstacle(String value){return mThriveDAO.getAllHooksByObstacle(value);};
-    LiveData<List<Mood>> getAllPositiveOrNegativeMoods(int value){return mThriveDAO.getAllPositiveOrNegativeMoods(value);};
+    LiveData<List<Mood>> getMoodType(int value){return mThriveDAO.getMoodType(value);};
     LiveData<List<Habit>> getAllHabits(){return mAllHabits;}
     LiveData<List<HabitValue>> getAllHabitValues(){return mAllHabitValues;}
+    LiveData<List<Activity>> getAllActivities(){return mAllActivities;}
+    LiveData<List<RecentActivity>> getRecentActivities(){return mThriveDAO.getRecentActivities();}
     List<Activity> findActivityByMoodName(String mood){return mThriveDAO.findActivityByMoodName(mood);}
     List<ActivityMood> getMoodAndActivity(String mood){return mThriveDAO.getMoodAndActivity(mood);}
     LiveData<List<ValueProgress>> getAllValueProgesses(){return mAllValueProgesses;}
     List<ValueProgress> getValueProgesses(){return mThriveDAO.getValueProgresses();}
     List<ValueProgress> getAllValueProgessesDate(String date){return mThriveDAO.getValueProgressDate(date);}
+    LiveData<List<Tool>> getTools(){return mThriveDAO.getTools();}
+
     /*
     FIND FROM TABLE
      */
     HabitValue getHabitValue(String habitName){return mThriveDAO.getHabitValue(habitName);}
     ValueProgress getValueProgress (String valueName, String date) {return mThriveDAO.getValueProgress(valueName, date);}
-
+    List<RecentActivity> getLessRecentActivities(String activityName){ return mThriveDAO.getLessRecentActivities(activityName);}
+    Activity getActivity(String activityName){return mThriveDAO.getActivity(activityName);}
     /*
     INSERT INTO DB
      */
@@ -113,6 +122,11 @@ public class ThriveRepository {
     void insert(ValueProgress valueProgress){
         ThriveDatabase.databaseWriteExecutor.execute(()->mThriveDAO.addValueProgress(valueProgress));
     }
+
+    void addRecentActivity(RecentActivity recentActivity){
+        ThriveDatabase.databaseWriteExecutor.execute(()->mThriveDAO.addRecentActivity(recentActivity));
+    }
+
     /*
     DELETE METHODS
      */
@@ -152,5 +166,28 @@ public class ThriveRepository {
         ThriveDatabase.databaseWriteExecutor.execute(()->{
             mThriveDAO.updateValueProgressTotal(valueName, valueDate, newTotal);
         });
+    }
+
+    void updateRecentRank(String activityName, int rank){
+        ThriveDatabase.databaseWriteExecutor.execute(()->{
+            mThriveDAO.updateRecentRank(activityName, rank);
+        });
+    }
+
+    void updateActivityRating(String activityName, int value){
+        ThriveDatabase.databaseWriteExecutor.execute(()->{
+            mThriveDAO.updateActivityRating(activityName, value);
+        });
+    }
+
+    /*
+    OTHER METHODS
+     */
+    boolean containsActivity(String activityName){
+        return mThriveDAO.containsActivity(activityName);
+    }
+
+    int recentActivityCount(){
+        return mThriveDAO.recentActivityCount();
     }
 }
