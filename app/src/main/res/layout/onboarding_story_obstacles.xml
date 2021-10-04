@@ -54,10 +54,10 @@
             <ImageView
                 android:id="@+id/obstacles_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:paddingTop="20dp"
                 android:paddingBottom="10dp"
-                app:srcCompat="@mipmap/sun_background" />
+                app:srcCompat="@drawable/sad" />
 
             <TextView
                 android:id="@+id/story_desc2"
@@ -67,6 +67,7 @@
                 android:paddingBottom="20dp"
                 android:text="What obstacles are hampering you throughout the day?"
                 android:textAlignment="center"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
             <TextView

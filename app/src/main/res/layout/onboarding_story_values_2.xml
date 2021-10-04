@@ -29,15 +29,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="30sp"
-                android:paddingBottom="40dp"
+                android:paddingBottom="20dp"
                 android:textAlignment="center"
                 android:text="Take some time now to pick one person you really admire." />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/star" />
 
             <TextView
                 android:id="@+id/story_desc4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="30dp"
+                android:paddingTop="20dp"
                 android:textSize="20sp"
                 android:text="Now think about all the qualities you really admire in this person—not the person’s circumstances, but personal qualities— and write them down with pen and paper.\n\nOnce you’ve done this, look over what you've written and think about how these might translate into your own personal values." />
 
