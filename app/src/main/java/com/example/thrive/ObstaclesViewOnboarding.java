@@ -46,6 +46,8 @@ public class ObstaclesViewOnboarding extends AppCompatActivity {
         // Init all obstacles
         initList();
 
+        setTitle("Discovering your hooks");
+
     }
 
     private void initList(){

@@ -17,38 +17,76 @@
         android:layout_height="match_parent"
         android:layout_margin="32dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/valueNameInput"
+        <TextView
+            android:id="@+id/val_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your value"
+            android:layout_marginTop="0dp"
+            android:text="What is most important to you?"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:textSize="30sp"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/val_example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="E.g. Spending time with family, feeling healthy, etc."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/val_title"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/valueNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Your Value"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/val_example"
             app:layout_constraintVertical_bias="0.0">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/valueNameText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/cat_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Which category is most closely related to your value?"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/valueNameInput"
+            app:layout_constraintVertical_bias="0.0" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/categoryInput"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="5dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/valueNameInput"
+            app:layout_constraintTop_toBottomOf="@+id/cat_desc"
             app:layout_constraintVertical_bias="0.0">
 
             <AutoCompleteTextView
                 android:id="@+id/categoryOptions"
-                android:hint="Select a related category"
+                android:hint="Related category"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="none"

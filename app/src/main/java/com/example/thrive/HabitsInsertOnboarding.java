@@ -124,6 +124,7 @@ public class HabitsInsertOnboarding extends AppCompatActivity {
         // Dummy Values
         addValues();
 
+        setTitle("Discovering your valued behaviours");
     }
 
     protected void addValues(){

@@ -47,11 +47,15 @@ public class HooksInsertOnboarding extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_hook);
+        setContentView(R.layout.onboarding_insert_hook);
+
+        setTitle("Discovering your hook behaviours");
 
         // Hook Title
         hookTitleTextLayout = findViewById(R.id.hookTitleEditLayout);
         hookTitleEditText = findViewById(R.id.hookTitleTextField);
+        hookTextInputLayout = findViewById(R.id.hookTextDropdownLayout);
+        hookInput = findViewById(R.id.hookInput);
 
         // Select Obstacles -> Values -> need to add values to database
         arrayList_obstacles = new ArrayList<>();
@@ -97,7 +101,7 @@ public class HooksInsertOnboarding extends AppCompatActivity {
 
         if (TextUtils.isEmpty(hookTitleEditText.getText()) || TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){
             if( TextUtils.isEmpty(hookTitleEditText.getText())){
-                hookTitleEditText.setError( "Hook title is required!" );
+                hookTitleEditText.setError( "Hook Behaviour title is required!" );
             }
             // Error Checking Obstacle
             if (TextUtils.isEmpty(hookTextInputLayout.getEditText().getText())){

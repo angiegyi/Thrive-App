@@ -21,6 +21,8 @@ public class HabitsStoryOnboarding extends AppCompatActivity {
 
         // Init next button
         initNext();
+
+        setTitle("Discovering your valued behaviours");
     }
 
 

@@ -7,8 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ObstaclesStoryOnboarding extends AppCompatActivity {
-
+public class ValuesStoryOnboardingSecond extends AppCompatActivity {
     Button nextButton;
 
     // Initialisation
@@ -17,29 +16,28 @@ public class ObstaclesStoryOnboarding extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Take from values story xml
-        setContentView(R.layout.onboarding_story_obstacles);
+        setContentView(R.layout.onboarding_story_values_2);
 
         // Init next button
         initNext();
 
-        setTitle("Discovering your hooks");
+        setTitle("Discovering your values");
     }
 
 
     // Initialising next button to values insert page
     private void initNext(){
-        nextButton = findViewById(R.id.next_button_os);
+        nextButton = findViewById(R.id.next_button_vs);
         // If button is clicked
         nextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(ObstaclesStoryOnboarding.this, ObstaclesViewOnboarding.class);
+                Intent intent = new Intent(ValuesStoryOnboardingSecond.this, ValuesViewOnboarding.class);
                 startActivity(intent);
             }
         });
     }
-
 
 
 }

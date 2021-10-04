@@ -31,7 +31,8 @@
                 android:paddingTop="5dp"
                 android:paddingRight="0dp"
                 android:paddingBottom="10dp"
-                android:text="Reflect on your day today..."
+                android:text="Reflect on your day"
+                android:textAlignment="center"
                 android:textSize="30sp" />
 
             <TextView
@@ -41,6 +42,8 @@
                 android:paddingLeft="0dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="10dp"
+                android:textAlignment="center"
+                android:textSize="18sp"
                 android:text="Think about any issues you've encountered today. Anything that has made you feel unhappy. Anything that you may not be able to overcome."
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -51,10 +54,10 @@
             <ImageView
                 android:id="@+id/obstacles_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:paddingTop="20dp"
                 android:paddingBottom="10dp"
-                app:srcCompat="@mipmap/sun_background" />
+                app:srcCompat="@drawable/sad" />
 
             <TextView
                 android:id="@+id/story_desc2"
@@ -64,6 +67,7 @@
                 android:paddingBottom="20dp"
                 android:text="What obstacles are hampering you throughout the day?"
                 android:textAlignment="center"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
             <TextView
@@ -71,7 +75,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="Take some time now to write down what negative behaviours throughout the day have prevented you from living your life in pursuit of your values.\n" />
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:text="Take some time now to write down what feelings prevent you from moving towards your values. These are your obstacles, or hooks. \nFor example, feeling bored or irritated.\n" />
 
             <Button
                 android:id="@+id/next_button_os"

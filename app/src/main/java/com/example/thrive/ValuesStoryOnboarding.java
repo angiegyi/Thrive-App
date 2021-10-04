@@ -20,6 +20,8 @@ public class ValuesStoryOnboarding extends AppCompatActivity {
 
         // Init next button
         initNext();
+
+        setTitle("Discovering your values");
     }
 
 
@@ -31,7 +33,7 @@ public class ValuesStoryOnboarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Move to the values insert page
-                Intent intent = new Intent(ValuesStoryOnboarding.this, ValuesViewOnboarding.class);
+                Intent intent = new Intent(ValuesStoryOnboarding.this, ValuesStoryOnboardingSecond.class);
                 startActivity(intent);
             }
         });

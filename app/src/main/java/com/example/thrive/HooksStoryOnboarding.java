@@ -21,6 +21,8 @@ public class HooksStoryOnboarding extends AppCompatActivity {
 
         // Init next button
         initNext();
+
+        setTitle("Discovering your hook behaviours");
     }
 
 
