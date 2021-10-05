@@ -35,6 +35,7 @@ public class ProgressActivity extends AppCompatActivity {
     TableLayout valuesTable;
     TextView title;
     TextView subtitle;
+    TextView infoText;
     Random random;
     static final int size = 14; // Date range size
     ThriveViewModel mThriveViewModel;
@@ -58,6 +59,9 @@ public class ProgressActivity extends AppCompatActivity {
         String dateStart = dateFormat.format(calendar.getTime());
         subtitle = findViewById(R.id.progressSubTitle);
         subtitle.setText("Date: " + dateStart + " - " + dateNow);
+
+        // Info Text
+        infoText = findViewById(R.id.progress_info_text);
 
         // Database
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
@@ -97,16 +101,7 @@ public class ProgressActivity extends AppCompatActivity {
         HashMap <String, HashMap<String, Integer>> dateValues = this.getValueProgressData();
         HashMap <String, DataPoint[]> valuesDataPoints = new HashMap<>();
         HashMap <String, Integer> valuesTotal = new HashMap<>();
-        /*
-        for(String key: dateValues.keySet()){
-            Log.i("GRAPH", "DV: "+ key);
-            HashMap<String, Integer> value = dateValues.get(key);
-            for(String key2 : value.keySet()){
-                Log.i("GRAPH", "    "+ key2 + " "+ value.get(key2));
-            }
-        }
 
-         */
         // Create a hashmap with a value as key and a list of datapoints as value
         // Create a hashmap with a value as key and the total as value
         final int[] count = {0};
@@ -115,7 +110,6 @@ public class ProgressActivity extends AppCompatActivity {
             String valueName = obj.getName();
             valuesDataPoints.put(valueName, new DataPoint[size]);
             valuesTotal.put(valueName, 0);
-            //Log.i("GRAPH", "Value: "+ valueName);
         }
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, -size+1);
@@ -136,13 +130,10 @@ public class ProgressActivity extends AppCompatActivity {
                     int yValue = 0;
                     if(valuePoints != null && valuePoints.containsKey(valueName)){
                         yValue = valuePoints.get(valueName);
-                        //Log.i("GRAPH", "get total "+ counter);
-                        // counter +=1;
                     }
                     DataPoint dataPoint = new DataPoint(date, yValue);
                     valuesDataPoints.get(valueName)[i] = dataPoint;
                     valuesTotal.put(valueName, valuesTotal.get(valueName) + yValue);
-                    //Log.i("GRAPH"," 1 " + i + " " + valueName +" " + valuesTotal.get(valueName));
                 }
             }
             else{
@@ -151,10 +142,15 @@ public class ProgressActivity extends AppCompatActivity {
                     DataPoint dataPoint = new DataPoint(date, yValue);
                     valuesDataPoints.get(valueName)[i] = dataPoint;
                     valuesTotal.put(valueName, valuesTotal.get(valueName) + yValue);
-                    ///Log.i("GRAPH", " 2 " + i + " " + valueName +" " + valuesTotal.get(valueName));
                 }
             }
             calendar.add(Calendar.DATE, 1);
+        }
+        if (valuesTotal.isEmpty()){
+            infoText.setText("No Values has been added");
+        }
+        else{
+            infoText.setText("");
         }
         for (String valueName : valuesTotal.keySet()) {
             int[] rgb = randomColourGenerator(valueName);
