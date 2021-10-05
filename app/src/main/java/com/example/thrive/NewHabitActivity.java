@@ -85,10 +85,6 @@ public class NewHabitActivity extends AppCompatActivity {
         valuesInput = findViewById(R.id.relatedValuesInput);
         arrayList_values = new ArrayList<>();
         mThriveViewModel = new ViewModelProvider(this).get(ThriveViewModel.class);
-
-        // Dummy Values
-        addValues();
-
         //      Pull values from DB and add to drop-down
         mThriveViewModel.getAllValues().observe(this, newData -> {
             for (Object obj : newData) {
@@ -125,14 +121,6 @@ public class NewHabitActivity extends AppCompatActivity {
         createHabitButton = findViewById(R.id.createHabitButton);
         createHabitButton.setOnClickListener(view -> onClickNewHabit());
 
-    }
-
-    protected void addValues(){
-        // this is for testing purposes while we don't have any inserted values from the user
-        Value testValue = new Value("fit3162", "education");
-        mThriveViewModel.insert(testValue);
-        Value testValue2 = new Value("fit3122", "education");
-        mThriveViewModel.insert(testValue2);
     }
 
     protected void setUpEveryMenu(){
