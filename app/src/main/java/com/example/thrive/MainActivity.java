@@ -287,8 +287,11 @@ public class MainActivity extends AppCompatActivity {
                         checkIn.setReason(editTextReason.getText().toString());
                     }
                     checkIn.setMood(relatedMood);
+                    // create recommendation
                     Recommendation rec = new Recommendation(relatedMood, mThriveViewModel);
+                    // set the activity
                     Activity activity = rec.getRecommendation();
+                    // inflate the new popup with the recommended activity
                     checkIn.setActivityName(activity.getActivityName());
                     mThriveViewModel.insert(checkIn);
                     showLoadingPopUp(activity);
